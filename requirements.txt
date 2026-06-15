@@ -1,0 +1,9 @@
+ whisperx,
+ torch ,
+ torchvision,
+ torchaudio,
+ transformers==4.49.0,
+ accelerate,
+ flask,
+ flask-sqlalchemy,
+ pymysql

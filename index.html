@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <title>Conversation Intelligence Platform · Claude Desktop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #FAFAF8;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      color: #2E2E2C;
+    }
+
+    .app { display: flex; flex-direction: column; height: 100vh; background: #FAFAF8; position: relative; }
+
+    /* Top bar */
+    .claude-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 2rem;
+      background: rgba(250,250,248,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      flex-shrink: 0;
+      z-index: 10;
+    }
+    .logo-cluster { display: flex; align-items: center; gap: 12px; }
+    .icon-symbol {
+      background: #DA7756;
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(218,119,86,0.25);
+    }
+    .icon-symbol i { font-size: 1.2rem; color: white; }
+    .project-title { font-weight: 600; font-size: 1.2rem; letter-spacing: -0.2px; color: #2E2E2C; }
+    .project-badge {
+      font-size: 0.7rem;
+      background: rgba(218,119,86,0.08);
+      padding: 2px 10px; border-radius: 100px;
+      margin-left: 10px; font-weight: 500; color: #BD5B3A;
+    }
+
+    /* Status pill */
+    .status-pill {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; color: #8C8C88;
+      background: #F5F4F0;
+      border-radius: 100px;
+      padding: 4px 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #ccc;
+      transition: background 0.3s;
+    }
+    .status-dot.online { background: #4CAF50; }
+    .status-dot.error  { background: #E57373; }
+
+    /* Chat canvas */
+    .chat-canvas {
+      flex: 1; overflow-y: auto;
+      padding: 2rem 2rem 1.5rem 2rem;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+    .bg-logo-emblem {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px; height: 280px;
+      opacity: 0.04; pointer-events: none; z-index: 0;
+      background: radial-gradient(circle, rgba(218,119,86,0.25) 0%, rgba(218,119,86,0) 70%);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .bg-logo-emblem i { font-size: 9rem; color: #DA7756; filter: blur(2px); }
+
+    .message, .welcome-message { position: relative; z-index: 2; }
+
+    .welcome-message {
+      max-width: 700px; margin: 3rem auto 2rem auto;
+      text-align: center; animation: fadeUp 0.4s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .welcome-message h1 { font-weight: 500; font-size: 1.9rem; letter-spacing: -0.3px; color: #2E2E2C; margin-bottom: 0.75rem; }
+    .welcome-message p  { color: #8C8C88; font-size: 0.9rem; max-width: 480px; margin: 0 auto; }
+
+    /* Messages */
+    .message { display: flex; gap: 14px; max-width: 860px; margin: 0 auto 1.8rem auto; animation: slideMessage 0.2s ease-out; }
+    @keyframes slideMessage {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .message-avatar {
+      width: 34px; height: 34px; border-radius: 10px;
+      background: #F0EFEA; display: flex; align-items: center;
+      justify-content: center; font-size: 0.95rem; flex-shrink: 0;
+    }
+    .message.user .message-avatar  { background: #ECE9E2; color: #6B6A65; }
+    .message.ai   .message-avatar  { background: #FBEAE3; border: 1px solid rgba(218,119,86,0.18); color: #DA7756; }
+    .message-content { flex: 1; line-height: 1.5; font-size: 0.95rem; padding-top: 4px; }
+    .message.user .message-content { color: #2E2E2C; }
+    .message.ai   .message-content { color: #3A3A37; }
+
+    /* Audio badge */
+    .audio-attachment-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(218,119,86,0.08);
+      border-radius: 48px; padding: 6px 16px 6px 12px;
+      font-size: 0.75rem; margin-top: 12px;
+      border: 1px solid rgba(218,119,86,0.2);
+    }
+
+    /* Sources block */
+    .sources-block {
+      margin-top: 14px;
+      background: rgba(218,119,86,0.04);
+      border: 1px solid rgba(218,119,86,0.15);
+      border-radius: 14px;
+      padding: 12px 16px;
+    }
+    .sources-title {
+      font-size: 0.72rem; font-weight: 600;
+      color: #BD5B3A; text-transform: uppercase;
+      letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .source-item {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 0.75rem; color: #6B6A65;
+      padding: 4px 0; border-top: 1px solid rgba(0,0,0,0.04);
+    }
+    .source-item:first-of-type { border-top: none; }
+    .source-ts { color: #DA7756; font-weight: 500; white-space: nowrap; }
+
+    .message-meta { font-size: 0.68rem; color: #B0AFA9; margin-top: 8px; }
+
+    /* Processing status */
+    .processing-status {
+      font-size: 0.78rem; color: #DA7756;
+      display: flex; align-items: center; gap: 6px;
+      margin-top: 8px;
+    }
+
+    /* Typing indicator */
+    .typing-indicator { display: flex; gap: 5px; padding: 8px 0; }
+    .typing-indicator span { width: 7px; height: 7px; background: #DCAA98; border-radius: 50%; animation: blink 1.3s infinite ease; }
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes blink {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30%            { transform: translateY(-5px); opacity: 1; }
+    }
+
+    /* Input dock */
+    .input-dock {
+      background: rgba(250,250,248,0.9);
+      backdrop-filter: blur(24px);
+      border-top: 1px solid rgba(0,0,0,0.04);
+      padding: 1rem 2rem 1.8rem 2rem;
+      flex-shrink: 0; position: relative; z-index: 10;
+    }
+    .input-wrapper { max-width: 860px; margin: 0 auto; position: relative; }
+    .prompt-container {
+      background: #FFFFFF; border-radius: 32px;
+      border: 1px solid rgba(0,0,0,0.1);
+      transition: all 0.2s;
+      display: flex; align-items: flex-end; gap: 8px;
+      padding: 0.55rem 1rem 0.55rem 1.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+    .prompt-container:focus-within { border-color: #DA7756; box-shadow: 0 0 0 3px rgba(218,119,86,0.12); }
+    textarea {
+      flex: 1; background: transparent; border: none;
+      color: #2E2E2C; font-family: 'Inter', monospace;
+      font-size: 0.95rem; padding: 12px 0;
+      resize: none; outline: none; max-height: 130px; line-height: 1.45;
+    }
+    textarea::placeholder { color: #B0AFA9; font-weight: 400; }
+    textarea:disabled { opacity: 0.5; cursor: not-allowed; }
+    .audio-plus-btn {
+      background: #F5F4F0; border: 1px solid rgba(0,0,0,0.08);
+      width: 42px; height: 42px; border-radius: 32px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: 0.2s; color: #8C8C88; font-size: 1.2rem;
+    }
+    .audio-plus-btn:hover { background: #DA7756; color: white; border-color: #DA7756; transform: scale(1.02); }
+    .audio-plus-btn:disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+    .send-btn {
+      background: #DA7756; border: none;
+      width: 42px; height: 42px; border-radius: 32px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: 0.2s; color: white;
+    }
+    .send-btn:hover   { background: #C9694C; transform: scale(1.02); }
+    .send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .input-footer { font-size: 0.7rem; text-align: center; margin-top: 12px; color: #B0AFA9; letter-spacing: 0.2px; }
+
+    .chat-canvas::-webkit-scrollbar { width: 5px; }
+    .chat-canvas::-webkit-scrollbar-track { background: transparent; }
+    .chat-canvas::-webkit-scrollbar-thumb { background: #E5E3DD; border-radius: 10px; }
+  </style>
+</head>
+<body>
+<div class="app">
+  <div class="claude-topbar">
+    <div class="logo-cluster">
+      <div class="icon-symbol"><i class="fas fa-brain"></i></div>
+      <div>
+        <span class="project-title">Conversation Intelligence Platform</span>
+        <span class="project-badge">Made By CPU interns</span>
+      </div>
+    </div>
+    <div class="status-pill">
+      <div class="status-dot" id="statusDot"></div>
+      <span id="statusText">Connecting…</span>
+    </div>
+  </div>
+
+  <div class="chat-canvas" id="chatMessages">
+    <div class="bg-logo-emblem"><i class="fas fa-microphone-alt"></i></div>
+    <div class="welcome-message" id="welcomeBlock">
+      <h1>Conversation Intelligence</h1>
+      <p>Upload audio, ask questions, and get intelligent RAG-powered insights from your recordings.</p>
+    </div>
+  </div>
+
+  <div class="input-dock">
+    <div class="input-wrapper">
+      <div class="prompt-container">
+        <textarea id="promptInput" rows="1" placeholder="Ask about your audio files or type a question…"></textarea>
+        <button class="audio-plus-btn" id="audioPlusBtn" title="Upload audio file (MP3, WAV, M4A, OGG)">
+          <i class="fas fa-plus"></i>
+        </button>
+        <button class="send-btn" id="sendBtn"><i class="fas fa-arrow-up"></i></button>
+      </div>
+      <div class="input-footer"><i class="fas fa-headphones"></i> + button supports audio only — MP3, WAV, M4A, OGG, FLAC</div>
+    </div>
+  </div>
+</div>
+<input type="file" id="audioFileInput" accept="audio/mpeg,audio/wav,audio/mp3,audio/m4a,audio/ogg,audio/x-m4a,audio/flac,audio/webm" multiple style="display:none">
+
+<script>
+  // ── Config ──────────────────────────────────────────────────────────────────
+  const API_BASE = 'http://localhost:5000/api';
+
+  // ── Elements ────────────────────────────────────────────────────────────────
+  const chatContainer  = document.getElementById('chatMessages');
+  const promptInput    = document.getElementById('promptInput');
+  const sendBtn        = document.getElementById('sendBtn');
+  const audioPlusBtn   = document.getElementById('audioPlusBtn');
+  const audioFileInput = document.getElementById('audioFileInput');
+  const welcomeBlock   = document.getElementById('welcomeBlock');
+  const statusDot      = document.getElementById('statusDot');
+  const statusText     = document.getElementById('statusText');
+
+  // ── State ───────────────────────────────────────────────────────────────────
+  let messages = [];        // displayed chat messages
+  let history  = [];        // [{role, content}] sent to backend
+  let isBusy   = false;
+
+  // ── Health check ─────────────────────────────────────────────────────────────
+  async function checkHealth() {
+    try {
+      const res = await fetch(`${API_BASE}/health`);
+      const data = await res.json();
+      if (data.status === 'ok') {
+        statusDot.className = 'status-dot online';
+        statusText.textContent = `Backend ready · ${data.documents_indexed} doc(s) indexed`;
+      } else {
+        setOffline();
+      }
+    } catch {
+      setOffline();
+    }
+  }
+
+  function setOffline() {
+    statusDot.className = 'status-dot error';
+    statusText.textContent = 'Backend offline';
+  }
+
+  checkHealth();
+  setInterval(checkHealth, 30000);
+
+  // ── Helpers ──────────────────────────────────────────────────────────────────
+  const scrollToBottom = () => { chatContainer.scrollTop = chatContainer.scrollHeight; };
+
+  function formatSize(b) {
+    if (!b) return '';
+    if (b < 1024) return b + ' B';
+    if (b < 1048576) return (b / 1024).toFixed(1) + ' KB';
+    return (b / 1048576).toFixed(1) + ' MB';
+  }
+
+  function setInputBusy(busy) {
+    isBusy = busy;
+    promptInput.disabled = busy;
+    sendBtn.disabled = busy;
+    audioPlusBtn.disabled = busy;
+  }
+
+  // ── Render ───────────────────────────────────────────────────────────────────
+  function renderMessages() {
+    welcomeBlock.style.display = messages.length ? 'none' : 'block';
+
+    Array.from(chatContainer.children).forEach(c => {
+      if (c !== welcomeBlock && !c.classList.contains('bg-logo-emblem')) c.remove();
+    });
+
+    messages.forEach(msg => {
+      const wrap = document.createElement('div');
+      wrap.className = `message ${msg.role}`;
+
+      const av = document.createElement('div');
+      av.className = 'message-avatar';
+      av.innerHTML = msg.role === 'user'
+        ? '<i class="fas fa-user"></i>'
+        : '<i class="fas fa-robot"></i>';
+
+      const content = document.createElement('div');
+      content.className = 'message-content';
+
+      // Main text
+      const text = document.createElement('div');
+      text.innerHTML = (msg.content || '').replace(/\n/g, '<br>');
+      content.appendChild(text);
+
+      // Processing status line
+      if (msg.processing) {
+        const ps = document.createElement('div');
+        ps.className = 'processing-status';
+        ps.innerHTML = `<i class="fas fa-circle-notch fa-spin"></i> ${msg.processing}`;
+        content.appendChild(ps);
+      }
+
+      // Audio attachments
+      if (msg.attachments?.length) {
+        const aw = document.createElement('div');
+        aw.style.marginTop = '12px';
+        msg.attachments.forEach(att => {
+          const badge = document.createElement('div');
+          badge.className = 'audio-attachment-badge';
+          badge.innerHTML = `<i class="fas fa-file-audio"></i> <span><strong>${att.name}</strong> (${formatSize(att.size)})</span>`;
+          if (att.audioUrl) {
+            const audio = document.createElement('audio');
+            audio.controls = true;
+            audio.preload = 'metadata';
+            audio.style.cssText = 'max-width:180px;height:32px;margin-left:12px;border-radius:40px;';
+            audio.src = att.audioUrl;
+            badge.appendChild(audio);
+          }
+          aw.appendChild(badge);
+        });
+        content.appendChild(aw);
+      }
+
+      // Sources
+      if (msg.sources?.length) {
+        const sb = document.createElement('div');
+        sb.className = 'sources-block';
+        sb.innerHTML = `<div class="sources-title"><i class="fas fa-bookmark"></i> Sources (${msg.sources.length})</div>`;
+        msg.sources.forEach(s => {
+          const si = document.createElement('div');
+          si.className = 'source-item';
+          const spk = s.speaker ? ` · ${s.speaker}` : '';
+          si.innerHTML = `<span class="source-ts">${s.start_fmt}–${s.end_fmt}</span>
+            <span><strong>${s.source_name}</strong>${spk} — ${s.excerpt}</span>`;
+          sb.appendChild(si);
+        });
+        content.appendChild(sb);
+      }
+
+      // Meta
+      const meta = document.createElement('div');
+      meta.className = 'message-meta';
+      meta.textContent = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+      if (msg.tokens) meta.textContent += `  ·  ${msg.tokens} tokens`;
+      content.appendChild(meta);
+
+      wrap.appendChild(av);
+      wrap.appendChild(content);
+      chatContainer.appendChild(wrap);
+    });
+
+    scrollToBottom();
+  }
+
+  // ── Typing indicator ─────────────────────────────────────────────────────────
+  function addTypingIndicator() {
+    const div = document.createElement('div');
+    div.className = 'message ai';
+    div.id = 'typingIndicator';
+    div.innerHTML = `<div class="message-avatar"><i class="fas fa-robot"></i></div>
+                     <div class="message-content">
+                       <div class="typing-indicator"><span></span><span></span><span></span></div>
+                     </div>`;
+    chatContainer.appendChild(div);
+    scrollToBottom();
+  }
+  function removeTypingIndicator() {
+    document.getElementById('typingIndicator')?.remove();
+  }
+
+  // ── Upload audio → transcribe → index ────────────────────────────────────────
+  async function uploadAudioFiles(files) {
+    if (!files.length) return;
+    setInputBusy(true);
+
+    const attachments = files.map(f => ({
+      name: f.name,
+      size: f.size,
+      audioUrl: URL.createObjectURL(f),
+    }));
+
+    // Push user message immediately
+    messages.push({
+      role: 'user',
+      content: `Uploading ${files.length} audio file(s): ${files.map(f => f.name).join(', ')}`,
+      attachments,
+      processing: 'Transcribing with WhisperX…',
+    });
+    renderMessages();
+    addTypingIndicator();
+
+    try {
+      const fd = new FormData();
+      files.forEach(f => fd.append('files', f));
+
+      const res = await fetch(`${API_BASE}/upload`, { method: 'POST', body: fd });
+      const data = await res.json();
+
+      // Update user message: remove processing spinner
+      messages[messages.length - 1].processing = null;
+
+      if (!data.success) throw new Error(data.error || 'Upload failed');
+
+      const ok = data.results.filter(r => r.success);
+      const fail = data.results.filter(r => !r.success);
+
+      let aiText = '';
+      if (ok.length) {
+        aiText += `✅ **Transcribed & indexed ${ok.length} file(s):**\n`;
+        ok.forEach(r => {
+          aiText += `\n🎙️ **${r.filename}**\n`;
+          aiText += `   • Duration: ${r.duration_seconds ? Math.round(r.duration_seconds) + 's' : 'unknown'}\n`;
+          aiText += `   • Language: ${r.language || 'auto'}\n`;
+          aiText += `   • Segments: ${r.segment_count}\n`;
+          aiText += `   • Transcription time: ${r.transcription_time_seconds}s\n`;
+          aiText += `   • Preview: "${r.full_text_preview}"\n`;
+        });
+        aiText += `\nYou can now ask questions about the audio content!`;
+      }
+      if (fail.length) {
+        aiText += `\n\n⚠️ ${fail.length} file(s) failed:\n`;
+        fail.forEach(r => { aiText += `• ${r.filename}: ${r.error}\n`; });
+      }
+
+      removeTypingIndicator();
+      messages.push({ role: 'ai', content: aiText, sources: [] });
+      history.push({ role: 'assistant', content: aiText });
+
+    } catch (err) {
+      removeTypingIndicator();
+      messages[messages.length - 1].processing = null;
+      messages.push({ role: 'ai', content: `❌ Upload error: ${err.message}` });
+    }
+
+    renderMessages();
+    checkHealth();
+    setInputBusy(false);
+  }
+
+  // ── Send text query → RAG ────────────────────────────────────────────────────
+  async function sendMessage() {
+    const question = promptInput.value.trim();
+    if (!question || isBusy) return;
+
+    setInputBusy(true);
+    promptInput.value = '';
+    promptInput.style.height = 'auto';
+
+    messages.push({ role: 'user', content: question });
+    history.push({ role: 'user', content: question });
+    renderMessages();
+    addTypingIndicator();
+
+    try {
+      const res = await fetch(`${API_BASE}/query`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question, history: history.slice(-10), top_k: 5 }),
+      });
+      const data = await res.json();
+
+      removeTypingIndicator();
+
+      if (!data.success) throw new Error(data.error || 'Query failed');
+
+      const tokens = data.tokens_used?.total;
+      messages.push({
+        role: 'ai',
+        content: data.answer,
+        sources: data.sources || [],
+        tokens,
+      });
+      history.push({ role: 'assistant', content: data.answer });
+
+    } catch (err) {
+      removeTypingIndicator();
+      messages.push({ role: 'ai', content: `❌ Error: ${err.message}` });
+    }
+
+    renderMessages();
+    setInputBusy(false);
+  }
+
+  // ── Event listeners ──────────────────────────────────────────────────────────
+  audioPlusBtn.addEventListener('click', e => {
+    e.preventDefault();
+    audioFileInput.value = '';
+    audioFileInput.click();
+  });
+
+  audioFileInput.addEventListener('change', async e => {
+    const files = Array.from(e.target.files);
+    if (files.length) await uploadAudioFiles(files);
+    audioFileInput.value = '';
+  });
+
+  sendBtn.addEventListener('click', sendMessage);
+
+  promptInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+
+  promptInput.addEventListener('input', function () {
+    this.style.height = 'auto';
+    this.style.height = Math.min(120, this.scrollHeight) + 'px';
+  });
+
+  // Double-click title → reset
+  document.querySelector('.project-title').addEventListener('dblclick', () => {
+    messages.forEach(m => m.attachments?.forEach(a => { if (a.audioUrl) URL.revokeObjectURL(a.audioUrl); }));
+    messages = [];
+    history = [];
+    renderMessages();
+  });
+
+  renderMessages();
+
+  window.addEventListener('beforeunload', () => {
+    messages.forEach(m => m.attachments?.forEach(a => { if (a.audioUrl) URL.revokeObjectURL(a.audioUrl); }));
+  });
+</script>
+</body>
+</html>
