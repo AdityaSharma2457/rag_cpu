@@ -1,9 +1,11 @@
- whisperx,
- torch ,
- torchvision,
- torchaudio,
- transformers==4.49.0,
- accelerate,
- flask,
- flask-sqlalchemy,
+ whisperx
+ torch
+ torchvision
+ torchaudio
+ transformers==4.49.0
+ accelerate
+ flask
+ flask-SQLAlchemy
  pymysql
+ dotenv
+ Blueprint

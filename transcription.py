@@ -1,20 +1,24 @@
 import whisperx
 from whisperx.diarize import DiarizationPipeline
-import db
+from db import transcription_table,db
 import uuid 
 from dotenv import load_dotenv
 import os
+from flask import Blueprint
 
 load_dotenv()
-
-@app.route()
+transcription_bp= Blueprint("transcription",__name__)
+@transcription_bp.route("/transcription/<audio_file>")
 
 def  transcription(audio_file):
-    device = "cuda"
     # Load model
+    WHISPER_MODEL=os.getenv("WHISPER_MODEL")
+    WHISPER_DEVICE=os.getenv("WHISPER_DEVICE")
+    HF_TOKEN=os.getenv("HF_TOKEN")
+
     model = whisperx.load_model(
-        "large-v3",
-        device=device,
+        WHISPER_MODEL,
+        device=WHISPER_DEVICE,
         compute_type="float16"
     )
 
@@ -30,7 +34,7 @@ def  transcription(audio_file):
     # Align words
     model_a, metadata = whisperx.load_align_model(
         language_code="en",
-        device=device
+        device=WHISPER_DEVICE
     )
 
     result = whisperx.align(
@@ -38,17 +42,15 @@ def  transcription(audio_file):
         model_a,
         metadata,
         audio,
-        device
+        WHISPER_DEVICE
     )
 
     # Diarization
-    # HF_TOKEN = f"{HF_TOKEN}"
     
-    HF_TOKEN = os.getenv("HF_TOKEN")
 
     diarize_model = DiarizationPipeline(
         token=HF_TOKEN,
-        device=device
+        device=WHISPER_DEVICE
     )
 
     diarize_segments = diarize_model(audio)
@@ -69,7 +71,7 @@ def  transcription(audio_file):
 
         f.write(f'  {speaker}: "{text}"\n')
 
-    transcript =  transcription()
+    transcript =  transcription_table()
     
     db.session().add(transcript)
     transcript.filename = filename
@@ -78,12 +80,11 @@ def  transcription(audio_file):
     db.session().commit()
 
 
-
-    row = transcription.query.get(i)
-    if():
-        row.status = "completed"
-    else:
-        row.status = "failed"
-    db.session.commit()
+    # row = transcription_table.query.get(i)
+    # if():
+    #     row.status = "completed"
+    # else:
+    #     row.status = "failed"
+    # db.session.commit()
 
 

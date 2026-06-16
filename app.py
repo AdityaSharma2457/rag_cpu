@@ -1,20 +1,27 @@
-from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
-from db import transcription
+from flask import Flask 
+import db
+from config import Config
+from transcription import transcription_bp
 # Initialize the Flask application
+def create_app():
+    app = Flask(__name__)
+    app.config.from_object(Config)
+    db.init_app(app)
+    app.register_blueprint(transcription_bp,url_prefix="/transcription")
 
 
-app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = \
-    "mysql+pymysql://root:@di.kota@localhost/transcription_path"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-db = SQLAlchemy(app)
 
-with app.app_context():
-    db.create_all()
+    with app.app_context():
+        db.create_all()
 
-# @app.route("/")
+    return app
+
+
+app = create_app()
+
+
+
 
 
 if __name__ == "__main__":
