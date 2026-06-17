@@ -1,14 +1,18 @@
 import whisperx
 from whisperx.diarize import DiarizationPipeline
-from db import transcription_table,db
+from db import transcription_table
+from db_init_ import db
 import uuid 
 from dotenv import load_dotenv
 import os
 from flask import Blueprint
 
 load_dotenv()
+os.makedirs("./transcripted",exist_ok=True)
+
+
 transcription_bp= Blueprint("transcription",__name__)
-@transcription_bp.route("/transcription/<audio_file>")
+@transcription_bp.route("/<audio_file>")
 
 def  transcription(audio_file):
     # Load model
@@ -19,11 +23,11 @@ def  transcription(audio_file):
     model = whisperx.load_model(
         WHISPER_MODEL,
         device=WHISPER_DEVICE,
-        compute_type="float16"
+        compute_type="int8"
     )
-
+    audio_path = os.path.join(os.getcwd(), "call", audio_file)
     # Load audio
-    audio = whisperx.load_audio(f"{audio_file}")
+    audio = whisperx.load_audio(f"{audio_path}")
 
     # Translate to English
     result = model.transcribe(
@@ -61,15 +65,15 @@ def  transcription(audio_file):
     )
 
     # Save toon
-    filename=str(uuid.uuid6())
+    filename=str(uuid.uuid4())
     with open(f"./transcripted/{filename}.toon", "w", encoding="utf-8") as f:
         f.write("conversation:\n")
 
-    for seg in result["segments"]:
-        speaker = seg.get("speaker", "UNKNOWN")
-        text = seg["text"].replace("\n", " ").strip()
+        for seg in result["segments"]:
+            speaker = seg.get("speaker", "UNKNOWN")
+            text = seg["text"].replace("\n", " ").strip()
 
-        f.write(f'  {speaker}: "{text}"\n')
+            f.write(f'  {speaker}: "{text}"\n')
 
     transcript =  transcription_table()
     
