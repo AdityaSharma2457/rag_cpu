@@ -17,19 +17,13 @@ def create_app():
     db.init_app(app)
     app.register_blueprint(transcription_bp,url_prefix="/transcription")
 
-
-
-
     with app.app_context():
         db.create_all()
-
+    
     return app
 
-
+db = db_init_.db
 app = create_app()
-
-
-
 
 
 if __name__ == "__main__":
