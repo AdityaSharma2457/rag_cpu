@@ -3,31 +3,24 @@ from whisperx.diarize import DiarizationPipeline
 from db import transcription_table
 from db_init_ import db
 import uuid 
-from dotenv import load_dotenv
+from model_loader import WHISPER_DEVICE,HF_TOKEN,model
 import os
-from flask import Blueprint
-
-load_dotenv()
+from flask import Blueprint,request
 os.makedirs("./transcripted",exist_ok=True)
+os.makedirs("./call",exist_ok=True)
 
 
 transcription_bp= Blueprint("transcription",__name__)
-@transcription_bp.route("/<audio_file>")
+@transcription_bp.route("/transcribe",method=['POST'])
 
-def  transcription(audio_file):
-    # Load model
-    WHISPER_MODEL=os.getenv("WHISPER_MODEL")
-    WHISPER_DEVICE=os.getenv("WHISPER_DEVICE")
-    HF_TOKEN=os.getenv("HF_TOKEN")
-
-    model = whisperx.load_model(
-        WHISPER_MODEL,
-        device=WHISPER_DEVICE,
-        compute_type="int8"
-    )
-    audio_path = os.path.join(os.getcwd(), "call", audio_file)
+def  transcription(audio_file,question):
+    audio_file=request.file["audio"]
+    question=request.form.get("question")
+    file_path = os.path.join(os.getcwd(),"call", audio_file.filename)
+    audio_file.save(file_path)
     # Load audio
-    audio = whisperx.load_audio(f"{audio_path}")
+    audio = whisperx.load_audio(f"{file_path}")
+
 
     # Translate to English
     result = model.transcribe(
@@ -75,13 +68,18 @@ def  transcription(audio_file):
 
             f.write(f'  {speaker}: "{text}"\n')
 
+    toon_file_path= os.path.join(os.getcwd(), "transcripted",f"{filename}.toon" )
     transcript =  transcription_table()
     
     db.session().add(transcript)
     transcript.filename = filename
-    transcript.path_in_webserver = f"./transcripted/{filename}.toon" 
+    transcript.path_in_webserver = toon_file_path
     transcript.status="processing"
     db.session().commit()
+
+    return 0
+
+
 
 
     # row = transcription_table.query.get(i)

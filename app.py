@@ -1,18 +1,16 @@
 from flask import Flask 
 import db_init_
 from transcription import transcription_bp
-import os
+from config import Config 
 from dotenv import load_dotenv
 load_dotenv()
 
-mysql_connector = os.getenv("SQLALCHEMY_DATABASE_URI")
 
 # Initialize the Flask application
 def create_app():
     app = Flask(__name__)
+    app.config.from_object(Config)
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = mysql_connector
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     db.init_app(app)
     app.register_blueprint(transcription_bp,url_prefix="/transcription")
@@ -27,4 +25,4 @@ app = create_app()
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000,debug=True)
