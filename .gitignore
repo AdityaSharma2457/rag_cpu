@@ -4,3 +4,7 @@ venv/
 testenv/
 transcripted/
 call/
+courses/
+hostel/
+scholarships&refunds/
+chroma_db/

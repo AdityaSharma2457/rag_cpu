@@ -1,80 +1,148 @@
 from model_loader import generate_response
-from transcription import toon_file_path
-from chromadb import retriever
+from vector_db import db
 from ragEngine import pipeline
-from transcription import question
+import json
 
-def full_execution():
+
+def full_execution(toon_file_path, question):
+
     with open(toon_file_path, "r", encoding="utf-8") as file:
-            transcript = file.read()
+        transcript = file.read()
 
+    response = generate_response(f"""
 
+You are an expert university counselling auditor.
 
-    claims_json=generate_response(f"""
+Analyze the provided counselling conversation transcript.
 
+Your job is to identify ONLY factual claims made by the counsellor that can be verified using university brochures or official university documents.
 
-    You are an expert university counselling auditor.
+Extract claims related to:
 
-    Analyze the provided counselling conversation transcript.
+* Course Fees
+* Hostel Fees
+* Scholarships
+* Eligibility Criteria
+* Placements
+* Packages
+* Admission Process
+* Course Duration
+* Infrastructure
+* Hostel Facilities
+* Refund Policies
+* Seat Availability
+* Ranking
+* Accreditation
+* Course Curriculum
+* University Facilities
+* Any other factual university-related information
 
-    Your job is to identify ONLY factual claims made by the counsellor that can be verified using university brochures or official university documents.
+DO NOT extract:
 
-    Extract claims related to:
+* Greetings
+* Sales language
+* Persuasion
+* Behavioural statements
+* Opinions
+* Emotional statements
+* Small talk
 
-    * Course Fees
-    * Hostel Fees
-    * Scholarships
-    * Eligibility Criteria
-    * Placements
-    * Packages
-    * Admission Process
-    * Course Duration
-    * Infrastructure
-    * Hostel Facilities
-    * Refund Policies
-    * Seat Availability
-    * Ranking
-    * Accreditation
-    * Course Curriculum
-    * University Facilities
-    * Any other factual university-related information
+For every claim return:
 
-    DO NOT extract:
+* exact claim
+* university
+* topic/category
+* course (if mentioned, otherwise empty string)
 
-    * Greetings
-    * Sales language
-    * Persuasion
-    * Behavioural statements
-    * Opinions
-    * Emotional statements
-    * Small talk
+topic MUST be one of:
 
-    For every claim return:
+fees or courses
+hostel
+placement
+eligibility
+scholarship
+refund
+admission
+course
+infrastructure
+facilities
+ranking
+accreditation
 
-    * exact claim
-    * topic/category
+Conversation Transcript:
 
-    Conversation Transcript:
+{transcript}
 
-    {transcript}
+Return STRICT JSON ONLY.
 
-    Return STRICT JSON ONLY.
-
-    {
+{{
     "claims": [
-    {
-    "claim": "",
-    "topic": "",
-    "university":"",
-    }
+        {{
+            "claim": "",
+            "topic": "",
+            "university": "",
+            "course": ""
+        }}
     ]
-    }
+}}
 
-    """)
+""")
 
-
-    retrieved_chunks=[retriever.invoke(f"{i.university} ,{i.topic},{i.claim}" ) for i in claims_json["claims"]]
-
-    response=pipeline(question,transcript,retrieved_chunks,claims_json)
-    
+    print("Raw Claims Response:")
     print(response)
+
+    response = response.strip()
+
+    if response.startswith("```json"):
+        response = response.replace("```json", "", 1)
+
+    if response.startswith("```"):
+        response = response.replace("```", "", 1)
+
+    if response.endswith("```"):
+        response = response[:-3]
+
+    response = response.strip()
+
+    try:
+        claims_json = json.loads(response)
+
+        retrieved_chunks = []
+
+        for claim in claims_json.get("claims"):
+
+            filter_dict = {
+            "$and": [
+            {"university": claim["university"]},
+            {"category": claim["topic"]},
+            {"course": claim["course"]}
+            ]}
+
+            docs = db.similarity_search(
+            query=claim["claim"],
+            k=5,
+            filter=filter_dict
+            )
+            retrieved_chunks.extend(docs)
+
+        print(f"Retrieved Chunks: {len(docs)},{docs}")
+    
+
+
+    except Exception as e:
+        print("Claims extraction failed:", e)
+        print("Raw response:", repr(response))
+
+        claims_json = {"claims": []}
+        retrieved_chunks = []
+
+    final_response = pipeline(
+        question,
+        transcript,
+        retrieved_chunks,
+        claims_json
+    )
+
+    print(final_response)
+
+    return final_response

@@ -1,17 +1,13 @@
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-from flask import Blueprint
-from transcription import question as user_question
 from model_loader import generate_response
-from chromadb import retriever
 from langchain_core.runnables import RunnableLambda
-rag_path_bp=Blueprint("rag_call",__name__)
-@rag_path_bp("/engine")
 
 
-def pipeline(user_question,transcription_path,retrieved_context,claims_json):
-    prompt = ChatPromptTemplate.from_template(f"""
+
+def pipeline(user_question,transcript,retrieved_context,claims_json):
+    prompt = ChatPromptTemplate.from_template("""
     You are an expert Conversation Intelligence and University Counselling Quality Analyst.
 
     You are provided with:
@@ -123,10 +119,12 @@ def pipeline(user_question,transcription_path,retrieved_context,claims_json):
     * Following expected counselling process
 
     ---
+    question :
+  {user_question}
 
     Conversation Transcript:
 
-    {transcription_path}
+    {transcript}
 
     ---
 
@@ -139,102 +137,22 @@ def pipeline(user_question,transcription_path,retrieved_context,claims_json):
     Retrieved University Context:
 
     {retrieved_context}
-
-    ---
-
-    Return STRICT JSON ONLY.
-
-    {
-    "correctness": {
-    "score": 0,
-    "summary": "",
-    "claim_results": [
-    {
-    "claim": "",
-    "status": "",
-    "reason": ""
-    }
-    ]
-    },
-
-    "scores": {
-    "professionalism": {
-    "score": 0,
-    "evidence": [],
-    "explanation": ""
-    },
-
-    ```
-    "communication": {
-      "score": 0,
-      "evidence": [],
-      "explanation": ""
-    },
-
-    "behaviour": {
-      "score": 0,
-      "evidence": [],
-      "explanation": ""
-    },
-
-    "lead_conversion": {
-      "score": 0,
-      "evidence": [],
-      "explanation": ""
-    },
-
-    "objection_handling": {
-      "score": 0,
-      "evidence": [],
-      "explanation": ""
-    },
-
-    "product_knowledge": {
-      "score": 0,
-      "evidence": [],
-      "explanation": ""
-    },
-
-    "confidence": {
-      "score": 0,
-      "evidence": [],
-      "explanation": ""
-    },
-
-    "empathy": {
-      "score": 0,
-      "evidence": [],
-      "explanation": ""
-    },
-
-    "sop_adherence": {
-      "score": 0,
-      "evidence": [],
-      "explanation": ""
-    },
-
-    "overall_performance": {
-      "score": 0,
-      "explanation": ""
-    }
-    ```
-
-},
-
-"question_answer": null
-}
-
     """)
 
     llm = RunnableLambda(generate_response)
     chain = (
-        {
-            "question": RunnablePassthrough() # or lambda x:x (runnablepassthrough just passes the pormpt as it is)
-        }
-        | prompt
-        | llm
-        | StrOutputParser()
-    )
-
-    response = chain.invoke(f"{user_question}")
-    return response
+    prompt
+    | llm
+    | StrOutputParser()
+)
+    payload = {
+        "user_question": user_question,
+        "transcript": transcript,
+        "claims_json": str(claims_json),
+        "retrieved_context": str(retrieved_context)
+    }
+    
+    print(payload)
+    
+    response = chain.invoke(payload)
+    return response 
