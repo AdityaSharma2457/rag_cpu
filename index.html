@@ -253,7 +253,8 @@
 
 <script>
   // ── Config ──────────────────────────────────────────────────────────────────
-  const API_BASE = 'http://localhost:5000/api';
+  // const API_BASE = 'http://localhost:5000/api';/
+  const API_BASE = 'http://localhost:5000/transcription';
 
   // ── Elements ────────────────────────────────────────────────────────────────
   const chatContainer  = document.getElementById('chatMessages');
@@ -436,9 +437,9 @@
 
     try {
       const fd = new FormData();
-      files.forEach(f => fd.append('files', f));
+      files.forEach(f => fd.append('audio', f));
 
-      const res = await fetch(`${API_BASE}/upload`, { method: 'POST', body: fd });
+      const res = await fetch(`${API_BASE}/transcribe`, { method: 'POST', body: fd });
       const data = await res.json();
 
       // Update user message: remove processing spinner

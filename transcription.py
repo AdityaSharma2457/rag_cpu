@@ -4,10 +4,22 @@ from db import transcription_table,db
 import uuid 
 from dotenv import load_dotenv
 import os
+<<<<<<< Updated upstream
 from flask import Blueprint
+=======
+from flask import Blueprint,request
+from full_execution import full_execution
+
+from flask import jsonify
+
+os.makedirs("./transcripted",exist_ok=True)
+os.makedirs("./call",exist_ok=True)
+
+>>>>>>> Stashed changes
 
 load_dotenv()
 transcription_bp= Blueprint("transcription",__name__)
+<<<<<<< Updated upstream
 @transcription_bp.route("/<audio_file>")
 
 def  transcription(audio_file):
@@ -15,6 +27,26 @@ def  transcription(audio_file):
     WHISPER_MODEL=os.getenv("WHISPER_MODEL")
     WHISPER_DEVICE=os.getenv("WHISPER_DEVICE")
     HF_TOKEN=os.getenv("HF_TOKEN")
+=======
+
+
+
+@transcription_bp.route("/health", methods=["GET"])
+def health():
+    return jsonify({
+        "status": "ok",
+        "documents_indexed": 0
+    })
+
+@transcription_bp.route("/transcribe",methods=['POST'])
+def  transcription():
+    audio_file=request.files["audio"]
+    question=request.form.get("question")
+    file_path = os.path.join(os.getcwd(),"call", audio_file.filename)
+    audio_file.save(file_path)
+    # Load audio
+    audio = whisperx.load_audio(f"{file_path}")
+>>>>>>> Stashed changes
 
     model = whisperx.load_model(
         WHISPER_MODEL,
@@ -89,6 +121,7 @@ def  transcription(audio_file):
     transcript.filename = filename
     transcript.path_in_webserver = f"./transcripted/{filename}.toon" 
     transcript.status="processing"
+<<<<<<< Updated upstream
     
     db.session.add(transcript)
     db.session.commit()
@@ -99,6 +132,19 @@ def  transcription(audio_file):
         "status": "success",
         "filename": filename
         }
+=======
+    db.session().commit()
+
+    full_execution(toon_file_path,question)
+
+    # return 0
+    return jsonify({
+    "success": True,
+    "message": "Transcription completed"
+})
+
+
+>>>>>>> Stashed changes
 
 
     # row = transcription_table.query.get(i)
