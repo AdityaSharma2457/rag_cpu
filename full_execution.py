@@ -1,7 +1,8 @@
 from model_loader import generate_response
-from vector_db import db
+from vector_db import collection
 from ragEngine import pipeline
 import json
+
 
 
 def full_execution(toon_file_path, question):
@@ -9,7 +10,7 @@ def full_execution(toon_file_path, question):
     with open(toon_file_path, "r", encoding="utf-8") as file:
         transcript = file.read()
 
-    response = generate_response(f"""
+    claims_json = generate_response(f"""
 
 You are an expert university counselling auditor.
 
@@ -73,76 +74,47 @@ Conversation Transcript:
 
 {transcript}
 
-Return STRICT JSON ONLY.
+The vector database contains university brochure information, where each chunk is written as a natural-language sentence.
+
+Chunk structure:
+- Every chunk starts with the university name.
+- This is followed by the relevant information such as course, fees, hostel, scholarship, eligibility, placements, etc.
+- University names and course aliases may also be present in the chunk.
+
+Your task is to generate optimized semantic search queries for retrieving the correct chunks from the vector database.
+
+Guidelines:
+1. Generate one search query for every factual claim extracted from the conversation.
+2. Every query MUST contain the university name.
+3. Include the course name whenever it is available in the claim.
+4. Include the appropriate category keyword depending on the claim:
+   - "fees" for fee-related claims
+   - "hostel" for hostel-related claims
+   - "scholarship" for scholarship-related claims
+   - "eligibility" for eligibility-related claims
+   - "placement" for placement-related claims
+   - Similarly include other relevant category keywords whenever applicable.
+5. The query should be written as a natural-language sentence rather than a list of keywords.
+6. Include all important information from the claim so that semantic similarity search retrieves the most relevant chunk.
+7. If the course name is not explicitly mentioned, infer the most appropriate query using the available context without inventing facts.
+8. Do not generate duplicate or unnecessary queries.
+
+Return ONLY valid JSON in the following format:
 
 {{
-    "claims": [
-        {{
-            "claim": "",
-            "topic": "",
-            "university": "",
-            "course": ""
-        }}
-    ]
+  "claims": [
+    "query 1",
+    "query 2",
+    "query 3"
+  ]
 }}
 
 """)
+    claims_json = json.loads(claims_json)
 
-    print("Raw Claims Response:")
+    retrieved_chunks=[collection.similarity_search(f"{query}",k=5 ) for query in claims_json["claims"]] 
+
+    response=pipeline(question,transcript,retrieved_chunks,claims_json) 
+
     print(response)
-
-    response = response.strip()
-
-    if response.startswith("```json"):
-        response = response.replace("```json", "", 1)
-
-    if response.startswith("```"):
-        response = response.replace("```", "", 1)
-
-    if response.endswith("```"):
-        response = response[:-3]
-
-    response = response.strip()
-
-    try:
-        claims_json = json.loads(response)
-
-        retrieved_chunks = []
-
-        for claim in claims_json.get("claims"):
-
-            filter_dict = {
-            "$and": [
-            {"university": claim["university"]},
-            {"category": claim["topic"]},
-            {"course": claim["course"]}
-            ]}
-
-            docs = db.similarity_search(
-            query=claim["claim"],
-            k=5,
-            filter=filter_dict
-            )
-            retrieved_chunks.extend(docs)
-
-        print(f"Retrieved Chunks: {len(docs)},{docs}")
-    
-
-
-    except Exception as e:
-        print("Claims extraction failed:", e)
-        print("Raw response:", repr(response))
-
-        claims_json = {"claims": []}
-        retrieved_chunks = []
-
-    final_response = pipeline(
-        question,
-        transcript,
-        retrieved_chunks,
-        claims_json
-    )
-
-    print(final_response)
-
-    return final_response
+    return response
