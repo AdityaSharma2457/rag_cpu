@@ -102,5 +102,3 @@ def  transcription():
     # else:
     #     row.status = "failed"
     # db.session.commit()
-
-
