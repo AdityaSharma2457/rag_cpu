@@ -5,11 +5,13 @@ from config import Config
 import model_loader
 model_loader.load_models()
 
+from flask_cors import CORS
 
 
 # Initialize the Flask application
 def create_app():
     app = Flask(__name__)
+    CORS(app)
     app.config.from_object(Config)
 
 
@@ -23,6 +25,7 @@ def create_app():
 
 db = db_init_.db
 app = create_app()
+
 
 
 if __name__ == "__main__":

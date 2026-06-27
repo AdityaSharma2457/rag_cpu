@@ -210,6 +210,36 @@
     .chat-canvas::-webkit-scrollbar { width: 5px; }
     .chat-canvas::-webkit-scrollbar-track { background: transparent; }
     .chat-canvas::-webkit-scrollbar-thumb { background: #E5E3DD; border-radius: 10px; }
+
+    .selected-files{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:10px;
+  }
+
+  .file-chip{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    background:#F5F4F0;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    border:1px solid #ddd;
+  }
+
+  .file-remove{
+    cursor:pointer;
+    color:red;
+    font-weight:bold;
+  }
+
+
+
   </style>
 </head>
 <body>
@@ -238,22 +268,36 @@
 
   <div class="input-dock">
     <div class="input-wrapper">
+  
+      <!-- Selected audio will appear here -->
+      <div id="selectedFiles" class="selected-files"></div>
+  
       <div class="prompt-container">
         <textarea id="promptInput" rows="1" placeholder="Ask about your audio files or type a question…"></textarea>
+  
         <button class="audio-plus-btn" id="audioPlusBtn" title="Upload audio file (MP3, WAV, M4A, OGG)">
           <i class="fas fa-plus"></i>
         </button>
-        <button class="send-btn" id="sendBtn"><i class="fas fa-arrow-up"></i></button>
+  
+        <button class="send-btn" id="sendBtn">
+          <i class="fas fa-arrow-up"></i>
+        </button>
       </div>
-      <div class="input-footer"><i class="fas fa-headphones"></i> + button supports audio only — MP3, WAV, M4A, OGG, FLAC</div>
+  
+      <div class="input-footer">
+        <i class="fas fa-headphones"></i>
+        + button supports audio only — MP3, WAV, M4A, OGG, FLAC
+      </div>
     </div>
-  </div>
 </div>
-<input type="file" id="audioFileInput" accept="audio/mpeg,audio/wav,audio/mp3,audio/m4a,audio/ogg,audio/x-m4a,audio/flac,audio/webm" multiple style="display:none">
 
+
+
+<input type="file" id="audioFileInput" accept="audio/mpeg,audio/wav,audio/mp3,audio/m4a,audio/ogg,audio/x-m4a,audio/flac,audio/webm" multiple style="display:none">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
   // ── Config ──────────────────────────────────────────────────────────────────
-  const API_BASE = 'http://localhost:5000/api';
+  const API_BASE = 'http://localhost:5000/transcribe';
 
   // ── Elements ────────────────────────────────────────────────────────────────
   const chatContainer  = document.getElementById('chatMessages');
@@ -265,10 +309,13 @@
   const statusDot      = document.getElementById('statusDot');
   const statusText     = document.getElementById('statusText');
 
+  const selectedFilesDiv = document.getElementById("selectedFiles");
+
   // ── State ───────────────────────────────────────────────────────────────────
   let messages = [];        // displayed chat messages
   let history  = [];        // [{role, content}] sent to backend
   let isBusy   = false;
+  let pendingFiles = [];
 
   // ── Health check ─────────────────────────────────────────────────────────────
   async function checkHealth() {
@@ -334,7 +381,8 @@
 
       // Main text
       const text = document.createElement('div');
-      text.innerHTML = (msg.content || '').replace(/\n/g, '<br>');
+      const markdown = (msg.content || "").trim();
+      text.innerHTML = marked.parse(markdown);
       content.appendChild(text);
 
       // Processing status line
@@ -485,22 +533,36 @@
   // ── Send text query → RAG ────────────────────────────────────────────────────
   async function sendMessage() {
     const question = promptInput.value.trim();
+    const formData = new FormData();
+    formData.append("question", question);
+    pendingFiles.forEach(file => {
+    formData.append("files", file);
+  });
     if (!question || isBusy) return;
 
     setInputBusy(true);
     promptInput.value = '';
     promptInput.style.height = 'auto';
 
-    messages.push({ role: 'user', content: question });
+    messages.push({
+      role: 'user',
+      content: question,
+      attachments: pendingFiles.map(file => ({
+        name: file.name,
+        size: file.size,
+        audioUrl: URL.createObjectURL(file)
+      }))
+    });
     history.push({ role: 'user', content: question });
     renderMessages();
     addTypingIndicator();
 
     try {
+      formData.append("history", JSON.stringify(history.slice(-10)));
+      formData.append("top_k", 5);
       const res = await fetch(`${API_BASE}/query`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question, history: history.slice(-10), top_k: 5 }),
+        method: "POST",
+        body: formData
       });
       const data = await res.json();
 
@@ -515,6 +577,8 @@
         sources: data.sources || [],
         tokens,
       });
+
+
       history.push({ role: 'assistant', content: data.answer });
 
     } catch (err) {
@@ -523,19 +587,46 @@
     }
 
     renderMessages();
+    pendingFiles = [];
+    renderSelectedFiles();
     setInputBusy(false);
   }
 
-  // ── Event listeners ──────────────────────────────────────────────────────────
+  function renderSelectedFiles() {
+    
+    selectedFilesDiv.innerHTML = "";
+    pendingFiles.forEach((file, index) => {
+
+      const chip = document.createElement("div");
+      chip.className = "file-chip";
+      chip.innerHTML = `
+        <i class="fas fa-file-audio"></i>
+        <div style="display:flex;flex-direction:column;">
+          <strong>${file.name}</strong>
+          <small>${formatSize(file.size)}</small>
+        </div>
+        <span class="file-remove">&times;</span>
+      `;
+      chip.querySelector(".file-remove").onclick = () => {
+        pendingFiles.splice(index, 1);
+        renderSelectedFiles();
+      };
+      selectedFilesDiv.appendChild(chip);
+    });
+  }
+
+  // ──  listeners ──────────────────────────────────────────────────────────
   audioPlusBtn.addEventListener('click', e => {
     e.preventDefault();
     audioFileInput.value = '';
     audioFileInput.click();
   });
 
-  audioFileInput.addEventListener('change', async e => {
-    const files = Array.from(e.target.files);
-    if (files.length) await uploadAudioFiles(files);
+  audioFileInput.addEventListener('change', e => {
+    pendingFiles = Array.from(e.target.files);
+
+    renderSelectedFiles();
+
     audioFileInput.value = '';
   });
 
