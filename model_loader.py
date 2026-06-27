@@ -5,10 +5,13 @@ from openai import OpenAI
 load_dotenv()
 
 
-# api=os.getenv("GEMINI_API_KEY")
+
+
+api=os.getenv("GEMINI_API_KEY")
 WHISPER_MODEL=os.getenv("WHISPER_MODEL")
 WHISPER_DEVICE=os.getenv("WHISPER_DEVICE")
 HF_TOKEN=os.getenv("HF_TOKEN")
+
 
 
 def load_models():
@@ -27,7 +30,7 @@ def load_models():
 
 def generate_response(prompt):
     completion = client.chat.completions.create(
-        model="nvidia/nemotron-3-ultra-550b-a55b",
+        model="nvidia/nvidia-nemotron-nano-9b-v2",
         messages=[
             {"role": "user", "content": str(prompt)}
         ],

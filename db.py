@@ -1,6 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from db_init_ import db
 
+
+
 class transcription_table(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     filename = db.Column(db.String(50))

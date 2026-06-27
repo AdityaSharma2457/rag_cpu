@@ -89,9 +89,12 @@ def  transcription():
     transcript.status="processing"
     db.session().commit()
 
-    return full_execution(toon_file_path,question)
+    full_execution(toon_file_path,question)
 
-    
+    return 0
+
+
+
 
     # row = transcription_table.query.get(i)
     # if():

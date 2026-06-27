@@ -1,5 +1,4 @@
 from flask import Flask 
-from flask_cors import CORS
 import db_init_
 from transcription import transcription_bp
 from config import Config 
@@ -7,11 +6,12 @@ import model_loader
 model_loader.load_models()
 
 
+
 # Initialize the Flask application
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
-    CORS(app)
+
 
     db.init_app(app)
     app.register_blueprint(transcription_bp,url_prefix="/transcribe")
