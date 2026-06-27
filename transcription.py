@@ -129,11 +129,22 @@ def  transcription():
     transcript.path_in_webserver = toon_file_path
     transcript.status="processing"
     db.session().commit()
-    
-    print("6. TOON file saved")
 
     return full_execution(toon_file_path,question)
 
+    
 
+@transcription_bp.route("/health",methods=['GET'])
 
+def health():
+    return {
+        "status":"ok",
+        "documents_indexed" :0
+    }
 
+    # row = transcription_table.query.get(i)
+    # if():
+    #     row.status = "completed"
+    # else:
+    #     row.status = "failed"
+    # db.session.commit()

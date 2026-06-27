@@ -279,9 +279,13 @@
           <i class="fas fa-plus"></i>
         </button>
   
-        <button class="send-btn" id="sendBtn">
-          <i class="fas fa-arrow-up"></i>
-        </button>
+        <button
+    type="button"
+    class="send-btn"
+    id="sendBtn"
+    onclick="console.log('INLINE CLICK')">
+    <i class="fas fa-arrow-up"></i>
+</button>
       </div>
   
       <div class="input-footer">
@@ -297,7 +301,7 @@
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
   // ── Config ──────────────────────────────────────────────────────────────────
-  const API_BASE = 'http://localhost:5000/transcribe';
+  const API_BASE = 'http://127.0.0.1:5000/transcribe';
 
   // ── Elements ────────────────────────────────────────────────────────────────
   const chatContainer  = document.getElementById('chatMessages');
@@ -332,7 +336,9 @@
       setOffline();
     }
   }
-
+  window.addEventListener("beforeunload", () => {
+    console.log("PAGE IS RELOADING");
+});
   function setOffline() {
     statusDot.className = 'status-dot error';
     statusText.textContent = 'Backend offline';
@@ -360,6 +366,7 @@
 
   // ── Render ───────────────────────────────────────────────────────────────────
   function renderMessages() {
+    console.log("Rendering", messages);
     welcomeBlock.style.display = messages.length ? 'none' : 'block';
 
     Array.from(chatContainer.children).forEach(c => {
@@ -479,7 +486,9 @@
       attachments,
       processing: 'Transcribing with WhisperX…',
     });
+    console.log("After push", messages);
     renderMessages();
+    console.log("After render", messages);
     addTypingIndicator();
 
     try {
@@ -532,12 +541,27 @@
 
   // ── Send text query → RAG ────────────────────────────────────────────────────
   async function sendMessage() {
+    console.log("sendMessage started");
     const question = promptInput.value.trim();
+    console.log("Question:", question);
     const formData = new FormData();
+    console.log("Question:", question);
     formData.append("question", question);
-    pendingFiles.forEach(file => {
-    formData.append("files", file);
-  });
+
+    console.log("Pending files:", pendingFiles);
+        if (pendingFiles.length > 0) {
+        formData.append("audio", pendingFiles[0]);
+    }
+
+    console.log("Before isBusy check");
+
+    if (!question || isBusy) {
+        console.log("Returned because question empty or busy");
+        return;
+    }
+
+    console.log("After validation");
+    formData.append("audio", pendingFiles[0]);
     if (!question || isBusy) return;
 
     setInputBusy(true);
@@ -548,9 +572,7 @@
       role: 'user',
       content: question,
       attachments: pendingFiles.map(file => ({
-        name: file.name,
-        size: file.size,
-        audioUrl: URL.createObjectURL(file)
+        name: file.name
       }))
     });
     history.push({ role: 'user', content: question });
@@ -559,12 +581,11 @@
 
     try {
       formData.append("history", JSON.stringify(history.slice(-10)));
-      formData.append("top_k", 5);
-      const res = await fetch(`${API_BASE}/query`, {
+      const res = await fetch(`${API_BASE}/transcribe`, {
         method: "POST",
         body: formData
       });
-      const data = await res.json();
+      const data = await res.json() ;
 
       removeTypingIndicator();
 
@@ -622,15 +643,24 @@
     audioFileInput.click();
   });
 
-  audioFileInput.addEventListener('change', e => {
+audioFileInput.addEventListener("change", (e) => {
+    console.log("File selected");
+
     pendingFiles = Array.from(e.target.files);
+
+    console.log(pendingFiles);
 
     renderSelectedFiles();
 
-    audioFileInput.value = '';
-  });
+    console.log("After render");
 
-  sendBtn.addEventListener('click', sendMessage);
+    audioFileInput.value = "";
+});
+sendBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log("Button clicked");
+    sendMessage();
+});
 
   promptInput.addEventListener('keydown', e => {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
