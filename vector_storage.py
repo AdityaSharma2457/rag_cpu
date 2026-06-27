@@ -2,9 +2,9 @@
 
 # import os
 # import json
-import chromadb
+# import vectordb
 
-client = chromadb.PersistentClient(path="./chroma_db")
+# client = vectordb.PersistentClient(path="./chroma_db")
 # collection = client.get_or_create_collection("universities")
 
 # folder_path = "scholarships&refunds"

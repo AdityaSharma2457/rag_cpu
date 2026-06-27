@@ -30,7 +30,7 @@ def load_models():
 
 def generate_response(prompt):
     completion = client.chat.completions.create(
-        model="nvidia/nvidia-nemotron-nano-9b-v2",
+        model="nvidia/nemotron-3-ultra-550b-a55b",
         messages=[
             {"role": "user", "content": str(prompt)}
         ],

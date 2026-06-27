@@ -89,12 +89,17 @@ def  transcription():
     transcript.status="processing"
     db.session().commit()
 
-    full_execution(toon_file_path,question)
+    return full_execution(toon_file_path,question)
 
-    return 0
+    
 
+@transcription_bp.route("/health",methods=['GET'])
 
-
+def health():
+    return {
+        "status":"ok",
+        "documents_indexed" :0
+    }
 
     # row = transcription_table.query.get(i)
     # if():
