@@ -6,11 +6,13 @@ import model_loader
 from flask_cors import CORS
 model_loader.load_models()
 
+from flask_cors import CORS
 
 
 # Initialize the Flask application
 def create_app():
     app = Flask(__name__)
+    CORS(app)
     app.config.from_object(Config)
     CORS(app)
     
@@ -25,6 +27,7 @@ def create_app():
 
 db = db_init_.db
 app = create_app()
+
 
 
 if __name__ == "__main__":

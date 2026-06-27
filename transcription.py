@@ -9,6 +9,8 @@ import os
 from flask import Blueprint,request
 from full_execution import full_execution
 
+from flask import jsonify
+
 
 os.makedirs("./transcripted",exist_ok=True)
 os.makedirs("./call",exist_ok=True)
@@ -21,6 +23,27 @@ WHISPER_DEVICE=os.getenv("WHISPER_DEVICE")
 
 
 transcription_bp= Blueprint("transcription",__name__)
+
+@transcription_bp.route("/health", methods=["GET"])
+def health():
+    return jsonify({
+        "status": "ok",
+        "documents_indexed": 0
+    })
+    
+    
+@transcription_bp.route("/query", methods=["POST"])
+def query():
+    return jsonify({
+        "success": True,
+        "answer": "Test answer from backend",
+        "sources": [],
+        "tokens_used": {
+            "total": 0
+        }
+    })
+
+
 @transcription_bp.route("/transcribe",methods=['POST'])
 
 def  transcription():
@@ -30,21 +53,31 @@ def  transcription():
 
     file_path = os.path.join(os.getcwd(),"call", audio_file.filename)
     audio_file.save(file_path)
+    
+   
+    
+    print("1. Audio received")
+    
     # Load audio
     audio = whisperx.load_audio(f"{file_path}")
 
+    print("2. Audio loaded")
 
     # Translate to English
     result = model_loader.model.transcribe(
         audio,
         task="translate"
     )
+    
+    print("3. Transcription completed")
 
     # Align words
     model_a, metadata = whisperx.load_align_model(
         language_code="en",
         device=WHISPER_DEVICE
     )
+    
+    
 
     result = whisperx.align(
         result["segments"],
@@ -54,20 +87,26 @@ def  transcription():
         WHISPER_DEVICE
     )
 
+    print("4. Alignment completed")
+    
     # Diarization
     
-
+    print("5. Before diarization")
     diarize_model = DiarizationPipeline(
         token=HF_TOKEN,
         device=WHISPER_DEVICE
     )
+    print("6. Diarization model loaded")
 
     diarize_segments = diarize_model(audio)
+    print("5. Diarization completed")
 
     result = whisperx.assign_word_speakers(
         diarize_segments,
         result
     )
+    
+    print("5. Diarization completed")
 
     # Save toon
     filename=str(uuid.uuid4())
@@ -82,6 +121,8 @@ def  transcription():
 
     toon_file_path= os.path.join(os.getcwd(), "transcripted",f"{filename}.toon" )
     transcript =  transcription_table()
+    
+    print("6. TOON file saved")
     
     db.session().add(transcript)
     transcript.filename = filename
