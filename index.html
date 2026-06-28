@@ -238,7 +238,146 @@
     font-weight:bold;
   }
 
+  /* ── Contributors nav item ─────────────────────────────────────────────── */
+  .contributors-nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
 
+  .contributors-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #8C8C88;
+    background: #F5F4F0;
+    border-radius: 100px;
+    padding: 4px 12px;
+    border: 1px solid rgba(0,0,0,0.06);
+    cursor: default;
+    user-select: none;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+    letter-spacing: 0.1px;
+  }
+
+  .contributors-nav:hover .contributors-trigger,
+  .contributors-nav:focus-within .contributors-trigger {
+    color: #BD5B3A;
+    background: rgba(218,119,86,0.08);
+    border-color: rgba(218,119,86,0.22);
+  }
+
+  .contributors-trigger i {
+    font-size: 0.7rem;
+    transition: transform 0.35s cubic-bezier(.4,1.6,.6,1);
+  }
+
+  .contributors-nav:hover .contributors-trigger i,
+  .contributors-nav:focus-within .contributors-trigger i {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown panel */
+  .contributors-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  /* Each contributor card slides down from the trigger */
+.contributor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  transform: translateY(-18px) scale(0.82);
+  transition:
+    opacity 0.32s cubic-bezier(.4,1.4,.6,1),
+    transform 0.32s cubic-bezier(.4,1.4,.6,1);
+  margin-bottom: 10px;
+  pointer-events: none;
+  width: 200px;
+  justify-content: flex-end;
+}
+
+  /* Stagger delay per card (set via inline style) */
+  .contributors-nav:hover .contributor-card,
+  .contributors-nav:focus-within .contributor-card {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .contributor-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(218,119,86,0.35);
+    box-shadow: 0 3px 10px rgba(218,119,86,0.18);
+    background: #F5F4F0;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+
+  .contributor-card:hover .contributor-avatar {
+    border-color: #DA7756;
+    box-shadow: 0 5px 18px rgba(218,119,86,0.32);
+    transform: scale(1.08);
+  }
+
+  .contributor-name {
+    font-size: 0.62rem;
+    font-weight: 500;
+    color: #6B6A65;
+    text-align: center;
+    max-width: 64spx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.3;
+    background: rgba(250,250,248,0.92);
+    border-radius: 20px;
+    padding: 1px 7px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .contributor-card a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Loading / error state */
+  .contributors-loading {
+    font-size: 0.7rem;
+    color: #B0AFA9;
+    padding: 8px 12px;
+    background: rgba(250,250,248,0.95);
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.06);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.25s, transform 0.25s;
+    pointer-events: none;
+  }
+
+  .contributors-nav:hover .contributors-loading,
+  .contributors-nav:focus-within .contributors-loading {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: none;
+  }
 
   </style>
 </head>
@@ -252,9 +391,26 @@
         <span class="project-badge">Made By CPU interns</span>
       </div>
     </div>
-    <div class="status-pill">
-      <div class="status-dot" id="statusDot"></div>
-      <span id="statusText">Connecting…</span>
+
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div class="status-pill">
+        <div class="status-dot" id="statusDot"></div>
+        <span id="statusText">Connecting…</span>
+      </div>
+
+      <!-- Contributors nav -->
+      <div class="contributors-nav" id="contributorsNav" tabindex="0">
+        <div class="contributors-trigger">
+          <i class="fas fa-users"></i>
+          Contributors
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="contributors-dropdown" id="contributorsDropdown">
+          <div class="contributors-loading" id="contributorsLoading">
+            <i class="fas fa-circle-notch fa-spin"></i> Loading…
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -301,7 +457,7 @@
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
   // ── Config ──────────────────────────────────────────────────────────────────
-  const API_BASE = 'http://127.0.0.1:5000/transcribe';
+  const API_BASE = 'http://127.0.0.1:5000/';
 
   // ── Elements ────────────────────────────────────────────────────────────────
   const chatContainer  = document.getElementById('chatMessages');
@@ -324,11 +480,11 @@
   // ── Health check ─────────────────────────────────────────────────────────────
   async function checkHealth() {
     try {
-      const res = await fetch(`${API_BASE}/health`);
+      const res = await fetch(`${API_BASE}/transcribe/health`);
       const data = await res.json();
       if (data.status === 'ok') {
         statusDot.className = 'status-dot online';
-        statusText.textContent = `Backend ready · ${data.documents_indexed} doc(s) indexed`;
+        statusText.textContent = `Backend ready `;
       } else {
         setOffline();
       }
@@ -581,7 +737,7 @@
 
     try {
       formData.append("history", JSON.stringify(history.slice(-10)));
-      const res = await fetch(`${API_BASE}/transcribe`, {
+      const res = await fetch(`${API_BASE}/transcribe/transcribe`, {
         method: "POST",
         body: formData
       });
@@ -684,6 +840,53 @@ sendBtn.addEventListener("click", (e) => {
   window.addEventListener('beforeunload', () => {
     messages.forEach(m => m.attachments?.forEach(a => { if (a.audioUrl) URL.revokeObjectURL(a.audioUrl); }));
   });
+
+  // ── Contributors dropdown ────────────────────────────────────────────────────
+  (function initContributors() {
+    const nav      = document.getElementById('contributorsNav');
+    const dropdown = document.getElementById('contributorsDropdown');
+    const loading  = document.getElementById('contributorsLoading');
+    let   loaded   = false;
+
+    async function fetchContributors() {
+      if (loaded) return;
+      loaded = true;
+      try {
+        const res  = await fetch(API_BASE + '/contributors/avatar_sync', { method: 'GET'});
+        const data = await res.json();
+
+        loading.remove();
+
+        const contributors = Array.isArray(data) ? data : (data.contributors || []);
+
+        contributors.forEach((c, i) => {
+          const card = document.createElement('div');
+          card.className = 'contributor-card';
+          // Stagger: each card appears 55 ms after the previous one
+          card.style.transitionDelay = `${i * 55}ms`;
+
+          card.innerHTML = `
+            <a href="${c.html_url  || '#'}" target="_blank" rel="noopener noreferrer" title="${c.name || c.login}">
+              <img class="contributor-avatar"
+                   src="${c.avatar || c.avatar_url || ''}"
+                   alt="${c.name || c.login}"
+                   onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(c.name || c.login || '?')}&background=FBEAE3&color=DA7756&size=44'">
+              <span class="contributor-name">${c.name || c.login}</span>
+            </a>`;
+
+          dropdown.appendChild(card);
+        });
+
+      } catch (err) {
+        loading.innerHTML = `<i class="fas fa-exclamation-circle"></i> Failed to load`;
+        console.warn('Contributors fetch error:', err);
+      }
+    }
+
+    // Fetch on first hover
+    nav.addEventListener('mouseenter', fetchContributors);
+    nav.addEventListener('focusin',    fetchContributors);
+  })();
 </script>
 </body>
 </html>

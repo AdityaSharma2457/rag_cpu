@@ -1,10 +1,9 @@
 from flask import Flask 
 import db_init_
 from transcription import transcription_bp
+from contributors import avatar_sync
 from config import Config 
-import model_loader
 from flask_cors import CORS
-model_loader.load_models()
 
 from flask_cors import CORS
 
@@ -19,6 +18,7 @@ def create_app():
 
     db.init_app(app)
     app.register_blueprint(transcription_bp,url_prefix="/transcribe")
+    app.register_blueprint(avatar_sync,url_prefix="/contributors")
     
     with app.app_context():
         db.create_all()
