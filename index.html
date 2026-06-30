@@ -338,7 +338,7 @@
     font-weight: 500;
     color: #6B6A65;
     text-align: center;
-    max-width: 64spx;
+    max-width: 64px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -454,8 +454,7 @@
         <button
     type="button"
     class="send-btn"
-    id="sendBtn"
-    onclick="console.log('INLINE CLICK')">
+    id="sendBtn">
     <i class="fas fa-arrow-up"></i>
 </button>
       </div>
@@ -492,7 +491,8 @@
   let history  = [];        // [{role, content}] sent to backend
   let isBusy   = false;
   let pendingFiles = [];
-  let stopStreaming = false;   //Create a stop flag
+  let stopStreaming = false;   // Stop flag for fake-stream animation
+  let activeAbortController = null; // Lets "stop" actually cancel the in-flight fetch
 
 
   function showStopButton() {
@@ -538,7 +538,8 @@
   };
 
   function formatSize(b) {
-    if (!b) return '';
+    if (b === null || b === undefined) return '';
+    if (b === 0) return '0 B';
     if (b < 1024) return b + ' B';
     if (b < 1048576) return (b / 1024).toFixed(1) + ' KB';
     return (b / 1048576).toFixed(1) + ' MB';
@@ -551,40 +552,126 @@
     promptInput.disabled = busy;
     audioPlusBtn.disabled = busy;
 
-    // Disable only when NOT busy
+    // sendBtn is intentionally left enabled even while busy: it doubles as
+    // the "stop" button during streaming (see sendBtn click handler below),
+    // so disabling it here would make it impossible to cancel a response.
     sendBtn.disabled = false;
   }
 
-  function appendMessage(msg) {
+  // Builds the action row (currently just Copy) for an AI message.
+  function buildMessageActions(getContent) {
+    const actions = document.createElement("div");
+    actions.className = "message-actions";
 
+    const btn = document.createElement("button");
+    btn.className = "copy-btn";
+    btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+
+    btn.onclick = async () => {
+      await navigator.clipboard.writeText(getContent());
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+      }, 1500);
+    };
+
+    actions.appendChild(btn);
+    return actions;
+  }
+
+  // Builds a full message DOM node (avatar + content) for a given message
+  // object. Used by both renderMessages() (full rerender) and appendMessage()
+  // (single new message) so the two paths can't drift out of sync.
+  function buildMessageNode(msg, index) {
     const wrap = document.createElement('div');
     wrap.className = `message ${msg.role}`;
+    if (index !== undefined) wrap.dataset.index = index;
 
     const av = document.createElement('div');
     av.className = 'message-avatar';
     av.innerHTML = msg.role === 'user'
-        ? '<i class="fas fa-user"></i>'
-        : '<i class="fas fa-robot"></i>';
+      ? '<i class="fas fa-user"></i>'
+      : '<i class="fas fa-robot"></i>';
 
     const content = document.createElement('div');
     content.className = 'message-content';
 
+    // Main text
     const text = document.createElement('div');
     text.innerHTML = marked.parse((msg.content || "").trim());
-
     content.appendChild(text);
+
+    // Processing status line
+    if (msg.processing) {
+      const ps = document.createElement('div');
+      ps.className = 'processing-status';
+      ps.innerHTML = `<i class="fas fa-circle-notch fa-spin"></i> ${msg.processing}`;
+      content.appendChild(ps);
+    }
+
+    // Audio attachments
+    if (msg.attachments?.length) {
+      const aw = document.createElement('div');
+      aw.style.marginTop = '12px';
+      msg.attachments.forEach(att => {
+        const badge = document.createElement('div');
+        badge.className = 'audio-attachment-badge';
+        badge.innerHTML = `<i class="fas fa-file-audio"></i> <span><strong>${att.name}</strong> (${formatSize(att.size)})</span>`;
+        if (att.audioUrl) {
+          const audio = document.createElement('audio');
+          audio.controls = true;
+          audio.preload = 'metadata';
+          audio.style.cssText = 'max-width:180px;height:32px;margin-left:12px;border-radius:40px;';
+          audio.src = att.audioUrl;
+          badge.appendChild(audio);
+        }
+        aw.appendChild(badge);
+      });
+      content.appendChild(aw);
+    }
+
+    // Sources
+    if (msg.sources?.length) {
+      const sb = document.createElement('div');
+      sb.className = 'sources-block';
+      sb.innerHTML = `<div class="sources-title"><i class="fas fa-bookmark"></i> Sources (${msg.sources.length})</div>`;
+      msg.sources.forEach(s => {
+        const si = document.createElement('div');
+        si.className = 'source-item';
+        const spk = s.speaker ? ` · ${s.speaker}` : '';
+        si.innerHTML = `<span class="source-ts">${s.start_fmt}–${s.end_fmt}</span>
+          <span><strong>${s.source_name}</strong>${spk} — ${s.excerpt}</span>`;
+        sb.appendChild(si);
+      });
+      content.appendChild(sb);
+    }
+
+    // Copy action (AI messages with content only)
+    if (msg.role === 'ai' && msg.content) {
+      content.appendChild(buildMessageActions(() => msg.content));
+    }
+
+    // Meta
+    const meta = document.createElement('div');
+    meta.className = 'message-meta';
+    meta.textContent = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    if (msg.tokens) meta.textContent += `  ·  ${msg.tokens} tokens`;
+    content.appendChild(meta);
 
     wrap.appendChild(av);
     wrap.appendChild(content);
+    return wrap;
+  }
 
+  function appendMessage(msg) {
+    const index = messages.length - 1;
+    const wrap = buildMessageNode(msg, index);
     chatContainer.appendChild(wrap);
-
     scrollToBottom();
   }
 
   // ── Render ───────────────────────────────────────────────────────────────────
   function renderMessages() {
-    console.log("Rendering", messages);
     welcomeBlock.style.display = messages.length ? 'none' : 'block';
 
     Array.from(chatContainer.children).forEach(c => {
@@ -592,107 +679,7 @@
     });
 
     messages.forEach((msg, index) => {
-      const wrap = document.createElement('div');
-      wrap.className = `message ${msg.role}`;
-      wrap.dataset.index = index;
-
-      const av = document.createElement('div');
-      av.className = 'message-avatar';
-      av.innerHTML = msg.role === 'user'
-        ? '<i class="fas fa-user"></i>'
-        : '<i class="fas fa-robot"></i>';
-
-      const content = document.createElement('div');
-      content.className = 'message-content';
-
-      // Main text
-      const text = document.createElement('div');
-      const markdown = (msg.content || "").trim();
-      text.innerHTML = marked.parse(markdown);
-      content.appendChild(text);
-
-      // Processing status line
-      if (msg.processing) {
-        const ps = document.createElement('div');
-        ps.className = 'processing-status';
-        ps.innerHTML = `<i class="fas fa-circle-notch fa-spin"></i> ${msg.processing}`;
-        content.appendChild(ps);
-      }
-
-      // Audio attachments
-      if (msg.attachments?.length) {
-        const aw = document.createElement('div');
-        aw.style.marginTop = '12px';
-        msg.attachments.forEach(att => {
-          const badge = document.createElement('div');
-          badge.className = 'audio-attachment-badge';
-          badge.innerHTML = `<i class="fas fa-file-audio"></i> <span><strong>${att.name}</strong> (${formatSize(att.size)})</span>`;
-          if (att.audioUrl) {
-            const audio = document.createElement('audio');
-            audio.controls = true;
-            audio.preload = 'metadata';
-            audio.style.cssText = 'max-width:180px;height:32px;margin-left:12px;border-radius:40px;';
-            audio.src = att.audioUrl;
-            badge.appendChild(audio);
-          }
-          aw.appendChild(badge);
-        });
-        content.appendChild(aw);
-      }
-
-      // Sources
-      if (msg.sources?.length) {
-        const sb = document.createElement('div');
-        sb.className = 'sources-block';
-        sb.innerHTML = `<div class="sources-title"><i class="fas fa-bookmark"></i> Sources (${msg.sources.length})</div>`;
-        msg.sources.forEach(s => {
-          const si = document.createElement('div');
-          si.className = 'source-item';
-          const spk = s.speaker ? ` · ${s.speaker}` : '';
-          si.innerHTML = `<span class="source-ts">${s.start_fmt}–${s.end_fmt}</span>
-            <span><strong>${s.source_name}</strong>${spk} — ${s.excerpt}</span>`;
-          sb.appendChild(si);
-        });
-        content.appendChild(sb);
-      }
-      console.log(msg);
-      
-      if (msg.role === "ai" && msg.content) {
-        
-        const actions = document.createElement("div");
-        actions.className = "message-actions";
-    
-        const copyBtn = document.createElement("button");
-        copyBtn.className = "copy-btn";
-        copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
-    
-        copyBtn.onclick = async () => {
-    
-            await navigator.clipboard.writeText(msg.content);
-    
-            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied';
-    
-            setTimeout(() => {
-                copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
-            }, 1500);
-    
-        };
-    
-        actions.appendChild(copyBtn);
-    
-        content.appendChild(actions);
-      }
-
-      // Meta
-      const meta = document.createElement('div');
-      meta.className = 'message-meta';
-      meta.textContent = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-      if (msg.tokens) meta.textContent += `  ·  ${msg.tokens} tokens`;
-      content.appendChild(meta);
-
-      wrap.appendChild(av);
-      wrap.appendChild(content);
-      chatContainer.appendChild(wrap);
+      chatContainer.appendChild(buildMessageNode(msg, index));
     });
 
     scrollToBottom();
@@ -725,16 +712,20 @@
       audioUrl: URL.createObjectURL(f),
     }));
 
+    const uploadMessage = `Uploading ${files.length} audio file(s): ${files.map(f => f.name).join(', ')}`;
+
     // Push user message immediately
     messages.push({
       role: 'user',
-      content: `Uploading ${files.length} audio file(s): ${files.map(f => f.name).join(', ')}`,
+      content: uploadMessage,
       attachments,
       processing: 'Transcribing with WhisperX…',
     });
-    console.log("After push", messages);
+    // Keep history in sync with messages: every turn that's shown to the
+    // user should also be represented in what's sent to the backend.
+    history.push({ role: 'user', content: uploadMessage });
+
     renderMessages();
-    console.log("After render", messages);
     addTypingIndicator();
 
     try {
@@ -777,7 +768,9 @@
     } catch (err) {
       removeTypingIndicator();
       messages[messages.length - 1].processing = null;
-      messages.push({ role: 'ai', content: `❌ Upload error: ${err.message}` });
+      const errText = `❌ Upload error: ${err.message}`;
+      messages.push({ role: 'ai', content: errText });
+      history.push({ role: 'assistant', content: errText });
     }
 
     renderMessages();
@@ -791,16 +784,14 @@
     const textDiv = lastMessage.querySelector(".message-content > div");
 
     let current = "";
-
     let i = 0;
-    
+
     while (i < fullText.length) {
       if (stopStreaming) {
         break;
       }
 
-
-    // Random chunk size (2-5 characters)
+      // Random chunk size (2-5 characters)
       const chunkSize = Math.floor(Math.random() * 4) + 2;
 
       current += fullText.slice(i, i + chunkSize);
@@ -809,41 +800,18 @@
 
       messages[messageIndex].content = current;
 
-      // scrollToBottom();
-
       i += chunkSize;
 
-    // Random typing speed
+      // Random typing speed
       const delay = 10 + Math.random() * 30;
-      
+
       await new Promise(resolve => setTimeout(resolve, delay));
     }
     messages[messageIndex].content = fullText;
     addCopyButton(messageIndex);
   }
 
-  //   for (const ch of fullText) {
-
-  //     if (stopStreaming) {
-  //       break;
-  //     }
-
-
-  //       current += ch;
-
-  //       // Update DOM
-  //       textDiv.innerHTML = marked.parse(current);
-
-  //       // Update messages array too
-  //       messages[messageIndex].content = current;
-
-  //       scrollToBottom();
-  //       await new Promise(resolve => setTimeout(resolve, 20));
-  //   }
-  // }
-
   function addCopyButton(messageIndex) {
-
     const wrap = document.querySelector(
         `.message[data-index="${messageIndex}"]`
     );
@@ -853,51 +821,27 @@
     if (wrap.querySelector(".copy-btn")) return;
 
     const content = wrap.querySelector(".message-content");
-
     const meta = content.querySelector(".message-meta");
 
-    const actions = document.createElement("div");
-    actions.className = "message-actions";
-
-    const btn = document.createElement("button");
-    btn.className = "copy-btn";
-    btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
-
-    btn.onclick = async () => {
-        await navigator.clipboard.writeText(messages[messageIndex].content);
-    };
-
-    actions.appendChild(btn);
+    const actions = buildMessageActions(() => messages[messageIndex].content);
 
     content.insertBefore(actions, meta);
   }
 
-
-
   // ── Send text query → RAG ────────────────────────────────────────────────────
   async function sendMessage() {
-    console.log("sendMessage started");
     const question = promptInput.value.trim();
-    console.log("Question:", question);
-    const formData = new FormData();
-    console.log("Question:", question);
-    formData.append("question", question);
-
-    console.log("Pending files:", pendingFiles);
-        if (pendingFiles.length > 0) {
-        formData.append("audio", pendingFiles[0]);
-    }
-
-    console.log("Before isBusy check");
 
     if (!question || isBusy) {
-        console.log("Returned because question empty or busy");
-        return;
+      return;
     }
 
-    console.log("After validation");
-    // formData.append("audio", pendingFiles[0]);
-    if (!question || isBusy) return;
+    const formData = new FormData();
+    formData.append("question", question);
+
+    if (pendingFiles.length > 0) {
+      formData.append("audio", pendingFiles[0]);
+    }
 
     setInputBusy(true);
     showStopButton();
@@ -916,55 +860,64 @@
     appendMessage(messages[messages.length - 1]);
     addTypingIndicator();
 
+    // Lets the stop button cancel the actual in-flight request, not just
+    // the fake-stream animation that plays once the response arrives.
+    activeAbortController = new AbortController();
+
     try {
       formData.append("history", JSON.stringify(history.slice(-10)));
       const res = await fetch(`${API_BASE}/transcribe/transcribe`, {
         method: "POST",
-        body: formData
+        body: formData,
+        signal: activeAbortController.signal
       });
-      const data = await res.json() ;
+      const data = await res.json();
 
       removeTypingIndicator();
 
       if (!data.success) throw new Error(data.error || 'Query failed');
       const tokens = data.tokens_used?.total;
-      
+
       messages.push({
         role: 'ai',
         content: "",
         sources: data.sources || [],
         tokens,
-    });
-    
-    // Get the index of the newly added AI message
-    const aiIndex = messages.length - 1;
-    
-    // Show the empty bubble
-    appendMessage(messages[aiIndex]);
-    
-    // Stream the response into that bubble
-    await fakeStream(aiIndex,data.answer);
-    showSendButton();
-    
-    // Save the final response in history
-    history.push({
+      });
+
+      // Get the index of the newly added AI message
+      const aiIndex = messages.length - 1;
+
+      // Show the empty bubble
+      appendMessage(messages[aiIndex]);
+
+      // Stream the response into that bubble
+      await fakeStream(aiIndex, data.answer);
+      showSendButton();
+
+      // Save the final response in history
+      history.push({
         role: 'assistant',
         content: data.answer
-    });
+      });
 
     } catch (err) {
       removeTypingIndicator();
-      messages.push({ role: 'ai', content: `❌ Error: ${err.message}` });
+      if (err.name === 'AbortError') {
+        // Request was cancelled via the stop button — nothing further to do.
+      } else {
+        const errText = `❌ Error: ${err.message}`;
+        messages.push({ role: 'ai', content: errText });
+        history.push({ role: 'assistant', content: errText });
+        appendMessage(messages[messages.length - 1]);
+      }
       showSendButton();
+    } finally {
+      activeAbortController = null;
+      pendingFiles = [];
+      renderSelectedFiles();
       setInputBusy(false);
-      
     }
-
-    // renderMessages();
-    pendingFiles = [];
-    renderSelectedFiles();
-    setInputBusy(false);
-    
   }
 
   function renderSelectedFiles() {
@@ -998,22 +951,20 @@
   });
 
 audioFileInput.addEventListener("change", (e) => {
-    console.log("File selected");
-
     pendingFiles = Array.from(e.target.files);
-
-    console.log(pendingFiles);
-
     renderSelectedFiles();
-
-    console.log("After render");
-
     audioFileInput.value = "";
   });
   sendBtn.addEventListener("click", async (e) => {
       e.preventDefault();
       if (isBusy) {
+        // Stop button mode: halt the fake-stream animation AND abort the
+        // underlying fetch so the backend request doesn't keep running
+        // in the background after the user cancels.
         stopStreaming = true;
+        if (activeAbortController) {
+          activeAbortController.abort();
+        }
         showSendButton();
         setInputBusy(false);
         return;
