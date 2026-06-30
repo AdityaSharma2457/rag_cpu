@@ -378,6 +378,22 @@
     transform: translateY(0);
     pointer-events: none;
   }
+  .message-actions{
+    margin-top:10px;
+  }
+
+  .copy-btn{
+    background:transparent;
+    border:none;
+    color:#999;
+    cursor:pointer;
+    font-size:13px;
+    transition:.2s;
+  }
+
+  .copy-btn:hover{
+      color:white;
+  }
 
   </style>
 </head>
@@ -476,6 +492,16 @@
   let history  = [];        // [{role, content}] sent to backend
   let isBusy   = false;
   let pendingFiles = [];
+  let stopStreaming = false;   //Create a stop flag
+
+
+  function showStopButton() {
+    sendBtn.innerHTML = '<i class="fas fa-stop"></i>';
+  }
+
+  function showSendButton() {
+    sendBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+  }
 
   // ── Health check ─────────────────────────────────────────────────────────────
   async function checkHealth() {
@@ -504,7 +530,12 @@
   setInterval(checkHealth, 30000);
 
   // ── Helpers ──────────────────────────────────────────────────────────────────
-  const scrollToBottom = () => { chatContainer.scrollTop = chatContainer.scrollHeight; };
+  const scrollToBottom = () => {
+    chatContainer.scrollTo({
+        top: chatContainer.scrollHeight,
+        behavior: "smooth"
+    });
+  };
 
   function formatSize(b) {
     if (!b) return '';
@@ -512,12 +543,43 @@
     if (b < 1048576) return (b / 1024).toFixed(1) + ' KB';
     return (b / 1048576).toFixed(1) + ' MB';
   }
-
+  
+  
   function setInputBusy(busy) {
     isBusy = busy;
+
     promptInput.disabled = busy;
-    sendBtn.disabled = busy;
     audioPlusBtn.disabled = busy;
+
+    // Disable only when NOT busy
+    sendBtn.disabled = false;
+  }
+
+  function appendMessage(msg) {
+
+    const wrap = document.createElement('div');
+    wrap.className = `message ${msg.role}`;
+
+    const av = document.createElement('div');
+    av.className = 'message-avatar';
+    av.innerHTML = msg.role === 'user'
+        ? '<i class="fas fa-user"></i>'
+        : '<i class="fas fa-robot"></i>';
+
+    const content = document.createElement('div');
+    content.className = 'message-content';
+
+    const text = document.createElement('div');
+    text.innerHTML = marked.parse((msg.content || "").trim());
+
+    content.appendChild(text);
+
+    wrap.appendChild(av);
+    wrap.appendChild(content);
+
+    chatContainer.appendChild(wrap);
+
+    scrollToBottom();
   }
 
   // ── Render ───────────────────────────────────────────────────────────────────
@@ -529,9 +591,10 @@
       if (c !== welcomeBlock && !c.classList.contains('bg-logo-emblem')) c.remove();
     });
 
-    messages.forEach(msg => {
+    messages.forEach((msg, index) => {
       const wrap = document.createElement('div');
       wrap.className = `message ${msg.role}`;
+      wrap.dataset.index = index;
 
       const av = document.createElement('div');
       av.className = 'message-avatar';
@@ -591,6 +654,33 @@
           sb.appendChild(si);
         });
         content.appendChild(sb);
+      }
+      console.log(msg);
+      
+      if (msg.role === "ai" && msg.content) {
+        
+        const actions = document.createElement("div");
+        actions.className = "message-actions";
+    
+        const copyBtn = document.createElement("button");
+        copyBtn.className = "copy-btn";
+        copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+    
+        copyBtn.onclick = async () => {
+    
+            await navigator.clipboard.writeText(msg.content);
+    
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied';
+    
+            setTimeout(() => {
+                copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            }, 1500);
+    
+        };
+    
+        actions.appendChild(copyBtn);
+    
+        content.appendChild(actions);
       }
 
       // Meta
@@ -695,6 +785,95 @@
     setInputBusy(false);
   }
 
+  async function fakeStream(messageIndex, fullText) {
+
+    const lastMessage = document.querySelector(".message.ai:last-child");
+    const textDiv = lastMessage.querySelector(".message-content > div");
+
+    let current = "";
+
+    let i = 0;
+    
+    while (i < fullText.length) {
+      if (stopStreaming) {
+        break;
+      }
+
+
+    // Random chunk size (2-5 characters)
+      const chunkSize = Math.floor(Math.random() * 4) + 2;
+
+      current += fullText.slice(i, i + chunkSize);
+
+      textDiv.innerHTML = marked.parse(current);
+
+      messages[messageIndex].content = current;
+
+      // scrollToBottom();
+
+      i += chunkSize;
+
+    // Random typing speed
+      const delay = 10 + Math.random() * 30;
+      
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+    messages[messageIndex].content = fullText;
+    addCopyButton(messageIndex);
+  }
+
+  //   for (const ch of fullText) {
+
+  //     if (stopStreaming) {
+  //       break;
+  //     }
+
+
+  //       current += ch;
+
+  //       // Update DOM
+  //       textDiv.innerHTML = marked.parse(current);
+
+  //       // Update messages array too
+  //       messages[messageIndex].content = current;
+
+  //       scrollToBottom();
+  //       await new Promise(resolve => setTimeout(resolve, 20));
+  //   }
+  // }
+
+  function addCopyButton(messageIndex) {
+
+    const wrap = document.querySelector(
+        `.message[data-index="${messageIndex}"]`
+    );
+
+    if (!wrap) return;
+
+    if (wrap.querySelector(".copy-btn")) return;
+
+    const content = wrap.querySelector(".message-content");
+
+    const meta = content.querySelector(".message-meta");
+
+    const actions = document.createElement("div");
+    actions.className = "message-actions";
+
+    const btn = document.createElement("button");
+    btn.className = "copy-btn";
+    btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+
+    btn.onclick = async () => {
+        await navigator.clipboard.writeText(messages[messageIndex].content);
+    };
+
+    actions.appendChild(btn);
+
+    content.insertBefore(actions, meta);
+  }
+
+
+
   // ── Send text query → RAG ────────────────────────────────────────────────────
   async function sendMessage() {
     console.log("sendMessage started");
@@ -717,10 +896,12 @@
     }
 
     console.log("After validation");
-    formData.append("audio", pendingFiles[0]);
+    // formData.append("audio", pendingFiles[0]);
     if (!question || isBusy) return;
 
     setInputBusy(true);
+    showStopButton();
+    stopStreaming = false;
     promptInput.value = '';
     promptInput.style.height = 'auto';
 
@@ -732,7 +913,7 @@
       }))
     });
     history.push({ role: 'user', content: question });
-    renderMessages();
+    appendMessage(messages[messages.length - 1]);
     addTypingIndicator();
 
     try {
@@ -746,27 +927,44 @@
       removeTypingIndicator();
 
       if (!data.success) throw new Error(data.error || 'Query failed');
-
       const tokens = data.tokens_used?.total;
+      
       messages.push({
         role: 'ai',
-        content: data.answer,
+        content: "",
         sources: data.sources || [],
         tokens,
-      });
-
-
-      history.push({ role: 'assistant', content: data.answer });
+    });
+    
+    // Get the index of the newly added AI message
+    const aiIndex = messages.length - 1;
+    
+    // Show the empty bubble
+    appendMessage(messages[aiIndex]);
+    
+    // Stream the response into that bubble
+    await fakeStream(aiIndex,data.answer);
+    showSendButton();
+    
+    // Save the final response in history
+    history.push({
+        role: 'assistant',
+        content: data.answer
+    });
 
     } catch (err) {
       removeTypingIndicator();
       messages.push({ role: 'ai', content: `❌ Error: ${err.message}` });
+      showSendButton();
+      setInputBusy(false);
+      
     }
 
-    renderMessages();
+    // renderMessages();
     pendingFiles = [];
     renderSelectedFiles();
     setInputBusy(false);
+    
   }
 
   function renderSelectedFiles() {
@@ -811,12 +1009,18 @@ audioFileInput.addEventListener("change", (e) => {
     console.log("After render");
 
     audioFileInput.value = "";
-});
-sendBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log("Button clicked");
-    sendMessage();
-});
+  });
+  sendBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      if (isBusy) {
+        stopStreaming = true;
+        showSendButton();
+        setInputBusy(false);
+        return;
+      }
+      await sendMessage();
+    }
+  );
 
   promptInput.addEventListener('keydown', e => {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
