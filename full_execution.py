@@ -3,10 +3,8 @@ from vector_db import collection
 from ragEngine import pipeline
 import json
 
-#
 
-
-def full_execution(toon_file_path, question):
+def full_execution(toon_file_path, question, history=None):
 
     with open(toon_file_path, "r", encoding="utf-8") as file:
         transcript = file.read()
@@ -111,16 +109,19 @@ Return ONLY valid JSON in the following format:
 }}
 
 """)
+    print("Before parsing:", type(claims_json))
+
     claims_json = json.loads(claims_json)
 
-    retrieved_chunks=[collection.similarity_search(f"{query}",k=5 ) for query in claims_json["claims"]] 
+    print("After parsing:", type(claims_json))
+    print(claims_json)
 
-    response=pipeline(question,transcript,retrieved_chunks,claims_json) 
+    retrieved_chunks = [collection.similarity_search(f"{query}", k=5) for query in claims_json["claims"]]
+
+    response = pipeline(question, transcript, retrieved_chunks, claims_json, history)
 
     return {
     "success": True,
     "answer": response,
-    "sources": [],
-    "tokens_used": 0
-}
-    
+
+    }

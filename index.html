@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
   <title>Conversation Intelligence Platform · Claude Desktop</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -144,7 +147,17 @@
     .source-item:first-of-type { border-top: none; }
     .source-ts { color: #DA7756; font-weight: 500; white-space: nowrap; }
 
-    .message-meta { font-size: 0.68rem; color: #B0AFA9; margin-top: 8px; }
+    .message-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.68rem;
+      color: #B0AFA9;
+      margin-top: 8px;
+    }
+    .message-time { white-space: nowrap; }
+    .message-time-sent { color: #8C8C88; }
+    .message-time-read { color: #4CAF50; }
 
     /* Processing status */
     .processing-status {
@@ -210,6 +223,175 @@
     .chat-canvas::-webkit-scrollbar { width: 5px; }
     .chat-canvas::-webkit-scrollbar-track { background: transparent; }
     .chat-canvas::-webkit-scrollbar-thumb { background: #E5E3DD; border-radius: 10px; }
+
+    /* ────────────────── Markdown / Prose Styling (Claude Desktop Style) ────────────────── */
+    .message-content .prose,
+    .message-content > div:first-child {
+      line-height: 1.65;
+      font-size: 0.92rem;
+      color: inherit;
+    }
+
+    /* Headings */
+    .message-content h1,
+    .message-content h2,
+    .message-content h3,
+    .message-content h4 {
+      font-weight: 600;
+      line-height: 1.3;
+      margin-top: 1.25em;
+      margin-bottom: 0.5em;
+      color: #1A1A18;
+    }
+    .message-content h1 { font-size: 1.5rem; letter-spacing: -0.02em; }
+    .message-content h2 { font-size: 1.25rem; letter-spacing: -0.01em; }
+    .message-content h3 { font-size: 1.05rem; }
+    .message-content h4 { font-size: 0.95rem; color: #3A3A37; }
+
+    /* Paragraphs */
+    .message-content p {
+      margin: 0.75em 0;
+      line-height: 1.7;
+    }
+    .message-content p:first-child { margin-top: 0; }
+    .message-content p:last-child { margin-bottom: 0; }
+
+    /* Inline code */
+    .message-content :not(pre) > code {
+      font-family: 'JetBrains Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+      font-size: 0.85em;
+      background: rgba(0,0,0,0.05);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      color: #BD5B3A;
+      font-weight: 500;
+    }
+
+    /* Code blocks */
+    .message-content pre {
+      margin: 1em 0;
+      border-radius: 10px;
+      background: #1E1E1E;
+      overflow: auto;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .message-content pre code {
+      font-family: 'JetBrains Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+      font-size: 0.8rem;
+      line-height: 1.6;
+      display: block;
+      padding: 1rem 1.25rem;
+      color: #E0E0E0;
+      background: transparent;
+      overflow-x: auto;
+    }
+    /* Inline code inside pre should not double-style */
+    .message-content pre code * { background: none; padding: 0; color: inherit; }
+
+    /* Syntax highlighting (Prism-like minimal) */
+    .message-content .token.comment { color: #6A737D; font-style: italic; }
+    .message-content .token.keyword { color: #C678DD; }
+    .message-content .token.function { color: #61AFEF; }
+    .message-content .token.string { color: #98C379; }
+    .message-content .token.number { color: #D19A66; }
+    .message-content .token.operator { color: #56B6C2; }
+    .message-content .token.punctuation { color: #ABB2BF; }
+    .message-content .token.class-name { color: #E5C07B; }
+    .message-content .token.tag { color: #E06C75; }
+    .message-content .token.attr-name { color: #D19A66; }
+    .message-content .token.attr-value { color: #98C379; }
+
+    /* Lists */
+    .message-content ul,
+    .message-content ol {
+      margin: 0.75em 0;
+      padding-left: 1.5em;
+    }
+    .message-content ul { list-style: disc; }
+    .message-content ol { list-style: decimal; }
+    .message-content li { margin: 0.4em 0; line-height: 1.6; }
+    .message-content li::marker { color: #8C8C88; }
+    .message-content ul ul,
+    .message-content ol ol,
+    .message-content ul ol,
+    .message-content ol ul { margin: 0.3em 0; }
+
+    /* Task lists */
+    .message-content input[type="checkbox"] {
+      margin-right: 0.5em;
+      accent-color: #DA7756;
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Blockquotes */
+    .message-content blockquote {
+      margin: 1em 0;
+      padding: 0.5em 1em;
+      border-left: 3px solid #DA7756;
+      background: rgba(218,119,86,0.06);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #5A5A56;
+    }
+    .message-content blockquote p { margin: 0.3em 0; }
+
+    /* Tables */
+    .message-content table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      display: block;
+    }
+    .message-content th,
+    .message-content td {
+      padding: 0.6em 0.9em;
+      border: 1px solid rgba(0,0,0,0.08);
+      text-align: left;
+    }
+    .message-content th {
+      background: rgba(218,119,86,0.08);
+      font-weight: 600;
+      color: #3A3A37;
+      white-space: nowrap;
+    }
+    .message-content tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+    .message-content tr:hover td { background: rgba(218,119,86,0.04); }
+
+    /* Horizontal rule */
+    .message-content hr {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      margin: 1.5em 0;
+    }
+
+    /* Links */
+    .message-content a {
+      color: #DA7756;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(218,119,86,0.3);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .message-content a:hover { color: #BD5B3A; border-bottom-color: #BD5B3A; }
+
+    /* Bold / Italic */
+    .message-content strong { font-weight: 600; color: #1A1A18; }
+    .message-content em { font-style: italic; color: #3A3A37; }
+
+    /* Images */
+    .message-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 0.75em 0;
+    }
+
+    /* Reduce top margin on first element */
+    .message-content > div:first-child > *:first-child,
+    .message-content > *:first-child { margin-top: 0 !important; }
 
     .selected-files{
     display:flex;
@@ -378,6 +560,24 @@
     transform: translateY(0);
     pointer-events: none;
   }
+  .text-success { color: #4CAF50; }
+
+  .message-actions{
+    margin-top:10px;
+  }
+
+  .copy-btn{
+    background:transparent;
+    border:none;
+    color:#999;
+    cursor:pointer;
+    font-size:13px;
+    transition:.2s;
+  }
+
+  .copy-btn:hover{
+      color:white;
+  }
 
   </style>
 </head>
@@ -476,6 +676,16 @@
   let history  = [];        // [{role, content}] sent to backend
   let isBusy   = false;
   let pendingFiles = [];
+  let stopStreaming = false;   //Create a stop flag
+
+
+  function showStopButton() {
+    sendBtn.innerHTML = '<i class="fas fa-stop"></i>';
+  }
+
+  function showSendButton() {
+    sendBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+  }
 
   // ── Health check ─────────────────────────────────────────────────────────────
   async function checkHealth() {
@@ -504,7 +714,12 @@
   setInterval(checkHealth, 30000);
 
   // ── Helpers ──────────────────────────────────────────────────────────────────
-  const scrollToBottom = () => { chatContainer.scrollTop = chatContainer.scrollHeight; };
+  const scrollToBottom = () => {
+    chatContainer.scrollTo({
+        top: chatContainer.scrollHeight,
+        behavior: "smooth"
+    });
+  };
 
   function formatSize(b) {
     if (!b) return '';
@@ -512,12 +727,72 @@
     if (b < 1048576) return (b / 1024).toFixed(1) + ' KB';
     return (b / 1048576).toFixed(1) + ' MB';
   }
-
+  
+  
   function setInputBusy(busy) {
     isBusy = busy;
+
     promptInput.disabled = busy;
-    sendBtn.disabled = busy;
     audioPlusBtn.disabled = busy;
+
+    // Disable only when NOT busy
+    sendBtn.disabled = false;
+  }
+
+  function appendMessage(msg) {
+
+    const wrap = document.createElement('div');
+    wrap.className = `message ${msg.role}`;
+
+    const av = document.createElement('div');
+    av.className = 'message-avatar';
+    av.innerHTML = msg.role === 'user'
+        ? '<i class="fas fa-user"></i>'
+        : '<i class="fas fa-robot"></i>';
+
+    const content = document.createElement('div');
+    content.className = 'message-content';
+
+    const text = document.createElement('div');
+    text.innerHTML = marked.parse((msg.content || "").trim());
+    // Apply syntax highlighting after markdown parsing
+    text.querySelectorAll('pre code').forEach(block => {
+      Prism.highlightElement(block);
+    });
+
+    content.appendChild(text);
+
+    // Add metadata (timestamp + tokens)
+    const meta = document.createElement('div');
+    meta.className = 'message-meta';
+    const timeStr = msg.timestamp ? formatTime(msg.timestamp) : formatTime(Date.now());
+    if (msg.role === 'user') {
+      // WhatsApp style: time + checkmarks
+      meta.innerHTML = `${timeStr} <span class="msg-status"><i class="fas fa-check-double text-success"></i></span>`;
+    } else {
+      meta.textContent = timeStr;
+      if (msg.tokens) meta.textContent += `  ·  ${msg.tokens} tokens`;
+    }
+    content.appendChild(meta);
+
+    wrap.appendChild(av);
+    wrap.appendChild(content);
+
+    chatContainer.appendChild(wrap);
+
+    scrollToBottom();
+  }
+
+  // Format timestamp like WhatsApp: "10:30 AM" or "Yesterday 10:30 AM"
+  function formatTime(ts) {
+    const date = new Date(ts);
+    const now = new Date();
+    const isToday = date.toDateString() === now.toDateString();
+    const isYesterday = date.toDateString() === new Date(now.getTime() - 86400000).toDateString();
+    const timeStr = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+    if (isToday) return timeStr;
+    if (isYesterday) return `Yesterday ${timeStr}`;
+    return date.toLocaleDateString([], { month: 'short', day: 'numeric' }) + ' ' + timeStr;
   }
 
   // ── Render ───────────────────────────────────────────────────────────────────
@@ -529,9 +804,10 @@
       if (c !== welcomeBlock && !c.classList.contains('bg-logo-emblem')) c.remove();
     });
 
-    messages.forEach(msg => {
+    messages.forEach((msg, index) => {
       const wrap = document.createElement('div');
       wrap.className = `message ${msg.role}`;
+      wrap.dataset.index = index;
 
       const av = document.createElement('div');
       av.className = 'message-avatar';
@@ -546,6 +822,10 @@
       const text = document.createElement('div');
       const markdown = (msg.content || "").trim();
       text.innerHTML = marked.parse(markdown);
+      // Apply syntax highlighting
+      text.querySelectorAll('pre code').forEach(block => {
+        Prism.highlightElement(block);
+      });
       content.appendChild(text);
 
       // Processing status line
@@ -592,12 +872,44 @@
         });
         content.appendChild(sb);
       }
+      console.log(msg);
 
-      // Meta
+      if (msg.role === "ai" && msg.content) {
+
+        const actions = document.createElement("div");
+        actions.className = "message-actions";
+
+        const copyBtn = document.createElement("button");
+        copyBtn.className = "copy-btn";
+        copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+
+        copyBtn.onclick = async () => {
+
+            await navigator.clipboard.writeText(msg.content);
+
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied';
+
+            setTimeout(() => {
+                copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            }, 1500);
+
+        };
+
+        actions.appendChild(copyBtn);
+
+        content.appendChild(actions);
+      }
+
+      // Meta - show timestamp like WhatsApp
       const meta = document.createElement('div');
       meta.className = 'message-meta';
-      meta.textContent = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-      if (msg.tokens) meta.textContent += `  ·  ${msg.tokens} tokens`;
+      const timeStr = msg.timestamp ? formatTime(msg.timestamp) : formatTime(Date.now());
+      if (msg.role === 'user') {
+        meta.innerHTML = `${timeStr} <span class="msg-status"><i class="fas fa-check-double text-success"></i></span>`;
+      } else {
+        meta.textContent = timeStr;
+        if (msg.tokens) meta.textContent += `  ·  ${msg.tokens} tokens`;
+      }
       content.appendChild(meta);
 
       wrap.appendChild(av);
@@ -641,6 +953,7 @@
       content: `Uploading ${files.length} audio file(s): ${files.map(f => f.name).join(', ')}`,
       attachments,
       processing: 'Transcribing with WhisperX…',
+      timestamp: Date.now(),
     });
     console.log("After push", messages);
     renderMessages();
@@ -681,19 +994,115 @@
       }
 
       removeTypingIndicator();
-      messages.push({ role: 'ai', content: aiText, sources: [] });
+      messages.push({ role: 'ai', content: aiText, sources: [], timestamp: Date.now() });
       history.push({ role: 'assistant', content: aiText });
 
     } catch (err) {
       removeTypingIndicator();
       messages[messages.length - 1].processing = null;
-      messages.push({ role: 'ai', content: `❌ Upload error: ${err.message}` });
+      messages.push({ role: 'ai', content: `❌ Upload error: ${err.message}`, timestamp: Date.now() });
     }
 
     renderMessages();
     checkHealth();
     setInputBusy(false);
   }
+
+  async function fakeStream(messageIndex, fullText) {
+
+    const lastMessage = document.querySelector(".message.ai:last-child");
+    const textDiv = lastMessage.querySelector(".message-content > div");
+
+    let current = "";
+
+    let i = 0;
+    
+    while (i < fullText.length) {
+      if (stopStreaming) {
+        break;
+      }
+
+
+    // Random chunk size (2-5 characters)
+      const chunkSize = Math.floor(Math.random() * 4) + 2;
+
+      current += fullText.slice(i, i + chunkSize);
+
+      textDiv.innerHTML = marked.parse(current);
+
+      messages[messageIndex].content = current;
+
+      // scrollToBottom();
+
+      i += chunkSize;
+
+    // Random typing speed
+      const delay = 10 + Math.random() * 30;
+      
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+    messages[messageIndex].content = fullText;
+    // Apply syntax highlighting after streaming completes
+    const finalTextDiv = document.querySelector(`.message[data-index="${messageIndex}"] .message-content > div`);
+    if (finalTextDiv) {
+      finalTextDiv.querySelectorAll('pre code').forEach(block => {
+        Prism.highlightElement(block);
+      });
+    }
+    addCopyButton(messageIndex);
+  }
+
+  //   for (const ch of fullText) {
+
+  //     if (stopStreaming) {
+  //       break;
+  //     }
+
+
+  //       current += ch;
+
+  //       // Update DOM
+  //       textDiv.innerHTML = marked.parse(current);
+
+  //       // Update messages array too
+  //       messages[messageIndex].content = current;
+
+  //       scrollToBottom();
+  //       await new Promise(resolve => setTimeout(resolve, 20));
+  //   }
+  // }
+
+  function addCopyButton(messageIndex) {
+
+    const wrap = document.querySelector(
+        `.message[data-index="${messageIndex}"]`
+    );
+
+    if (!wrap) return;
+
+    if (wrap.querySelector(".copy-btn")) return;
+
+    const content = wrap.querySelector(".message-content");
+
+    const meta = content.querySelector(".message-meta");
+
+    const actions = document.createElement("div");
+    actions.className = "message-actions";
+
+    const btn = document.createElement("button");
+    btn.className = "copy-btn";
+    btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+
+    btn.onclick = async () => {
+        await navigator.clipboard.writeText(messages[messageIndex].content);
+    };
+
+    actions.appendChild(btn);
+
+    content.insertBefore(actions, meta);
+  }
+
+
 
   // ── Send text query → RAG ────────────────────────────────────────────────────
   async function sendMessage() {
@@ -717,10 +1126,12 @@
     }
 
     console.log("After validation");
-    formData.append("audio", pendingFiles[0]);
+    // formData.append("audio", pendingFiles[0]);
     if (!question || isBusy) return;
 
     setInputBusy(true);
+    showStopButton();
+    stopStreaming = false;
     promptInput.value = '';
     promptInput.style.height = 'auto';
 
@@ -729,10 +1140,11 @@
       content: question,
       attachments: pendingFiles.map(file => ({
         name: file.name
-      }))
+      })),
+      timestamp: Date.now()
     });
     history.push({ role: 'user', content: question });
-    renderMessages();
+    appendMessage(messages[messages.length - 1]);
     addTypingIndicator();
 
     try {
@@ -746,27 +1158,45 @@
       removeTypingIndicator();
 
       if (!data.success) throw new Error(data.error || 'Query failed');
-
       const tokens = data.tokens_used?.total;
+
       messages.push({
         role: 'ai',
-        content: data.answer,
+        content: "",
         sources: data.sources || [],
         tokens,
-      });
-
-
-      history.push({ role: 'assistant', content: data.answer });
+        timestamp: Date.now(),
+    });
+    
+    // Get the index of the newly added AI message
+    const aiIndex = messages.length - 1;
+    
+    // Show the empty bubble
+    appendMessage(messages[aiIndex]);
+    
+    // Stream the response into that bubble
+    await fakeStream(aiIndex,data.answer);
+    showSendButton();
+    
+    // Save the final response in history
+    history.push({
+        role: 'assistant',
+        content: data.answer
+    });
 
     } catch (err) {
       removeTypingIndicator();
-      messages.push({ role: 'ai', content: `❌ Error: ${err.message}` });
+      messages.push({ role: 'ai', content: `❌ Error: ${err.message}`, timestamp: Date.now() });
+      showSendButton();
+      setInputBusy(false);
+
     }
 
-    renderMessages();
+    // renderMessages();
     pendingFiles = [];
     renderSelectedFiles();
     setInputBusy(false);
+    
   }
 
   function renderSelectedFiles() {
@@ -811,12 +1241,18 @@ audioFileInput.addEventListener("change", (e) => {
     console.log("After render");
 
     audioFileInput.value = "";
-});
-sendBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log("Button clicked");
-    sendMessage();
-});
+  });
+  sendBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      if (isBusy) {
+        stopStreaming = true;
+        showSendButton();
+        setInputBusy(false);
+        return;
+      }
+      await sendMessage();
+    }
+  );
 
   promptInput.addEventListener('keydown', e => {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
