@@ -5,8 +5,8 @@ from model_loader import generate_response
 from langchain_core.runnables import RunnableLambda
 
 
-
 def pipeline(user_question,transcript,retrieved_context,claims_json):
+    user_question = user_question if user_question else "None"
     prompt = ChatPromptTemplate.from_template("""
     You are an expert Conversation Intelligence and University Counselling Quality Analyst.
 
@@ -15,7 +15,7 @@ def pipeline(user_question,transcript,retrieved_context,claims_json):
     1. Counselling Conversation Transcript
     2. Extracted Counsellor Claims
     3. Official University Context retrieved from brochures
-    4. Optional User Question
+    4. Optional User Request
 
     ---
 
@@ -120,7 +120,7 @@ def pipeline(user_question,transcript,retrieved_context,claims_json):
 
     ---
     question :
-  {user_question}
+    {user_question}
 
     Conversation Transcript:
 
@@ -155,4 +155,53 @@ def pipeline(user_question,transcript,retrieved_context,claims_json):
     print(payload)
     
     response = chain.invoke(payload)
-    return response 
+    return response
+
+
+
+
+def chat_pipeline_llm(question, retrieved_context, chat_history=None):
+
+    prompt = ChatPromptTemplate.from_template("""
+    You are an AI assistant for a university counselling CRM.
+
+    You have access to:
+
+    1. Recent Chat History
+    2. Retrieved Context
+    3. Current User Question
+
+    Instructions:
+
+    - Use the recent chat history to maintain conversational continuity.
+    - Use the retrieved context as the factual source.
+    - If the retrieved context contradicts the history, prefer the retrieved context.
+    - Do not invent information.
+    - If the answer cannot be found, say you don't have enough information.
+
+    Recent Chat History:
+    {chat_history}
+
+    Retrieved Context:
+    {retrieved_context}
+
+    Current User Question:
+    {question}
+    """)
+
+    llm = RunnableLambda(generate_response)
+
+    chain = (
+        prompt
+        | llm
+        | StrOutputParser()
+    )
+
+    payload = {
+        "question": question,
+        "retrieved_context": str(retrieved_context),
+        "chat_history" : chat_history
+    }
+
+    response = chain.invoke(payload)
+    return response

@@ -5,8 +5,6 @@ from openai import OpenAI
 load_dotenv()
 
 
-
-
 api=os.getenv("GEMINI_API_KEY")
 WHISPER_MODEL=os.getenv("WHISPER_MODEL")
 WHISPER_DEVICE=os.getenv("WHISPER_DEVICE")
@@ -27,7 +25,6 @@ def load_models():
         compute_type="int8"
     )
 
-
 def generate_response(prompt):
     completion = client.chat.completions.create(
         model="nvidia/nemotron-3-ultra-550b-a55b",
@@ -37,5 +34,4 @@ def generate_response(prompt):
         temperature=0.6,
         max_tokens=4000
     )
-
     return completion.choices[0].message.content

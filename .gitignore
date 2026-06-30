@@ -8,3 +8,31 @@ courses/
 hostel/
 scholarships&refunds/
 chroma_db/
+
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local databases
+*.db
+*.sqlite3
+
+reports/
+
+# Project data (if generated locally)
+call/
+courses/
+hostel/
+scholarships&refunds/
+
+# Logs
+*.log
+
+
+.python-version_copy
+history.json
+workflow.txt

@@ -5,7 +5,7 @@
 # import vectordb
 
 # client = vectordb.PersistentClient(path="./chroma_db")
-# collection = client.get_or_create_collection("universities")
+# collection = client.broucher_db("universities")
 
 # folder_path = "scholarships&refunds"
 
@@ -50,7 +50,6 @@
 
 
 #for json
-
 
 
 # import os

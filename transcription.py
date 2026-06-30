@@ -6,27 +6,20 @@ import uuid
 import model_loader
 from dotenv import load_dotenv
 import os
-from flask import Blueprint,request
 from full_execution import full_execution
 
 
 os.makedirs("./transcripted",exist_ok=True)
 os.makedirs("./call",exist_ok=True)
 
-
+model_loader.load_models()
 load_dotenv()
 WHISPER_MODEL=os.getenv("WHISPER_MODEL")
 HF_TOKEN=os.getenv("HF_TOKEN")
 WHISPER_DEVICE=os.getenv("WHISPER_DEVICE")
 
 
-transcription_bp= Blueprint("transcription",__name__)
-@transcription_bp.route("/transcribe",methods=['POST'])
-
-def  transcription():
-    global question
-    audio_file=request.files["audio"]
-    question=request.form.get("question")
+def  transcription(audio_file, question):
 
     file_path = os.path.join(os.getcwd(),"call", audio_file.filename)
     audio_file.save(file_path)
@@ -89,17 +82,10 @@ def  transcription():
     transcript.status="processing"
     db.session().commit()
 
-    return full_execution(toon_file_path,question)
+    return full_execution(toon_file_path,question, transcript.id)
 
     
 
-@transcription_bp.route("/health",methods=['GET'])
-
-def health():
-    return {
-        "status":"ok",
-        "documents_indexed" :0
-    }
 
     # row = transcription_table.query.get(i)
     # if():

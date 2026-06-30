@@ -1,6 +1,6 @@
 from flask import Flask 
 import db_init_
-from transcription import transcription_bp
+from router import controller_bp
 from contributors import avatar_sync
 from config import Config 
 from flask_cors import CORS
@@ -17,8 +17,8 @@ def create_app():
     
 
     db.init_app(app)
-    app.register_blueprint(transcription_bp,url_prefix="/transcribe")
     app.register_blueprint(avatar_sync,url_prefix="/contributors")
+    app.register_blueprint(controller_bp, url_prefix="/chat")
     
     with app.app_context():
         db.create_all()
@@ -27,7 +27,6 @@ def create_app():
 
 db = db_init_.db
 app = create_app()
-
 
 
 if __name__ == "__main__":

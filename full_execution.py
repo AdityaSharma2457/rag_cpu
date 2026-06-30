@@ -1,15 +1,19 @@
 from model_loader import generate_response
-from vector_db import collection
+from vector_db import broucher_db
 from ragEngine import pipeline
+from history_manager import save_msg
+from db import transcription_table
+from db_init_ import db
 import json
+import os
 
-#
 
-
-def full_execution(toon_file_path, question):
+def full_execution(toon_file_path, question, transcription_id):
 
     with open(toon_file_path, "r", encoding="utf-8") as file:
         transcript = file.read()
+    
+    user_request = question.strip() if question else ""
 
     claims_json = generate_response(f"""
 
@@ -113,14 +117,33 @@ Return ONLY valid JSON in the following format:
 """)
     claims_json = json.loads(claims_json)
 
-    retrieved_chunks=[collection.similarity_search(f"{query}",k=5 ) for query in claims_json["claims"]] 
+    retrieved_chunks=[broucher_db.similarity_search(f"{query}",k=5 ) for query in claims_json["claims"]] 
 
-    response=pipeline(question,transcript,retrieved_chunks,claims_json) 
+    response=pipeline(user_request,transcript,retrieved_chunks,claims_json) 
 
+
+    os.makedirs("reports", exist_ok=True)
+    report_file = os.path.join(
+        "reports",
+        f"{transcription_id}.txt"
+    )
+    with open(report_file, "w", encoding="utf-8") as f:
+        f.write(response)
+
+    record = transcription_table.query.get(transcription_id)
+    record.report_file_path = report_file
+    record.status = "completed"
+
+    db.session.commit()
+
+
+    save_msg(
+        user_request,
+        f"Generated report for {report_file}"
+    )
     return {
     "success": True,
     "answer": response,
     "sources": [],
     "tokens_used": 0
 }
-    
