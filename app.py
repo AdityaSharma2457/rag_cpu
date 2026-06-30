@@ -5,8 +5,8 @@ from contributors import avatar_sync
 from config import Config 
 from flask_cors import CORS
 
-from flask_cors import CORS
-
+from model_loader import load_models
+load_models()
 
 # Initialize the Flask application
 def create_app():

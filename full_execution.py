@@ -6,10 +6,12 @@ import json
 #
 
 
-def full_execution(toon_file_path, question):
-
+def full_execution(question,toon_file_path= None):
+  
+  # transcript=""
+  # if toon_file_path:
     with open(toon_file_path, "r", encoding="utf-8") as file:
-        transcript = file.read()
+      transcript = file.read()
 
     claims_json = generate_response(f"""
 
@@ -116,11 +118,15 @@ Return ONLY valid JSON in the following format:
     retrieved_chunks=[collection.similarity_search(f"{query}",k=5 ) for query in claims_json["claims"]] 
 
     response=pipeline(question,transcript,retrieved_chunks,claims_json) 
-
+    
     return {
     "success": True,
     "answer": response,
-    "sources": [],
-    "tokens_used": 0
-}
+    # "sources": [],
+    # "tokens_used": 0
+    }
+  # return {
+  #   "success": True,
+  #   "answer": "Question-only mode is not implemented yet.",
+  #   }
     
