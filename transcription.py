@@ -9,6 +9,7 @@ import os
 import json
 from flask import Blueprint, request
 from full_execution import full_execution
+from further_chat import ask_followup_question
 
 
 os.makedirs("./transcripted", exist_ok=True)
@@ -113,3 +114,53 @@ def health():
         "status": "ok",
         "documents_indexed": 0
     }
+
+
+@transcription_bp.route("/followup", methods=['POST'])
+
+def followup():
+    """
+    Ask follow-up questions about a previously generated report.
+
+    Expected JSON payload:
+    {
+        "report": "The full report text generated from /transcribe",
+        "question": "Your follow-up question",
+        "history": [{"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]  // optional
+    }
+    """
+    data = request.get_json()
+
+    if not data:
+        return {
+            "success": False,
+            "error": "Invalid JSON payload"
+        }, 400
+
+    report = data.get("report", "").strip()
+    question = data.get("question", "").strip()
+    history = data.get("history", [])
+
+    if not report:
+        return {
+            "success": False,
+            "error": "Report is required"
+        }, 400
+
+    if not question:
+        return {
+            "success": False,
+            "error": "Question is required"
+        }, 400
+
+    try:
+        answer = ask_followup_question(report, question, history)
+        return {
+            "success": True,
+            "answer": answer
+        }
+    except Exception as e:
+        return {
+            "success": False,
+            "error": str(e)
+        }, 500

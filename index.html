@@ -677,6 +677,8 @@
   let isBusy   = false;
   let pendingFiles = [];
   let stopStreaming = false;   //Create a stop flag
+  let lastReport = null;       // Store the full report from initial analysis for follow-ups
+  let isFollowUpMode = false;  // Track if we're in follow-up mode
 
 
   function showStopButton() {
@@ -801,7 +803,7 @@
     welcomeBlock.style.display = messages.length ? 'none' : 'block';
 
     Array.from(chatContainer.children).forEach(c => {
-      if (c !== welcomeBlock && !c.classList.contains('bg-logo-emblem')) c.remove();
+      if (c !== welcomeBlock && !c.classList.contains('bg-logo-emblem') && c.id !== 'followupIndicator') c.remove();
     });
 
     messages.forEach((msg, index) => {
@@ -917,8 +919,55 @@
       chatContainer.appendChild(wrap);
     });
 
+    // Show follow-up mode indicator if active
+    updateFollowUpIndicator();
+
     scrollToBottom();
   }
+
+  // ── Follow-up Mode Indicator ───────────────────────────────────────────────
+  function updateFollowUpIndicator() {
+    let indicator = document.getElementById('followupIndicator');
+
+    if (isFollowUpMode && lastReport) {
+      if (!indicator) {
+        indicator = document.createElement('div');
+        indicator.id = 'followupIndicator';
+        indicator.style.cssText = `
+          max-width: 860px; margin: 0.5rem auto 1rem auto; padding: 0.75rem 1rem;
+          background: rgba(218,119,86,0.1); border: 1px solid rgba(218,119,86,0.2);
+          border-radius: 10px; display: flex; align-items: center; justify-content: space-between;
+          font-size: 0.8rem; color: #BD5B3A;
+        `;
+        indicator.innerHTML = `
+          <span><i class="fas fa-comments"></i> Follow-up Mode — Ask questions about the report</span>
+          <button onclick="startNewAnalysis()" style="
+            background: #DA7756; color: white; border: none; padding: 0.4rem 0.8rem;
+            border-radius: 6px; cursor: pointer; font-size: 0.75rem; font-weight: 500;
+          ">New Analysis</button>
+        `;
+        chatContainer.insertBefore(indicator, chatContainer.firstChild);
+      }
+    } else if (indicator) {
+      indicator.remove();
+    }
+  }
+
+  // ── Start New Analysis (reset follow-up mode) ──────────────────────────────
+  function startNewAnalysis() {
+    lastReport = null;
+    isFollowUpMode = false;
+    messages = [];
+    history = [];
+    pendingFiles = [];
+    renderMessages();
+    renderSelectedFiles();
+    promptInput.placeholder = "Ask about your audio files or type a question…";
+    promptInput.focus();
+  }
+
+  // Make startNewAnalysis globally accessible for inline onclick
+  window.startNewAnalysis = startNewAnalysis;
 
   // ── Typing indicator ─────────────────────────────────────────────────────────
   function addTypingIndicator() {
@@ -1109,25 +1158,14 @@
     console.log("sendMessage started");
     const question = promptInput.value.trim();
     console.log("Question:", question);
-    const formData = new FormData();
-    console.log("Question:", question);
-    formData.append("question", question);
 
-    console.log("Pending files:", pendingFiles);
-        if (pendingFiles.length > 0) {
-        formData.append("audio", pendingFiles[0]);
-    }
-
-    console.log("Before isBusy check");
+    // Check if we're in follow-up mode (have a stored report)
+    const isFollowUp = isFollowUpMode && lastReport;
 
     if (!question || isBusy) {
         console.log("Returned because question empty or busy");
         return;
     }
-
-    console.log("After validation");
-    // formData.append("audio", pendingFiles[0]);
-    if (!question || isBusy) return;
 
     setInputBusy(true);
     showStopButton();
@@ -1135,12 +1173,13 @@
     promptInput.value = '';
     promptInput.style.height = 'auto';
 
+    // In follow-up mode, don't include audio attachments in the message
+    const attachments = isFollowUp ? [] : pendingFiles.map(file => ({ name: file.name }));
+
     messages.push({
       role: 'user',
       content: question,
-      attachments: pendingFiles.map(file => ({
-        name: file.name
-      })),
+      attachments,
       timestamp: Date.now()
     });
     history.push({ role: 'user', content: question });
@@ -1148,12 +1187,44 @@
     addTypingIndicator();
 
     try {
-      formData.append("history", JSON.stringify(history.slice(-10)));
-      const res = await fetch(`${API_BASE}/transcribe/transcribe`, {
-        method: "POST",
-        body: formData
-      });
-      const data = await res.json() ;
+      let res, data;
+
+      if (isFollowUp) {
+        // Follow-up question: call /transcribe/followup with stored report
+        console.log("Making follow-up request with stored report");
+        res = await fetch(`${API_BASE}/transcribe/followup`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            report: lastReport,
+            question: question,
+            history: history.slice(-10)  // Send recent history for context
+          })
+        });
+        data = await res.json();
+      } else {
+        // Initial request: call /transcribe/transcribe with audio (if any)
+        console.log("Making initial request");
+        const formData = new FormData();
+        formData.append("question", question);
+        if (pendingFiles.length > 0) {
+          formData.append("audio", pendingFiles[0]);
+        }
+        formData.append("history", JSON.stringify(history.slice(-10)));
+
+        res = await fetch(`${API_BASE}/transcribe/transcribe`, {
+          method: "POST",
+          body: formData
+        });
+        data = await res.json();
+
+        // Store the full report for future follow-ups
+        if (data.success && data.answer) {
+          lastReport = data.answer;
+          isFollowUpMode = true;
+          console.log("Report stored for follow-ups, length:", lastReport.length);
+        }
+      }
 
       removeTypingIndicator();
 
@@ -1167,17 +1238,17 @@
         tokens,
         timestamp: Date.now(),
     });
-    
+
     // Get the index of the newly added AI message
     const aiIndex = messages.length - 1;
-    
+
     // Show the empty bubble
     appendMessage(messages[aiIndex]);
-    
+
     // Stream the response into that bubble
-    await fakeStream(aiIndex,data.answer);
+    await fakeStream(aiIndex, data.answer);
     showSendButton();
-    
+
     // Save the final response in history
     history.push({
         role: 'assistant',
@@ -1196,7 +1267,7 @@
     pendingFiles = [];
     renderSelectedFiles();
     setInputBusy(false);
-    
+
   }
 
   function renderSelectedFiles() {
@@ -1265,10 +1336,7 @@ audioFileInput.addEventListener("change", (e) => {
 
   // Double-click title → reset
   document.querySelector('.project-title').addEventListener('dblclick', () => {
-    messages.forEach(m => m.attachments?.forEach(a => { if (a.audioUrl) URL.revokeObjectURL(a.audioUrl); }));
-    messages = [];
-    history = [];
-    renderMessages();
+    startNewAnalysis();
   });
 
   renderMessages();
