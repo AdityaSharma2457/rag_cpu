@@ -56,84 +56,10 @@ INSTRUCTIONS:
     return response
 
 
-def start_followup_session(report: str) -> dict:
-    """
-    Initialize a follow-up chat session with the report.
-
-    Args:
-        report: The complete generated report
-
-    Returns:
-        A session dictionary containing the report and empty history
-    """
-    return {
-        "report": report,
-        "history": []
-    }
 
 
-def process_followup(session: dict, user_question: str) -> dict:
-    """
-    Process a follow-up question and update session history.
-
-    Args:
-        session: The chat session dictionary
-        user_question: The user's question
-
-    Returns:
-        Updated session with the new Q&A added to history
-    """
-    answer = ask_followup_question(
-        report=session["report"],
-        user_question=user_question,
-        history=session["history"]
-    )
-
-    session["history"].append({
-        "question": user_question,
-        "answer": answer
-    })
-
-    return session
 
 
-# Example usage / CLI interface
-if __name__ == "__main__":
-    import sys
 
-    # Example: Read report from a file or use a sample
-    sample_report = """
-# Conversation Intelligence Report
 
-## Factual Correctness Analysis
-- Claim 1: "Course fee is $50,000" → CORRECT (verified from university brochure)
-- Claim 2: "100% placement guarantee" → INCORRECT (brochure states 85% placement rate)
-- Claim 3: "Hostel fee includes meals" → PARTIALLY CORRECT (only basic hostel fee mentioned)
 
-## Professionalism Analysis
-- Professionalism: 8/10 - Good greeting, respectful tone
-- Communication: 7/10 - Clear but occasionally used jargon
-- Lead Conversion: 6/10 - Limited discovery questions
-- Objection Handling: 7/10 - Addressed fee concerns well
-- Product Knowledge: 5/10 - Some inaccuracies in claims
-- Overall Performance: 7/10
-"""
-
-    print("🤖 Follow-up Chat Session Started")
-    print("=" * 50)
-    print("Ask questions about the report. Type 'exit' to quit.\n")
-
-    session = start_followup_session(sample_report)
-
-    while True:
-        user_input = input("❓ Your question: ").strip()
-        if user_input.lower() in ['exit', 'quit', 'q']:
-            print("👋 Goodbye!")
-            break
-
-        if not user_input:
-            continue
-
-        session = process_followup(session, user_input)
-        print(f"\n💡 Answer:\n{session['history'][-1]['answer']}\n")
-        print("-" * 50)
