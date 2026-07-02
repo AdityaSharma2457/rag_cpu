@@ -2,6 +2,7 @@ from model_loader import generate_response
 from vector_db import collection
 from ragEngine import pipeline
 import json
+import re
 
 
 def full_execution(toon_file_path, question, history=None):
@@ -9,8 +10,8 @@ def full_execution(toon_file_path, question, history=None):
     with open(toon_file_path, "r", encoding="utf-8") as file:
         transcript = file.read()
 
-    claims_json = generate_response(f"""
-
+    # Generate claims from transcript using LLM
+    llm_response = generate_response(f"""
 You are an expert university counselling auditor.
 
 Analyze the provided counselling conversation transcript.
@@ -107,14 +108,27 @@ Return ONLY valid JSON in the following format:
     "query 3"
   ]
 }}
-
 """)
-    print("Before parsing:", type(claims_json))
 
-    claims_json = json.loads(claims_json)
+    # Extract JSON from LLM response (handle cases where LLM adds extra text)
+    try:
+        # Try to parse directly first
+        claims_json = json.loads(llm_response)
+    except json.JSONDecodeError:
+        # Try to extract JSON from the response using regex
+        json_match = re.search(r'\{.*\}', llm_response, re.DOTALL)
+        if json_match:
+            try:
+                claims_json = json.loads(json_match.group())
+            except json.JSONDecodeError:
+                # Fallback: return empty claims
+                print(f"Warning: Could not parse claims JSON from LLM response: {llm_response}")
+                claims_json = {"claims": []}
+        else:
+            print(f"Warning: No JSON found in LLM response: {llm_response}")
+            claims_json = {"claims": []}
 
-    print("After parsing:", type(claims_json))
-    print(claims_json)
+    print("Claims JSON:", claims_json)
 
     retrieved_chunks = [collection.similarity_search(f"{query}", k=5) for query in claims_json["claims"]]
 

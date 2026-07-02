@@ -54,7 +54,8 @@ def transcription():
         # Translate to English
         result = model_loader.model.transcribe(
             audio,
-            task="translate"
+            task="translate",
+            language="en"
         )
 
         # Align words
@@ -99,11 +100,11 @@ def transcription():
         toon_file_path = os.path.join(os.getcwd(), "transcripted", f"{filename}.toon")
         transcript = transcription_table()
 
-        db.session().add(transcript)
+        db.session.add(transcript)
         transcript.filename = filename
         transcript.path_in_webserver = toon_file_path
         transcript.status = "processing"
-        db.session().commit()
+        db.session.commit()
         return full_execution(toon_file_path, question, history)
 
 
