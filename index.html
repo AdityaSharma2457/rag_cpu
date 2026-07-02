@@ -123,28 +123,102 @@
       border: 1px solid rgba(218,119,86,0.2);
     }
 
-    /* Sources block */
-    .sources-block {
-      margin-top: 14px;
-      background: rgba(218,119,86,0.04);
-      border: 1px solid rgba(218,119,86,0.15);
+    /* AI response card: wraps the answer in a bordered surface so each turn
+       has a visible edge, with a footer row separating copy/meta from the
+       answer text itself. */
+    .ai-response-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.07);
       border-radius: 14px;
-      padding: 12px 16px;
+      padding: 1rem 1.1rem 0.7rem 1.1rem;
     }
-    .sources-title {
-      font-size: 0.72rem; font-weight: 600;
-      color: #BD5B3A; text-transform: uppercase;
-      letter-spacing: 0.5px; margin-bottom: 8px;
+    .ai-response-card .response-text { font-size: 0.95rem; line-height: 1.65; }
+    .ai-response-card .response-text > *:first-child { margin-top: 0; }
+    .ai-response-card .response-text > *:last-child  { margin-bottom: 0; }
+
+    .response-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      margin-top: 12px; padding-top: 8px;
     }
+
+    /* Sources strip: collapsed summary line by default, expands to the
+       detailed per-source list only when the user opens it. */
+    .sources-strip {
+      margin-top: 12px;
+      background: #FAFAF8;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .sources-summary {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; color: #6B6A65;
+      padding: 8px 12px; cursor: pointer; user-select: none;
+      background: none; border: none; width: 100%; text-align: left;
+      font-family: inherit;
+    }
+    .sources-summary:hover { color: #BD5B3A; }
+    .sources-summary i.fa-bookmark { color: #DA7756; font-size: 0.78rem; }
+    .sources-summary .chevron { margin-left: auto; transition: transform 0.2s; font-size: 0.7rem; color: #B0AFA9; }
+    .sources-strip.open .chevron { transform: rotate(180deg); }
+    .source-name-pill {
+      background: rgba(218,119,86,0.1); color: #BD5B3A;
+      font-size: 0.68rem; font-weight: 500;
+      padding: 2px 9px; border-radius: 100px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      max-width: 160px;
+    }
+    .sources-detail {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.25s ease;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    .sources-strip.open .sources-detail { max-height: 600px; }
     .source-item {
       display: flex; align-items: flex-start; gap: 8px;
       font-size: 0.75rem; color: #6B6A65;
-      padding: 4px 0; border-top: 1px solid rgba(0,0,0,0.04);
+      padding: 8px 12px; border-top: 1px solid rgba(0,0,0,0.04);
     }
     .source-item:first-of-type { border-top: none; }
     .source-ts { color: #DA7756; font-weight: 500; white-space: nowrap; }
 
-    .message-meta { font-size: 0.68rem; color: #B0AFA9; margin-top: 8px; }
+    /* Claim evaluation cards: used when an AI response is structured
+       evaluation JSON (factual-correctness checks) rather than plain text.
+       One card per claim, with a colored badge for the classification. */
+    .evaluation-block { display: flex; flex-direction: column; gap: 10px; }
+    .evaluation-header {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 4px; font-size: 0.85rem; font-weight: 600; color: #2E2E2C;
+    }
+    .evaluation-header i { color: #DA7756; font-size: 1rem; }
+    .evaluation-count { font-size: 0.72rem; color: #8C8C88; margin-left: auto; font-weight: 400; }
+
+    .claim-card {
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: #FAFAF8;
+    }
+    .claim-card-top {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 10px; margin-bottom: 6px;
+    }
+    .claim-text { font-size: 0.88rem; color: #2E2E2C; font-weight: 500; margin: 0; line-height: 1.5; flex: 1; }
+    .claim-reasoning { font-size: 0.8rem; color: #8C8C88; margin: 0; line-height: 1.55; }
+    .claim-badge {
+      font-size: 0.68rem; font-weight: 600;
+      padding: 3px 10px; border-radius: 100px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    /* Classification colors */
+    .claim-card.status-verified    { background: rgba(76,175,80,0.04);  border-color: rgba(76,175,80,0.18); }
+    .claim-badge.status-verified   { background: rgba(76,175,80,0.13);  color: #3E8E41; }
+    .claim-card.status-contradicted  { background: rgba(212,70,60,0.04);  border-color: rgba(212,70,60,0.18); }
+    .claim-badge.status-contradicted { background: rgba(212,70,60,0.13);  color: #C0392B; }
+    .claim-card.status-insufficient  { background: #FAFAF8; }
+    .claim-badge.status-insufficient { background: rgba(190,150,30,0.13); color: #9C7A1A; }
+    .claim-card.status-unknown       { background: #FAFAF8; }
+    .claim-badge.status-unknown      { background: rgba(140,140,136,0.13); color: #6B6A65; }
 
     /* Processing status */
     .processing-status {
@@ -544,7 +618,70 @@
     if (b < 1048576) return (b / 1024).toFixed(1) + ' KB';
     return (b / 1048576).toFixed(1) + ' MB';
   }
-  
+
+  // Maps a classification string from the backend to one of a fixed set of
+  // CSS status classes used for claim-card coloring. Anything not in this
+  // list (a new classification value the backend starts sending later)
+  // falls through to "unknown" — a neutral gray card rather than breaking.
+  function classificationToStatus(classification) {
+    const c = (classification || '').toLowerCase();
+    if (c.includes('verified') || c.includes('correct')) return 'verified';
+    if (c.includes('contradict') || c.includes('incorrect')) return 'contradicted';
+    if (c.includes('insufficient')) return 'insufficient';
+    return 'unknown';
+  }
+
+  // Tries to parse a response as the backend's factual-correctness
+  // evaluation JSON: an object whose keys look like "task_N_..." and whose
+  // values are arrays of { claim, classification, reasoning }. The backend
+  // sometimes returns this JSON directly and sometimes returns normal
+  // markdown, so this MUST fail gracefully (return null) on anything that
+  // isn't this exact shape — callers fall back to the normal markdown
+  // render path when it does.
+  function parseEvaluationResponse(rawText) {
+    if (!rawText || typeof rawText !== 'string') return null;
+
+    // Strip a wrapping ```json ... ``` fence if present — some responses
+    // come back as markdown-fenced JSON rather than bare JSON.
+    let candidate = rawText.trim();
+    const fenceMatch = candidate.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/i);
+    if (fenceMatch) candidate = fenceMatch[1].trim();
+
+    if (!candidate.startsWith('{')) return null;
+
+    let parsed;
+    try {
+      parsed = JSON.parse(candidate);
+    } catch {
+      return null; // Not valid JSON — treat as plain markdown/text.
+    }
+
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return null;
+
+    const taskKeys = Object.keys(parsed).filter(k => /^task_\d+_/.test(k));
+    if (!taskKeys.length) return null; // Doesn't match the expected shape.
+
+    const sections = [];
+    for (const key of taskKeys) {
+      const claims = parsed[key];
+      if (!Array.isArray(claims)) continue;
+      // Validate at least one entry actually looks like a claim object,
+      // so we don't treat an unrelated task_N_* array as evaluation data.
+      const validClaims = claims.filter(c => c && typeof c === 'object' && 'claim' in c && 'classification' in c);
+      if (!validClaims.length) continue;
+
+      const label = key
+        .replace(/^task_\d+_/, '')
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, ch => ch.toUpperCase());
+
+      sections.push({ key, label, claims: validClaims });
+    }
+
+    if (!sections.length) return null;
+    return sections;
+  }
+
   
   function setInputBusy(busy) {
     isBusy = busy;
@@ -579,6 +716,58 @@
     return actions;
   }
 
+  // Builds the claim-card DOM for parsed evaluation sections (see
+  // parseEvaluationResponse). One header + claim-card list per task_N_*
+  // section, since a single response can contain more than one task array.
+  function buildEvaluationDOM(sections) {
+    const wrap = document.createElement('div');
+    wrap.className = 'evaluation-block';
+
+    sections.forEach(section => {
+      const header = document.createElement('div');
+      header.className = 'evaluation-header';
+      header.innerHTML = `<i class="fas fa-clipboard-check"></i> <span>${section.label}</span>`;
+      const count = document.createElement('span');
+      count.className = 'evaluation-count';
+      count.textContent = `${section.claims.length} claim${section.claims.length === 1 ? '' : 's'} checked`;
+      header.appendChild(count);
+      wrap.appendChild(header);
+
+      section.claims.forEach(c => {
+        const status = classificationToStatus(c.classification);
+
+        const card = document.createElement('div');
+        card.className = `claim-card status-${status}`;
+
+        const top = document.createElement('div');
+        top.className = 'claim-card-top';
+
+        const claimText = document.createElement('p');
+        claimText.className = 'claim-text';
+        claimText.textContent = c.claim || '';
+        top.appendChild(claimText);
+
+        const badge = document.createElement('span');
+        badge.className = `claim-badge status-${status}`;
+        badge.textContent = c.classification || 'Unknown';
+        top.appendChild(badge);
+
+        card.appendChild(top);
+
+        if (c.reasoning) {
+          const reasoning = document.createElement('p');
+          reasoning.className = 'claim-reasoning';
+          reasoning.textContent = c.reasoning;
+          card.appendChild(reasoning);
+        }
+
+        wrap.appendChild(card);
+      });
+    });
+
+    return wrap;
+  }
+
   // Builds a full message DOM node (avatar + content) for a given message
   // object. Used by both renderMessages() (full rerender) and appendMessage()
   // (single new message) so the two paths can't drift out of sync.
@@ -596,67 +785,123 @@
     const content = document.createElement('div');
     content.className = 'message-content';
 
-    // Main text
-    const text = document.createElement('div');
-    text.innerHTML = marked.parse((msg.content || "").trim());
-    content.appendChild(text);
+    if (msg.role === 'ai') {
+      // AI responses render inside a bordered card: answer text up top,
+      // an optional collapsed sources strip, then a footer row with the
+      // copy button and timestamp separated by a hairline.
+      const card = document.createElement('div');
+      card.className = 'ai-response-card';
 
-    // Processing status line
-    if (msg.processing) {
-      const ps = document.createElement('div');
-      ps.className = 'processing-status';
-      ps.innerHTML = `<i class="fas fa-circle-notch fa-spin"></i> ${msg.processing}`;
-      content.appendChild(ps);
+      const text = document.createElement('div');
+      text.className = 'response-text';
+
+      // Try evaluation-JSON rendering first; fall back to normal markdown
+      // for everything else (the backend sometimes returns one, sometimes
+      // the other, for the same endpoint).
+      const evalSections = parseEvaluationResponse(msg.content);
+      if (evalSections) {
+        text.appendChild(buildEvaluationDOM(evalSections));
+      } else {
+        text.innerHTML = marked.parse((msg.content || "").trim());
+      }
+      card.appendChild(text);
+
+      if (msg.processing) {
+        const ps = document.createElement('div');
+        ps.className = 'processing-status';
+        ps.innerHTML = `<i class="fas fa-circle-notch fa-spin"></i> ${msg.processing}`;
+        card.appendChild(ps);
+      }
+
+      // Sources: collapsed by default. Clicking the summary row toggles
+      // the detailed per-source list (timestamp, speaker, excerpt) open.
+      if (msg.sources?.length) {
+        const strip = document.createElement('div');
+        strip.className = 'sources-strip';
+
+        const summary = document.createElement('button');
+        summary.type = 'button';
+        summary.className = 'sources-summary';
+
+        const uniqueNames = [...new Set(msg.sources.map(s => s.source_name))];
+        const pillName = uniqueNames[0] || 'Source';
+        const extra = uniqueNames.length > 1 ? ` +${uniqueNames.length - 1}` : '';
+
+        summary.innerHTML = `
+          <i class="fas fa-bookmark"></i>
+          <span>${msg.sources.length} source${msg.sources.length === 1 ? '' : 's'}</span>
+          <span class="source-name-pill" title="${uniqueNames.join(', ')}">${pillName}${extra}</span>
+          <i class="fas fa-chevron-down chevron"></i>
+        `;
+        summary.addEventListener('click', () => strip.classList.toggle('open'));
+        strip.appendChild(summary);
+
+        const detail = document.createElement('div');
+        detail.className = 'sources-detail';
+        msg.sources.forEach(s => {
+          const si = document.createElement('div');
+          si.className = 'source-item';
+          const spk = s.speaker ? ` · ${s.speaker}` : '';
+          si.innerHTML = `<span class="source-ts">${s.start_fmt}–${s.end_fmt}</span>
+            <span><strong>${s.source_name}</strong>${spk} — ${s.excerpt}</span>`;
+          detail.appendChild(si);
+        });
+        strip.appendChild(detail);
+
+        card.appendChild(strip);
+      }
+
+      // Footer: copy button (left) + timestamp/tokens (right), separated
+      // from the answer body by a hairline divider.
+      if (msg.content) {
+        const footer = document.createElement('div');
+        footer.className = 'response-footer';
+        footer.appendChild(buildMessageActions(() => msg.content));
+
+        const meta = document.createElement('div');
+        meta.className = 'message-meta';
+        meta.textContent = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+        if (msg.tokens) meta.textContent += `  ·  ${msg.tokens} tokens`;
+        footer.appendChild(meta);
+
+        card.appendChild(footer);
+      }
+
+      content.appendChild(card);
+
+    } else {
+      // User messages keep the original plain layout — no card, just text,
+      // attachments, and a timestamp underneath.
+      const text = document.createElement('div');
+      text.innerHTML = marked.parse((msg.content || "").trim());
+      content.appendChild(text);
+
+      if (msg.attachments?.length) {
+        const aw = document.createElement('div');
+        aw.style.marginTop = '12px';
+        msg.attachments.forEach(att => {
+          const badge = document.createElement('div');
+          badge.className = 'audio-attachment-badge';
+          badge.innerHTML = `<i class="fas fa-file-audio"></i> <span><strong>${att.name}</strong> (${formatSize(att.size)})</span>`;
+          if (att.audioUrl) {
+            const audio = document.createElement('audio');
+            audio.controls = true;
+            audio.preload = 'metadata';
+            audio.style.cssText = 'max-width:180px;height:32px;margin-left:12px;border-radius:40px;';
+            audio.src = att.audioUrl;
+            badge.appendChild(audio);
+          }
+          aw.appendChild(badge);
+        });
+        content.appendChild(aw);
+      }
+
+      const meta = document.createElement('div');
+      meta.className = 'message-meta';
+      meta.style.marginTop = '8px';
+      meta.textContent = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+      content.appendChild(meta);
     }
-
-    // Audio attachments
-    if (msg.attachments?.length) {
-      const aw = document.createElement('div');
-      aw.style.marginTop = '12px';
-      msg.attachments.forEach(att => {
-        const badge = document.createElement('div');
-        badge.className = 'audio-attachment-badge';
-        badge.innerHTML = `<i class="fas fa-file-audio"></i> <span><strong>${att.name}</strong> (${formatSize(att.size)})</span>`;
-        if (att.audioUrl) {
-          const audio = document.createElement('audio');
-          audio.controls = true;
-          audio.preload = 'metadata';
-          audio.style.cssText = 'max-width:180px;height:32px;margin-left:12px;border-radius:40px;';
-          audio.src = att.audioUrl;
-          badge.appendChild(audio);
-        }
-        aw.appendChild(badge);
-      });
-      content.appendChild(aw);
-    }
-
-    // Sources
-    if (msg.sources?.length) {
-      const sb = document.createElement('div');
-      sb.className = 'sources-block';
-      sb.innerHTML = `<div class="sources-title"><i class="fas fa-bookmark"></i> Sources (${msg.sources.length})</div>`;
-      msg.sources.forEach(s => {
-        const si = document.createElement('div');
-        si.className = 'source-item';
-        const spk = s.speaker ? ` · ${s.speaker}` : '';
-        si.innerHTML = `<span class="source-ts">${s.start_fmt}–${s.end_fmt}</span>
-          <span><strong>${s.source_name}</strong>${spk} — ${s.excerpt}</span>`;
-        sb.appendChild(si);
-      });
-      content.appendChild(sb);
-    }
-
-    // Copy action (AI messages with content only)
-    if (msg.role === 'ai' && msg.content) {
-      content.appendChild(buildMessageActions(() => msg.content));
-    }
-
-    // Meta
-    const meta = document.createElement('div');
-    meta.className = 'message-meta';
-    meta.textContent = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-    if (msg.tokens) meta.textContent += `  ·  ${msg.tokens} tokens`;
-    content.appendChild(meta);
 
     wrap.appendChild(av);
     wrap.appendChild(content);
@@ -781,7 +1026,21 @@
   async function fakeStream(messageIndex, fullText) {
 
     const lastMessage = document.querySelector(".message.ai:last-child");
-    const textDiv = lastMessage.querySelector(".message-content > div");
+    const textDiv = lastMessage.querySelector(".response-text");
+
+    // Evaluation JSON can't be meaningfully streamed character-by-character
+    // — a half-typed "{ \"task_1_fact..." is just broken syntax, not a
+    // readable partial answer the way streamed prose is. So if the FULL
+    // response parses as evaluation JSON, skip the animation and render
+    // the finished claim cards immediately.
+    const evalSections = parseEvaluationResponse(fullText);
+    if (evalSections) {
+      textDiv.innerHTML = '';
+      textDiv.appendChild(buildEvaluationDOM(evalSections));
+      messages[messageIndex].content = fullText;
+      addResponseFooter(messageIndex);
+      return;
+    }
 
     let current = "";
     let i = 0;
@@ -808,24 +1067,35 @@
       await new Promise(resolve => setTimeout(resolve, delay));
     }
     messages[messageIndex].content = fullText;
-    addCopyButton(messageIndex);
+    addResponseFooter(messageIndex);
   }
 
-  function addCopyButton(messageIndex) {
+  // Builds the footer (copy button + timestamp) for an AI card once its
+  // content is final. Called after streaming finishes, since the card is
+  // created with empty content and so has no footer yet at that point.
+  function addResponseFooter(messageIndex) {
     const wrap = document.querySelector(
         `.message[data-index="${messageIndex}"]`
     );
 
     if (!wrap) return;
 
-    if (wrap.querySelector(".copy-btn")) return;
+    const card = wrap.querySelector(".ai-response-card");
+    if (!card) return;
 
-    const content = wrap.querySelector(".message-content");
-    const meta = content.querySelector(".message-meta");
+    if (card.querySelector(".response-footer")) return;
 
-    const actions = buildMessageActions(() => messages[messageIndex].content);
+    const footer = document.createElement('div');
+    footer.className = 'response-footer';
+    footer.appendChild(buildMessageActions(() => messages[messageIndex].content));
 
-    content.insertBefore(actions, meta);
+    const meta = document.createElement('div');
+    meta.className = 'message-meta';
+    meta.textContent = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    if (messages[messageIndex].tokens) meta.textContent += `  ·  ${messages[messageIndex].tokens} tokens`;
+    footer.appendChild(meta);
+
+    card.appendChild(footer);
   }
 
   // ── Send text query → RAG ────────────────────────────────────────────────────
