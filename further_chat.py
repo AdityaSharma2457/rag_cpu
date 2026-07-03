@@ -7,9 +7,12 @@ uses the LLM to answer questions with the report as context.
 """
 
 from model_loader import generate_response
+from db import transcription_table,history_table
+from db_init_ import db
+import json
 
 
-def ask_followup_question(report: str, user_question: str, history: list = None) -> str:
+def ask_followup_question( user_question: str, session_id: str) -> str:
     """
     Answer a follow-up question based on the generated report.
 
@@ -22,12 +25,21 @@ def ask_followup_question(report: str, user_question: str, history: list = None)
         The LLM's response to the follow-up question
     """
     # Format conversation history
-    history_text = ""
-    if history and len(history) > 0:
-        history_text = "\n\nPrevious Follow-up Q&A:\n"
-        for i, msg in enumerate(history[-5:], 1):  # Last 5 exchanges for context
-            history_text += f"Q{i}: {msg.get('question', '')}\n"
-            history_text += f"A{i}: {msg.get('answer', '')}\n\n"
+    history= db.session.get(history_table, session_id)
+    
+    history_data = json.loads(history.history)
+
+    history_to_be_sent=history_data["history"][-5:]
+    if (len(history_data["history"])>5):
+        transcript= db.session.get(transcription_table, session_id)
+        with open(transcript.report_path_in_webserver, "r", encoding="utf-8") as f:
+            report = f.read()
+    else:
+        report="report is provided in the history chat"
+
+
+
+
 
     prompt = f"""You are an expert Conversation Intelligence Analyst helping a user understand a counselling quality report.
 
@@ -36,7 +48,7 @@ GENERATED REPORT (for reference):
 {report}
 ---
 
-{history_text}
+{history_to_be_sent}
 
 USER'S FOLLOW-UP QUESTION:
 {user_question}

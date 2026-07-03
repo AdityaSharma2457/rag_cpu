@@ -3,9 +3,15 @@ from vector_db import collection
 from ragEngine import pipeline
 import json
 import re
+import os
+from db import history_table,transcription_table
+from db_init_ import db
+import uuid
+
+os.makedirs("./reports", exist_ok=True)
 
 
-def full_execution(toon_file_path, question, history=None):
+def full_execution(session_id,toon_file_path, question):
 
     with open(toon_file_path, "r", encoding="utf-8") as file:
         transcript = file.read()
@@ -132,8 +138,32 @@ Return ONLY valid JSON in the following format:
 
     retrieved_chunks = [collection.similarity_search(f"{query}", k=5) for query in claims_json["claims"]]
 
-    response = pipeline(question, transcript, retrieved_chunks, claims_json, history)
+    response = pipeline(question, transcript, retrieved_chunks, claims_json)
+    if (response):
+        report_name = str(uuid.uuid4())
+        with open(f"./reports/{report_name}.txt", "w", encoding="utf-8") as f:
+            f.write(response)
 
+        report_file_path = os.path.join(os.getcwd(), "reports", f"{report_name}.txt")
+
+        transcript = db.session.get(transcription_table, session_id)
+        if  transcript is None:
+            return {
+    "success": False,
+    "answer": "transcript not found",
+
+    }
+        transcript.report_path_in_webserver=report_file_path
+        transcript.status = "completed"
+
+        db.session.commit()
+
+        history = history_table()
+
+        db.session.add(history)
+        history.session_id=session_id
+        history.history = json.dumps({"history":[{"question":question,"report":response}]})
+        db.session.commit()    
     return {
     "success": True,
     "answer": response,

@@ -1,6 +1,6 @@
 import whisperx
 from whisperx.diarize import DiarizationPipeline
-from db import transcription_table
+from db import transcription_table,history_table
 from db_init_ import db
 import uuid
 import model_loader
@@ -26,7 +26,7 @@ transcription_bp = Blueprint("transcription", __name__)
 @transcription_bp.route("/transcribe", methods=['POST'])
 
 def transcription():
-
+    session_id=request.form.get("session_id")
     audio_file = request.files.get("audio")
     question = request.form.get("question", "").strip()
     history_str = request.form.get("history", "[]")
@@ -101,11 +101,12 @@ def transcription():
         transcript = transcription_table()
 
         db.session.add(transcript)
-        transcript.filename = filename
+        transcript.session_id=session_id
         transcript.path_in_webserver = toon_file_path
+        transcript.report_path_in_webserver="null"
         transcript.status = "processing"
         db.session.commit()
-        return full_execution(toon_file_path, question, history)
+        return full_execution(session_id,toon_file_path, question, history)
 
 
 @transcription_bp.route("/health", methods=['GET'])
@@ -120,6 +121,7 @@ def health():
 @transcription_bp.route("/followup", methods=['POST'])
 
 def followup():
+    
     """
     Ask follow-up questions about a previously generated report.
 
@@ -138,15 +140,13 @@ def followup():
             "error": "Invalid JSON payload"
         }, 400
 
-    report = data.get("report", "").strip()
     question = data.get("question", "").strip()
-    history = data.get("history", [])
+    session_id=data.get("session_id")
 
-    if not report:
-        return {
-            "success": False,
-            "error": "Report is required"
-        }, 400
+
+
+    
+
 
     if not question:
         return {
@@ -155,7 +155,23 @@ def followup():
         }, 400
 
     try:
-        answer = ask_followup_question(report, question, history)
+        answer = ask_followup_question( question,session_id)
+        if (answer):
+            history= db.session.get(history_table, session_id)
+            if history is None:
+                return {
+                "success": False,
+                "error": "History not found"
+                }, 404
+            data = json.loads(history.history)
+
+            data["history"].append({
+            "question": question,
+            "response": answer
+            })
+            history.history = json.dumps(data)
+
+            db.session.commit()
         return {
             "success": True,
             "answer": answer
