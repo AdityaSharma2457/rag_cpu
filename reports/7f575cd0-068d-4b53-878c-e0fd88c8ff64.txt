@@ -1,0 +1,35 @@
+# 📊 **Conversation Intelligence & Quality Analysis Report**  
+
+---
+
+## ✅ **TASK 1: FACTUAL CORRECTNESS ANALYSIS**  
+
+| # | **Extracted Claim** | **Classification** | **Reasoning & Evidence** |
+|---|----------------------|-------------------|--------------------------|
+| 1 | Career Point University B.Tech Computer Science AIML course fees ₹75,000 per year. | ❌ **Incorrect** | Official context: B.Tech AIML **annual total fee = ₹1,62,000** (tuition ₹70,000/sem + exam ₹3,000 + dev ₹8,000 + caution ₹3,000). Counsellor quoted only tuition component, ignoring other mandatory fees. |
+| 2 | Career Point University B.Tech Computer Science course fees ₹65,000 per year for non-AIML. | ❌ **Incorrect** | Official context: B.Tech CS **annual total fee = ₹1,52,000** (tuition ₹65,000/sem → ₹1,30,000/yr tuition alone). ₹65,000 is **per semester**, not per year. |
+| 3 | Career Point University B.Tech Computer Science average placement package 5 LPA. | ⚠️ **Insufficient Information** | No placement data (average package, companies, tie-ups) found in provided university brochures. Cannot verify. |
+| 4 | Career Point University B.Tech Computer Science placement companies TCS and Wipro. | ⚠️ **Insufficient Information** | Context documents contain **zero placement information**. Claim unsupported. |
+| 5 | Career Point University tie-ups with TCS and Wipro for placements. | ⚠️ **Insufficient Information** | Same as above—no placement/tie-up data in official context. |
+| 6 | Career Point University hostel fees ₹80,000 per year plus ₹5,000 maintenance charge. | 🟡 **Partially Correct** | Context: Boys’ single-occupancy (air-cooled) = **₹80,000/yr** + **₹5,000 security deposit** (refundable). Counsellor mislabeled security deposit as “maintenance charge.” |
+| 7 | Career Point University hostel AC rooms double occupancy ₹80,000 per year. | 🟡 **Partially Correct** | Context: Girls’ double-occupancy AC = **₹84,000/yr**; Boys’ double-occupancy = **air-cooled ₹70,000/yr** (AC extra @ ₹12/unit). No boys’ double-occupancy AC at ₹80,000 listed. |
+| 8 | Career Point University hostel PC facility available. | ⚠️ **Insufficient Information** | Hostel facilities in context: lodging, mess, security, electricity. **PC/laundry not mentioned.** |
+| 9 | Career Point University hostel laundry included in maintenance charge. | ⚠️ **Insufficient Information** | Laundry **not referenced** in any hostel document. Maintenance charge itself is misstated (it’s a security deposit). |
+| 10 | Career Point University hostel single room occupancy available. | ✅ **Correct** | Confirmed: Boys’ single-occupancy air-cooled rooms at **₹80,000/yr** + ₹5,000 deposit. |
+| 11 | Career Point University B.Tech Computer Science AIML infrastructure AI labs available. | ⚠️ **Insufficient Information** | Brochures detail fees only—**no lab/infrastructure specifics** provided. |
+
+---
+
+## 🎯 **TASK 2: PROFESSIONALISM ANALYSIS (0–10 SCORES)**  
+
+| Metric | Score | Explanation | Evidence from Conversation |
+|--------|-------|-------------|----------------------------|
+| **Professionalism** | **4/10** 📉 | Abrupt opening, no permission-based greeting, self-intro lacks clarity (“Bitter Study”), jumps straight to qualification. | “Hello.” → “I am Darshan Chaudhary speaking.” → “I am talking from Bitter Study.” → “Did you apply for college?” |
+| **Communication Skills** | **5/10** 🗣️ | Repetitive phrasing (“Placement in our SIT?” twice), “per cent” vs “per year” confusion, fee breakdown unclear. | “Placement in our SIT? Placement in our SIT?” · “75,000 per cent” · “65,000 per cent” |
+| **Behaviour & Courtesy** | **6/10** 🤝 | Polite but transactional; allows student questions; no rudeness. | Student asks hostel details → counsellor answers each. |
+| **Lead Conversion Ability** | **4/10** 🎯 | Weak discovery (no budget/timeline/decision-maker questions), no trial close, accepts “I’ll call back” without next-step commitment. | “So then I will think of you and call you back.” → “Okay, it’s cool.” |
+| **Objection Handling** | **5/10** 🛡️ | Student challenges “Just two companies?” → counsellor deflects (“mostly… one or two more”) without proof or pivot. | “Just two companies are there?” → “Yes, mostly. Our tie-up is with them. There are one or two more companies.” |
+| **Product Knowledge** | **3/10** 📚 | **Critical failures**: fees quoted incorrectly (semester vs year), placement claims unverifiable, hostel details partially wrong. | ₹75k/₹65k vs actual ₹1.52L/₹1.62L; TCS/Wipro tie-ups not in brochures. |
+| **Confidence** | **6/10** 💪 | Speaks fluently and assertively, but confidence **not backed by accuracy**—misinformation delivered convincingly. | “Career Point University is still the best university in Kota, Private University.” |
+| **Empathy** | **4/10** ❤️ | No acknowledgement of student’s concerns (fees, placement quality), no personalization, pure info-dump. | Zero phrases like “I understand,” “That’s a great question,” “Let me check that for you.” |
+| **SOP Adherence** | **4/10**

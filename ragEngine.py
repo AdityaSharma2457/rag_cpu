@@ -5,15 +5,8 @@ from model_loader import generate_response
 from langchain_core.runnables import RunnableLambda
 
 
-def pipeline(user_question, transcript, retrieved_context, claims_json, history=None):
-    # Format conversation history
-    history_text = ""
-    if history and len(history) > 0:
-        history_text = "\n\nConversation History:\n"
-        for msg in history[-10:]:  # Last 10 messages for context
-            role = "User" if msg.get("role") == "user" else "Assistant"
-            content = msg.get("content", "")
-            history_text += f"{role}: {content}\n"
+def pipeline(user_question, transcript, retrieved_context, claims_json):
+    
 
     prompt = ChatPromptTemplate.from_template("""
     You are an expert Conversation Intelligence and University Counselling Quality Analyst.
@@ -148,7 +141,7 @@ def pipeline(user_question, transcript, retrieved_context, claims_json, history=
 
     {retrieved_context}
 
-    {history_text}
+    
     """)
 
     llm = RunnableLambda(generate_response)
@@ -162,10 +155,9 @@ def pipeline(user_question, transcript, retrieved_context, claims_json, history=
         "transcript": transcript,
         "claims_json": str(claims_json),
         "retrieved_context": str(retrieved_context),
-        "history_text": history_text
+        
     }
 
-    print(payload)
 
     response = chain.invoke(payload)
     return response

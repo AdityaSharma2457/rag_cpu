@@ -1,0 +1,54 @@
+# 📊 **Conversation Intelligence & Quality Analysis Report**  
+*Expert Evaluation for University Counselling Session*  
+
+---
+
+## ✅ **TASK 1: FACTUAL CORRECTNESS ANALYSIS**  
+*Comparing counsellor claims against official Career Point University (CPU) brochures*  
+
+| # | **Extracted Claim** | **Classification** | **Reasoning & Evidence** |
+|---|----------------------|-------------------|---------------------------|
+| 1 | **B.Tech CS AIML fees ₹75,000/year** | ❌ **Incorrect** | Official annual total for B.Tech AIML = **₹1,62,000** (tuition ₹70k/sem + exam ₹3k + dev ₹8k + caution ₹3k × 2 sem). Counsellor quoted ~₹75k – likely confused with per-semester tuition only. |
+| 2 | **B.Tech CS non-AIML fees ₹65,000/year** | ❌ **Incorrect** | Official annual total for B.Tech CS = **₹1,52,000** (tuition ₹65k/sem + other fees × 2). ₹65k is *per-semester tuition*, not annual. |
+| 3 | **AI labs infrastructure** | ℹ️ **Insufficient Information** | Brochures detail fee structure only; no mention of specialized AI labs. |
+| 4 | **Infrastructure good, own college** | ℹ️ **Insufficient Information** | No infrastructure quality descriptors in official docs. |
+| 5 | **Placement avg. package 5 LPA** | ℹ️ **Insufficient Information** | Zero placement data in retrieved context. |
+| 6 | **Placement companies: TCS, Wipro** | ℹ️ **Insufficient Information** | No employer tie-ups listed in brochures. |
+| 7 | **Placement tie-ups: TCS, Wipro, others** | ℹ️ **Insufficient Information** | Same as above – unverifiable from official sources. |
+| 8 | **Hostel fees ₹80,000/year + ₹5,000 maintenance** | ⚠️ **Partially Correct** | ✅ **₹80k/year** matches *boys’ single-occupancy air-cooled room* (Nilgiri Hostel). ❌ **₹5k is a refundable security deposit**, not a “maintenance charge.” AC rooms attract extra electricity @ ₹12/unit. |
+| 9 | **Hostel AC rooms, double occupancy, PC provided** | ❌ **Incorrect** | • Double-occupancy AC rooms exist only for **girls (Nilanchal Hostel) @ ₹84k/year**.<br>• Boys’ double occupancy is **air-cooled (non-AC) @ ₹70k/year**.<br>• **No mention of PCs** in any hostel docs. |
+| 10 | **Laundry included in maintenance charge** | ❌ **Incorrect** | Hostel fee covers **mess only** (breakfast, lunch, snacks, dinner, night milk). Laundry not mentioned; exemption from mess not permitted. |
+| 11 | **Single-room occupancy available** | ✅ **Correct** | Confirmed: Boys’ single-occupancy air-cooled rooms @ ₹80k/year + ₹5k deposit. |
+
+> **📌 Key Takeaway**: Counsellor’s **fee figures are largely inaccurate** (confusing per-semester tuition with annual totals), **hostel details are mixed up** (occupancy, AC, deposits), and **placement claims are entirely unsupported** by official literature.
+
+---
+
+## 🎯 **TASK 2: PROFESSIONALISM ANALYSIS (0–10 Scoring)**  
+
+| Metric | Score | Explanation | Evidence from Transcript |
+|--------|-------|-------------|---------------------------|
+| **🏷️ Professionalism** | **4/10** | Abrupt opening, self-identification as “Bitter Study” (likely mispronunciation), repetitive questioning, informal tone. | `“I am talking from Bitter Study.”` → `“So you want to do B-Tech, right?”` (asked 3× in 2 minutes) |
+| **🗣️ Communication Skills** | **4/10** | Disjointed flow, frequent interruptions, unclear phrasing (“per cent” for “per annum”), poor active listening. | Counsellor talks over student; `“What is your favourite Career Point?”` – confusing question. |
+| **🤝 Behaviour & Courtesy** | **3/10** | Pushes CPU as “best” without basis, dismisses student’s need to consult friends, no empathy cues. | Student: `“I will talk to my friends later.”` → Counsellor ignores and launches into fees. |
+| **🎯 Lead Conversion Ability** | **2/10** | Zero discovery (budget, timeline, career goals), no value proposition, no trial close, no next-step agreement. | Student ends with `“I will think of you and call you back.”` – counsellor accepts passively. |
+| **🛡️ Objection Handling** | **1/10** | Student’s hesitation (`“I have to see a little bit”`) treated as non-objection; zero probing or reassurance. | Counsellor replies `“I will tell you about the career point.”` – steamrolls concern. |
+| **📚 Product Knowledge** | **3/10** | Major fee inaccuracies, invented placement stats, hostel details partially wrong. Shows superficial awareness only. | Claims `“5 LP placement”`, `“TCS, Wipro tie-ups”` – absent from brochures. |
+| **💪 Confidence** | **5/10** | Speaks authoritatively but on wrong data; confidence untethered from accuracy. | `“Career Point University is still the best university in Kota.”` – unsubstantiated claim. |
+| **❤️ Empathy** | **2/10** | No acknowledgement of student’s location preference (Kota/Jaipur), budget sensitivity, or decision process. | Student asks detailed hostel questions → counsellor gives rapid-fire answers without checking understanding. |
+| **📋 SOP Adherence** | **2/10** | No structured framework: ❌ Greeting/rapport ❌ Needs analysis ❌ Profiling ❌ Tailored recommendation ❌ Objection handling ❌ Commitment/next steps. | Conversation jumps from greeting → fee dump → hostel specs → dead end. |
+| **🌟 Overall Performance** | **3/10** | **Weighted composite** – critical gaps in conversion skills, product accuracy, and process discipline. | **Bottom line**: Session resembles an **info-dump**, not a counselling conversation. |
+
+---
+
+## ❓ **TASK 3: USER QUESTION**  
+> **“Did he convert the lead successfully?”**  
+
+### **🚫 ANSWER: NO – Lead NOT Converted**  
+
+| Indicator | Status | Details |
+|-----------|--------|---------|
+| **Explicit Commitment** | ❌ None | Student says: `“So then I will think of you and call you back.”` |
+| **Follow-up Agreement** | ❌ None | Student asks: `“When should I release you? In 2-3 days?”` → Counsellor: `“Okay, it’s cool.”` (no confirmation, no calendar invite, no action item). |
+| **Objection Resolution** | ❌ Ignored | Student’s need to “see a little bit” and “talk to friends” unaddressed. |
+| **Call-to-Action** | ❌ Absent | No application link shared

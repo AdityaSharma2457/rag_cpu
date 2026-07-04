@@ -134,11 +134,17 @@ Return ONLY valid JSON in the following format:
             print(f"Warning: No JSON found in LLM response: {llm_response}")
             claims_json = {"claims": []}
 
+    claims = claims_json.get("claims", [])
+    if not isinstance(claims, list):
+        claims = []
+    claims_json["claims"] = claims
+
     print("Claims JSON:", claims_json)
 
-    retrieved_chunks = [collection.similarity_search(f"{query}", k=5) for query in claims_json["claims"]]
+    retrieved_chunks = [collection.similarity_search(f"{query}", k=5) for query in claims]
 
     response = pipeline(question, transcript, retrieved_chunks, claims_json)
+
     if (response):
         report_name = str(uuid.uuid4())
         with open(f"./reports/{report_name}.txt", "w", encoding="utf-8") as f:
@@ -158,11 +164,14 @@ Return ONLY valid JSON in the following format:
 
         db.session.commit()
 
-        history = history_table()
+        history = db.session.get(history_table, session_id)
+        if history is None:
+            history = history_table()
+            history.session_id=session_id
+            db.session.add(history)
 
-        db.session.add(history)
         history.session_id=session_id
-        history.history = json.dumps({"history":[{"question":question,"report":response}]})
+        history.history = {"history":[{"question":question,"report":response}]}
         db.session.commit()    
     return {
     "success": True,

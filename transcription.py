@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 import os
 import json
 from flask import Blueprint, request
+from sqlalchemy.orm.attributes import flag_modified
 from full_execution import full_execution
 from further_chat import ask_followup_question
 
@@ -23,24 +24,53 @@ WHISPER_DEVICE = os.getenv("WHISPER_DEVICE")
 
 
 transcription_bp = Blueprint("transcription", __name__)
+
+
+def normalize_history(history_value):
+    if isinstance(history_value, str):
+        history_value = json.loads(history_value)
+    if not history_value or "history" not in history_value:
+        return {"history": []}
+    return history_value
+
+
+def session_title(history_value):
+    try:
+        data = normalize_history(history_value)
+        for item in data["history"]:
+            question = str(item.get("question", "")).strip()
+            if question:
+                return question[:80]
+    except Exception:
+        pass
+    return "Untitled analysis"
+
+
 @transcription_bp.route("/transcribe", methods=['POST'])
 
 def transcription():
-    session_id=request.form.get("session_id")
+    session_id = request.form.get("session_id", "").strip()
     audio_file = request.files.get("audio")
     question = request.form.get("question", "").strip()
-    history_str = request.form.get("history", "[]")
 
-    try:
-        history = json.loads(history_str)
-    except:
-        history = []
+    if not session_id:
+        return {
+            "success": False,
+            "error": "session_id is required"
+        }, 400
+
 
     if not audio_file and question == "":
         return {
-            "success": True,
-            "answer": "Please provide a question or upload an audio file."
-        }
+            "success": False,
+            "error": "Please provide a question and upload an audio file."
+        }, 400
+
+    if not audio_file:
+        return {
+            "success": False,
+            "error": "Please upload an audio file for a new analysis."
+        }, 400
 
     if audio_file:
 
@@ -98,15 +128,17 @@ def transcription():
                 f.write(f'  {speaker}: "{text}"\n')
 
         toon_file_path = os.path.join(os.getcwd(), "transcripted", f"{filename}.toon")
-        transcript = transcription_table()
+        transcript = db.session.get(transcription_table, session_id)
+        if transcript is None:
+            transcript = transcription_table()
+            transcript.session_id=session_id
+            db.session.add(transcript)
 
-        db.session.add(transcript)
-        transcript.session_id=session_id
         transcript.path_in_webserver = toon_file_path
         transcript.report_path_in_webserver="null"
         transcript.status = "processing"
         db.session.commit()
-        return full_execution(session_id,toon_file_path, question, history)
+        return full_execution(session_id,toon_file_path, question)
 
 
 @transcription_bp.route("/health", methods=['GET'])
@@ -115,6 +147,49 @@ def health():
     return {
         "status": "ok",
         "documents_indexed": 0
+    }
+
+
+@transcription_bp.route("/sessions", methods=['GET'])
+def sessions():
+    histories = history_table.query.order_by(history_table.updated_at.desc()).all()
+    transcript_rows = {
+        row.session_id: row
+        for row in transcription_table.query.filter(
+            transcription_table.session_id.in_([h.session_id for h in histories])
+        ).all()
+    } if histories else {}
+
+    return {
+        "success": True,
+        "sessions": [
+            {
+                "session_id": history.session_id,
+                "title": session_title(history.history),
+                "updated_at": history.updated_at.isoformat() if history.updated_at else None,
+                "status": transcript_rows.get(history.session_id).status if transcript_rows.get(history.session_id) else "completed"
+            }
+            for history in histories
+        ]
+    }
+
+
+@transcription_bp.route("/sessions/<session_id>", methods=['GET'])
+def session_history(session_id):
+    history = db.session.get(history_table, session_id)
+    if history is None:
+        return {
+            "success": False,
+            "error": "History not found"
+        }, 404
+
+    transcript = db.session.get(transcription_table, session_id)
+    return {
+        "success": True,
+        "session_id": session_id,
+        "history": normalize_history(history.history),
+        "status": transcript.status if transcript else "completed",
+        "updated_at": history.updated_at.isoformat() if history.updated_at else None
     }
 
 
@@ -141,7 +216,7 @@ def followup():
         }, 400
 
     question = data.get("question", "").strip()
-    session_id=data.get("session_id")
+    session_id = str(data.get("session_id", "")).strip()
 
 
 
@@ -154,22 +229,30 @@ def followup():
             "error": "Question is required"
         }, 400
 
+    if not session_id:
+        return {
+            "success": False,
+            "error": "session_id is required"
+        }, 400
+
     try:
-        answer = ask_followup_question( question,session_id)
-        if (answer):
-            history= db.session.get(history_table, session_id)
-            if history is None:
-                return {
+        history = db.session.get(history_table, session_id)
+        if history is None:
+            return {
                 "success": False,
                 "error": "History not found"
-                }, 404
-            data = json.loads(history.history)
+            }, 404
+
+        answer = ask_followup_question( question,session_id)
+        if (answer):
+            data = normalize_history(history.history)
 
             data["history"].append({
             "question": question,
             "response": answer
             })
-            history.history = json.dumps(data)
+            history.history = data
+            flag_modified(history, "history")
 
             db.session.commit()
         return {

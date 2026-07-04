@@ -26,8 +26,15 @@ def ask_followup_question( user_question: str, session_id: str) -> str:
     """
     # Format conversation history
     history= db.session.get(history_table, session_id)
-    
-    history_data = json.loads(history.history)
+    if history is None:
+        raise ValueError("History not found")
+
+    history_data = history.history
+    if isinstance(history_data, str):
+        history_data = json.loads(history_data)
+
+    if not history_data or "history" not in history_data:
+        raise ValueError("History is empty")
 
     history_to_be_sent=history_data["history"][-5:]
     if (len(history_data["history"])>5):

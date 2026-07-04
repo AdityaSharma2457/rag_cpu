@@ -3,7 +3,7 @@ from db_init_ import db
 
 
 class transcription_table(db.Model):
-    session_id = db.Column(db.Integer, primary_key=True )
+    session_id = db.Column(db.String(50), primary_key=True)
     path_in_webserver = db.Column(db.String(1000))
     report_path_in_webserver =db.Column(db.String(1000))
     status = db.Column(db.String(15))
