@@ -217,12 +217,6 @@ def followup():
 
     question = data.get("question", "").strip()
     session_id = str(data.get("session_id", "")).strip()
-
-
-
-    
-
-
     if not question:
         return {
             "success": False,
