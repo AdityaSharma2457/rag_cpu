@@ -7,8 +7,78 @@ import os
 from db import history_table,transcription_table
 from db_init_ import db
 import uuid
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import time
 
 os.makedirs("./reports", exist_ok=True)
+
+
+def batch_similarity_search(queries, k=5, max_workers=4, use_parallel=True):
+    """
+    Batch retrieve chunks for multiple queries with optimizations.
+    
+    Optimizations:
+    1. Deduplicates identical queries
+    2. Uses parallel ThreadPoolExecutor for concurrent searches
+    3. Maps results back to original query order
+    4. Adds timing and progress tracking
+    """
+    
+    if not queries:
+        return []
+    
+    start_time = time.time()
+    
+    # Step 1: Deduplicate queries
+    print(f"📊 Processing {len(queries)} claims...")
+    unique_queries = list(set(queries))
+    print(f"   └─ {len(unique_queries)} unique queries after deduplication")
+    
+    # Step 2: Batch search with parallel execution
+    retrieved_results = {}
+    
+    if use_parallel and len(unique_queries) > 1:
+        print(f"⚡ Running {len(unique_queries)} parallel vector searches...")
+        
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # Submit all tasks
+            future_to_query = {
+                executor.submit(collection.similarity_search, q, k): q 
+                for q in unique_queries
+            }
+            
+            # Process results as they complete
+            completed = 0
+            for future in as_completed(future_to_query):
+                completed += 1
+                query = future_to_query[future]
+                try:
+                    chunks = future.result()
+                    retrieved_results[query] = chunks
+                    print(f"   └─ [{completed}/{len(unique_queries)}] Retrieved for: {query[:50]}...")
+                except Exception as e:
+                    print(f"   ⚠️  [{completed}/{len(unique_queries)}] Error retrieving for: {query[:50]}... - {str(e)}")
+                    retrieved_results[query] = []  # Return empty list on error
+    else:
+        print(f"🔄 Running {len(unique_queries)} sequential vector searches...")
+        
+        for i, query in enumerate(unique_queries, 1):
+            try:
+                chunks = collection.similarity_search(query, k=k)
+                retrieved_results[query] = chunks
+                print(f"   └─ [{i}/{len(unique_queries)}] Retrieved for: {query[:50]}...")
+            except Exception as e:
+                print(f"   ⚠️  [{i}/{len(unique_queries)}] Error retrieving for: {query[:50]}... - {str(e)}")
+                retrieved_results[query] = []
+    
+    # Step 3: Map results back to original query order (preserving duplicates)
+    retrieved_chunks = [retrieved_results.get(q, []) for q in queries]
+    
+    elapsed = time.time() - start_time
+    print(f"✅ Batch retrieval complete in {elapsed:.2f}s")
+    print(f"   └─ Retrieved {sum(len(chunks) for chunks in retrieved_chunks)} total chunks")
+    
+    return retrieved_chunks
 
 
 def full_execution(session_id,toon_file_path, question):
@@ -141,11 +211,13 @@ Return ONLY valid JSON in the following format:
 
     print("Claims JSON:", claims_json)
 
-    retrieved_chunks = [collection.similarity_search(f"{query}", k=5) for query in claims]
+    # ✅ OPTIMIZED: Use batch retrieval instead of sequential
+    retrieved_chunks = batch_similarity_search(claims, k=5, max_workers=4, use_parallel=True)
 
     response = pipeline(question, transcript, retrieved_chunks, claims_json)
 
     if (response):
+        print("💾 Saving report...")
         report_name = str(uuid.uuid4())
         with open(f"./reports/{report_name}.txt", "w", encoding="utf-8") as f:
             f.write(response)
@@ -155,26 +227,29 @@ Return ONLY valid JSON in the following format:
         transcript = db.session.get(transcription_table, session_id)
         if  transcript is None:
             return {
-    "success": False,
-    "answer": "transcript not found",
-
-    }
-        transcript.report_path_in_webserver=report_file_path
+                "success": False,
+                "answer": "transcript not found",
+            }
+        
+        transcript.report_path_in_webserver = report_file_path
         transcript.status = "completed"
 
-        db.session.commit()
-
+        # Get or create history
         history = db.session.get(history_table, session_id)
         if history is None:
             history = history_table()
-            history.session_id=session_id
+            history.session_id = session_id
             db.session.add(history)
 
-        history.session_id=session_id
-        history.history = {"history":[{"question":question,"report":response}]}
-        db.session.commit()    
+        # Update history
+        history.session_id = session_id
+        history.history = {"history": [{"question": question, "report": response}]}
+        
+        # ✅ OPTIMIZED: Single commit instead of multiple
+        db.session.commit()
+        print("✅ Report saved successfully")
+    
     return {
-    "success": True,
-    "answer": response,
-
+        "success": True,
+        "answer": response,
     }

@@ -1,5 +1,4 @@
 import whisperx
-from whisperx.diarize import DiarizationPipeline
 from db import transcription_table,history_table
 from db_init_ import db
 import uuid
@@ -89,27 +88,18 @@ def transcription():
         )
 
         # Align words
-        model_a, metadata = whisperx.load_align_model(
-            language_code="en",
-            device=WHISPER_DEVICE
-        )
+
 
         result = whisperx.align(
             result["segments"],
-            model_a,
-            metadata,
+            model_loader.model_a,
+            model_loader.metadata,
             audio,
             WHISPER_DEVICE
         )
 
         # Diarization
-
-        diarize_model = DiarizationPipeline(
-            token=HF_TOKEN,
-            device=WHISPER_DEVICE
-        )
-
-        diarize_segments = diarize_model(audio)
+        diarize_segments = model_loader.diarize_model(audio)
 
         result = whisperx.assign_word_speakers(
             diarize_segments,

@@ -1,9 +1,20 @@
 from dotenv import load_dotenv
 import whisperx
 import os
+from whisperx.diarize import DiarizationPipeline
+
 from openai import OpenAI
 load_dotenv()
 
+
+
+
+
+client = None
+model = None
+diarize_model = None
+model_a = None
+metadata = None
 
 
 
@@ -15,17 +26,33 @@ HF_TOKEN=os.getenv("HF_TOKEN")
 
 
 def load_models():
-    global client,model
-    client = OpenAI(
+    global client,model,diarize_model,model_a,metadata
+
+    if client is None:
+        print("Loading OpenAI client...💡")
+        client = OpenAI(
   base_url = "https://integrate.api.nvidia.com/v1",
   api_key = os.getenv('NEMOTRON')
 )
-
-    model = whisperx.load_model(
+    if model is None:
+        print("Loading Whisper model...💡")
+        model = whisperx.load_model(
         WHISPER_MODEL,
         device=WHISPER_DEVICE,
         compute_type="int8"
     )
+    if diarize_model is None:
+        print("Loading Diarization model...💡")
+        diarize_model = DiarizationPipeline(
+            token=HF_TOKEN,
+            device=WHISPER_DEVICE
+        )
+    if model_a is None or metadata is None:
+        print("Loading alignment model...💡")
+        model_a, metadata = whisperx.load_align_model(
+            language_code="en",
+            device=WHISPER_DEVICE
+        )
 
 
 def generate_response(prompt):
