@@ -1,0 +1,777 @@
+1. Anand School of Engineering & Technology (ASET), Sharda University Agra (also known as Anand School, ASET, or Sharda Agra) offers the Bachelor of Technology (B.Tech) program with a duration of 4 years. Eligibility requires Senior Secondary (10+2) with 60% marks in PCM/PCB, no gap between 10th and 12th, and minimum 50% in Mathematics plus SUAT or JEE-Mains AIR up to 3 lakh; a bridge course is available for PCB students opting for non-biotech branches.
+
+2. Anand School of Engineering & Technology (ASET), Sharda University Agra offers the B.Tech Computer Science Engineering program (also known as B.Tech CSE or BTech Computer Science). The annual tuition fee for 2025-26 is ₹1,95,700, with a 20% fee discount offered for the 2025 batch only; year-wise fees are ₹1,57,000 (1st year), ₹1,62,000 (2nd year), ₹1,67,000 (3rd year), and ₹1,72,000 (4th year).
+
+3. Anand School of Engineering & Technology (ASET), Sharda University Agra offers the B.Tech CSE – Artificial Intelligence & Machine Learning program (also known as B.Tech CSE AI/ML or B.Tech AI-ML). The annual tuition fee for 2025-26 is ₹1,95,700 with a 20% batch discount; year-wise fees are ₹1,57,000, ₹1,62,000, ₹1,67,000, and ₹1,72,000 for years 1 through 4.
+
+4. Anand School of Engineering & Technology (ASET), Sharda University Agra offers the B.Tech CSE – Data Science program (also known as B.Tech CSE DS or B.Tech Data Science). The annual fee for 2025-26 is ₹1,95,700 with a 20% batch discount; year-wise fees are ₹1,57,000, ₹1,62,000, ₹1,67,000, and ₹1,72,000 for years 1 through 4.
+
+5. Anand School of Engineering & Technology (ASET), Sharda University Agra offers the B.Tech Biotechnology program (also known as B.Tech Bio or B.Tech Biotech). The annual fee for 2025-26 is ₹1,60,680 with a 20% batch discount; year-wise fees are ₹1,29,000, ₹1,33,000, ₹1,37,000, and ₹1,41,000 for years 1 through 4.
+
+6. Anand School of Engineering & Technology (ASET), Sharda University Agra offers the B.Tech Electronics & Computer Engineering program (also known as B.Tech ECE or B.Tech Electronics and Computer). The annual fee for 2025-26 is ₹1,60,680 with a 20% batch discount; year-wise fees are ₹1,29,000, ₹1,33,000, ₹1,37,000, and ₹1,41,000 for years 1 through 4.
+
+7. Anand School of Engineering & Technology (ASET), Sharda University Agra offers the B.Tech Electronics & Communication Engineering program (also known as B.Tech ECE or B.Tech E&C). The annual fee for 2025-26 is ₹1,60,680 with a 20% batch discount; year-wise fees are ₹1,29,000, ₹1,33,000, ₹1,37,000, and ₹1,41,000 for years 1 through 4.
+
+8. Anand School of Engineering & Technology (ASET), Sharda University Agra offers the Bachelor of Computer Applications program (also known as BCA or B.C.A.). Eligibility requires 10+2 with minimum 50% marks with Mathematics or IT in Class 12. The annual fee for 2025-26 is ₹1,13,300 with a 20% batch discount; year-wise fees are ₹91,000 (1st year), ₹94,000 (2nd year), and ₹97,000 (3rd year).
+
+9. Anand School of Engineering & Technology (ASET), Sharda University Agra offers the B.Sc. – Data Science, Cyber Security & Artificial Intelligence program (also known as B.Sc. Data Science or B.Sc. AI & Cyber Security). Eligibility requires 10+2 with minimum 55% marks in PCM/PCB. The annual fee for 2025-26 is ₹1,00,000 with a 20% batch discount; year-wise fees are ₹80,000, ₹82,000, and ₹84,000 for years 1 through 3.
+
+10. Anand School of Engineering & Technology (ASET), Sharda University Agra offers the Master of Technology (M.Tech) program with a duration of 2 years. Eligibility requires a B.E./B.Tech/MCA/M.Sc. in a relevant discipline with minimum 55% marks; GATE/CUET score holders are given preference. The annual fee for 2025-26 is ₹1,03,000 with a 20% batch discount.
+
+11. Anand School of Engineering & Technology (ASET), Sharda University Agra offers the Master of Computer Applications (MCA) program with a duration of 2 years. Eligibility requires BCA/B.Sc. in Mathematics/IT/CS with minimum 50% marks and Mathematics at graduation or 12th level. The annual fee for 2025-26 is ₹1,44,200 with a 20% batch discount; year-wise fees are ₹1,15,000 (1st year) and ₹1,18,000 (2nd year).
+
+12. Sharda School of Business Studies (part of Sharda University Agra, also known as SSBS or Anand Business School) offers the Bachelor of Business Administration (BBA) program. Eligibility requires 10+2 with minimum 50% marks and Commerce/Mathematics as a subject. The annual fee for 2025-26 is ₹1,33,900 with a 20% batch discount; year-wise fees are ₹1,07,000, ₹1,10,000, and ₹1,13,000 for years 1 through 3.
+
+13. Sharda School of Business Studies, Sharda University Agra offers the BBA – International Accounting and Finance program (also known as BBA IAF or BBA International Finance). The annual fee for 2025-26 is ₹1,70,000 with a 20% batch discount; year-wise fees are ₹1,36,000, ₹1,40,000, and ₹1,44,000 for years 1 through 3.
+
+14. Sharda School of Business Studies, Sharda University Agra offers the BBA Logistics in Association with AVAAN Intellect program (also known as BBA Logistics or BBA Supply Chain). The year-wise fees are ₹1,42,000 (1st year), ₹1,46,000 (2nd year), and ₹1,50,000 (3rd year).
+
+15. Sharda School of Business Studies, Sharda University Agra offers the Bachelor of Commerce (B.Com) program. Eligibility requires 10+2 with minimum 50% marks with Commerce/Mathematics. The annual fee for 2025-26 is ₹1,03,000 with a 20% batch discount; year-wise fees are ₹82,000, ₹84,000, and ₹87,000 for years 1 through 3.
+
+16. Sharda School of Business Studies, Sharda University Agra offers the B.Com – International Accounting and Finance program (also known as B.Com IAF or B.Com ACCA). The annual fee for 2025-26 is ₹1,38,750 with a 20% batch discount; year-wise fees are ₹1,11,000, ₹1,15,000, and ₹1,18,000 for years 1 through 3.
+
+17. Sharda School of Business Studies, Sharda University Agra offers the Master of Business Administration (MBA) program. Eligibility requires graduation with minimum 50% marks and SUAT/MAT (75th percentile) or CAT/XAT (65th percentile), followed by GD & PI. The annual fee for 2025-26 is ₹1,95,700 with a 20% batch discount; year-wise fees are ₹1,57,000 (1st year) and ₹1,62,000 (2nd year).
+
+18. Sharda School of Business Studies, Sharda University Agra offers the MBA in Logistics & Supply Chain Management in association with CII (also known as MBA Logistics or MBA SCM). The total annual fee is ₹4,00,000 for the first year and ₹4,12,000 for the second year.
+
+19. Sharda School of Business Studies, Sharda University Agra offers the Executive MBA program with a 2-year duration. The annual fee is ₹3,00,000 per year for both years.
+
+20. Sharda School of Pharmacy, Sharda University Agra offers the Diploma in Pharmacy (D.Pharm) program with a 2-year duration. Eligibility requires 10+2 in PCM/PCB with minimum 50% marks. The annual fee for 2025-26 is ₹1,23,600 with a 20% batch discount; year-wise fees are ₹99,000 (1st year) and ₹1,02,000 (2nd year).
+
+21. Sharda School of Pharmacy, Sharda University Agra offers the Bachelor of Pharmacy (B.Pharm) program with a 4-year duration. Eligibility requires 10+2 in PCM/PCB with minimum 50% marks. The annual fee for 2025-26 is ₹1,75,100 with a 20% batch discount; year-wise fees are ₹1,40,000, ₹1,44,000, ₹1,48,000, and ₹1,52,000 for years 1 through 4.
+
+22. Sharda School of Pharmacy, Sharda University Agra offers the Master of Pharmacy (M.Pharm) in Pharmacology/Pharmaceutics with a 2-year duration. Eligibility requires a B.Pharm degree from a PCI-approved institute with minimum 55% marks. The annual fee for 2025-26 is ₹1,18,450 with a 20% batch discount; year-wise fees are ₹95,000 (1st year) and ₹98,000 (2nd year).
+
+23. Sharda School of Agricultural Sciences, Sharda University Agra offers the B.Sc. (Hons.) Agriculture program with a 4-year duration. Eligibility requires 10+2 in PCM/PCB with minimum 55% marks. The annual fee for 2025-26 is ₹1,08,150 with a 20% batch discount; year-wise fees are ₹87,000, ₹90,000, ₹93,000, and ₹96,000 for years 1 through 4.
+
+24. Sharda School of Design, Sharda University Agra offers the Bachelor of Design (B.Des.) – Fashion Design program with a 4-year duration. Eligibility requires 10+2 with minimum 50% marks. The annual fee for 2025-26 is ₹1,39,050 with a 20% batch discount; year-wise fees are ₹1,11,000, ₹1,14,000, ₹1,17,000, and ₹1,21,000 for years 1 through 4.
+
+25. Sharda School of Design, Sharda University Agra offers the Bachelor of Design (B.Des.) – Interior Design program with a 4-year duration. Eligibility requires 10+2 with minimum 50% marks. The annual fee for 2025-26 is ₹1,39,050 with a 20% batch discount; year-wise fees are ₹1,11,000, ₹1,14,000, ₹1,17,000, and ₹1,21,000 for years 1 through 4.
+
+26. Sharda School of Law, Sharda University Agra offers the B.A. LL.B. (Hons.) program (also known as BA LLB or Integrated Law) with a 5-year duration. Eligibility requires 10+2 with minimum 55% marks. The annual fee for 2025-26 is ₹1,40,000 with a 20% batch discount; year-wise fees are ₹1,12,000, ₹1,15,000, ₹1,18,000, ₹1,22,000, and ₹1,26,000 for years 1 through 5.
+
+27. Sharda School of Law, Sharda University Agra offers the B.B.A. LL.B. (Hons.) program (also known as BBA LLB or Integrated Law with Business) with a 5-year duration. Eligibility requires 10+2 with minimum 55% marks. The annual fee for 2025-26 is ₹1,40,000 with a 20% batch discount.
+
+28. Sharda University Agra (also known as Anand School or ASET) offers Ph.D. programs in Management, Pharmacy, and Computer Science with a minimum 3-year duration. Eligibility requires a postgraduate degree with minimum 55% marks (50% for SC/ST/OBC/EWS) from a UGC-recognized university.
+
+29. Geeta University (also known as GMU or Geeta Modern University) offers a total of 34 UG courses, 19 PG courses, 2 Diploma courses, 11 Doctoral courses, and no Certificate or Online/MOOC courses as of 2025-26.
+
+30. Geeta University (also known as GMU or Geeta Modern University) offers the B.Tech Computer Science and Engineering (also known as B.Tech CSE or BTech CS) program with specializations in Artificial Intelligence & Machine Learning, Cyber Security, Data Science & Business Analytics, and Full Stack Web Development. Duration is 4 years; eligibility requires 10+2 with Physics, Mathematics, and one relevant subject with minimum qualifying marks.
+
+31. Geeta University (also known as GMU or Geeta Modern University) offers the B.Tech (Hons.) Computer Science and Engineering program with the same specializations and eligibility as the standard B.Tech CSE. Duration is 4 years.
+
+32. Geeta University (also known as GMU or Geeta Modern University) offers the M.Tech Computer Science and Engineering program with specializations in Artificial Intelligence & Machine Learning, Cyber Security, and Data Science & Business Analytics. Duration is 2 years; eligibility requires a B.E./B.Tech or equivalent in a relevant discipline with minimum 50% marks.
+
+33. Geeta University (also known as GMU or Geeta Modern University) offers a Ph.D. in Computer Science and Engineering. Duration is 3 years; eligibility requires a Master's degree in a relevant discipline as per UGC regulations.
+
+34. Geeta University (also known as GMU or Geeta Modern University) offers the B.Tech Civil Engineering program (also known as B.Tech CE or BTech Civil) with regular mode delivery. Duration is 4 years; eligibility requires 10+2 with Physics, Mathematics, and one relevant subject.
+
+35. Geeta University (also known as GMU or Geeta Modern University) offers a B.Tech Civil Engineering program with specialization in AI and Digital Transformation. Duration is 4 years.
+
+36. Geeta University (also known as GMU or Geeta Modern University) offers the M.Tech Civil Engineering program with specializations in Transportation Engineering and Construction Technology Management. Duration is 2 years; eligibility requires a B.E./B.Tech in a relevant specialization with minimum 50% marks.
+
+37. Geeta University (also known as GMU or Geeta Modern University) offers the Bachelor of Computer Applications (BCA) program. Duration is 3 years; eligibility requires 10+2 in any stream with Mathematics/Computer or relevant subject with minimum qualifying marks.
+
+38. Geeta University (also known as GMU or Geeta Modern University) offers the Master of Computer Applications (MCA) program. Duration is 2 years; eligibility requires a Bachelor's degree in a relevant discipline with minimum 50% marks.
+
+39. Geeta University (also known as GMU or Geeta Modern University) offers a Ph.D. in Computer Applications. Duration is 3 years; eligibility requires a Master's degree in a relevant discipline as per UGC regulations.
+
+40. Geeta University (also known as GMU or Geeta Modern University) offers the B.Sc. Hotel Management program (also known as B.Sc. HM or Hotel Management UG). Duration is 3 years; eligibility requires 10+2 in any stream with minimum qualifying marks.
+
+41. Geeta University (also known as GMU or Geeta Modern University) offers a Diploma in Hotel Management. Duration is 1 year; eligibility requires 10+2 or equivalent qualification with minimum qualifying marks.
+
+42. Geeta University (also known as GMU or Geeta Modern University) offers the B.Sc. Nutrition & Dietetics program. Duration is 3 years; eligibility requires 10+2 in Science stream with Biology/relevant subject and minimum qualifying marks.
+
+43. Geeta University (also known as GMU or Geeta Modern University) offers the M.Sc. Nutrition & Dietetics program. Duration is 2 years; eligibility requires a Bachelor's degree in a relevant/allied field with minimum 50% marks.
+
+44. Geeta University (also known as GMU or Geeta Modern University) offers the Bachelor of Business Administration (BBA) program with specializations in International Accounting, Artificial Intelligence and Data Analytics, Human Resource Management, and Import & Export Management. Duration is 3 years; eligibility requires 10+2 in any stream with minimum qualifying marks.
+
+45. Geeta University (also known as GMU or Geeta Modern University) offers the Master of Business Administration (MBA) program with specializations in Finance, Marketing, Human Resource Management, Pharmaceutical Management, and Logistics & Supply Chain Management. Duration is 2 years; eligibility requires a Bachelor's degree in any discipline with minimum 50% marks.
+
+46. Geeta University (also known as GMU or Geeta Modern University) offers the Bachelor of Commerce (B.Com) program with specializations including International Accounting, Auditing & Taxation, Banking & Insurance, and Advanced Accounting. Duration is 3 years; eligibility requires 10+2 in Commerce/relevant stream.
+
+47. Geeta University (also known as GMU or Geeta Modern University) offers the Master of Commerce (M.Com) program. Duration is 2 years; eligibility requires a Bachelor's degree in Commerce.
+
+48. Geeta University (also known as GMU or Geeta Modern University) offers the B.Sc. Forensic Science program. Duration is 3 years; eligibility requires 10+2 in Science stream with minimum qualifying marks.
+
+49. Geeta University (also known as GMU or Geeta Modern University) offers the B.Sc. (Hons.) Agriculture program with a specialization in Agriculture. Duration is 4 years; eligibility requires 10+2 with minimum qualifying marks.
+
+50. Geeta University (also known as GMU or Geeta Modern University) offers the Bachelor of Arts (BA) program with specializations in Political Science, Psychology, and Economics. Duration is 3 years; eligibility requires 10+2 with minimum qualifying marks.
+
+51. Geeta University (also known as GMU or Geeta Modern University) offers the BA LL.B. and BBA LL.B. integrated law programs with a duration of 5 years each. Eligibility requires 10+2 with minimum qualifying marks.
+
+52. Geeta University (also known as GMU or Geeta Modern University) offers the LL.M. (Master of Laws) program with a duration of 1 year. Eligibility requires a law degree with minimum qualifying marks.
+
+53. Geeta University (also known as GMU or Geeta Modern University) offers D.Pharm (Diploma in Pharmacy) and B.Pharm (Bachelor of Pharmacy) programs. Eligibility requires 10+2 in PCM/PCB with minimum qualifying marks.
+
+54. Geeta University (also known as GMU or Geeta Modern University) offers the M.Pharm (Master of Pharmacy) with specializations in Pharmaceutics, Pharmacology, and Pharmaceutical Chemistry. Duration is 2 years; eligibility requires a B.Pharm degree.
+
+55. Geeta University (also known as GMU or Geeta Modern University) provides separate Boys' and Girls' on-campus hostels with a combined capacity of 600+ students across 200+ rooms. Boys have 3 hostels; Girls have 1 hostel.
+
+56. Geeta University (also known as GMU or Geeta Modern University) hostel rooms are available in Single, Double, and Triple Sharing occupancy, with both AC and Non-AC options. Mess fees (vegetarian) are included in the hostel fee.
+
+57. Geeta University (also known as GMU or Geeta Modern University) hostel amenities include furnished rooms, study tables, Wi-Fi, RO water, laundry, 24×7 security, CCTV, indoor sports, medical support, power backup, and a hygienic dining facility.
+
+58. Geeta University (also known as GMU or Geeta Modern University) charges an annual hostel fee (with food) of ₹1,54,000 for AC 3-Sharing with Attached Washroom, ₹1,41,000 for AC 3-Sharing with Common Washroom, ₹1,38,000 for Non-AC 3-Sharing with Attached Washroom, ₹1,25,000 for Non-AC 3-Sharing with Common Washroom, ₹1,25,000 for AC 4-Sharing with Common Washroom, and ₹1,09,000 for Non-AC 4-Sharing with Common Washroom. A one-time refundable hostel security deposit of ₹5,000 is also applicable.
+
+59. Geeta University (also known as GMU or Geeta Modern University) hostel fees in USD are approximately $2,000 (AC 3-Sharing/Attached), $1,800 (AC 3-Sharing/Common), $1,750 (Non-AC 3-Sharing/Attached), $1,550 (Non-AC 3-Sharing/Common or AC 4-Sharing/Common), and $1,300 (Non-AC 4-Sharing/Common) per annum.
+
+60. Geeta University (also known as GMU or Geeta Modern University) offers a Merit Scholarship based on marks in the qualifying examination (Class 10 for Diploma, Class 12 for UG, Graduation for PG, Master's for Ph.D.): 95% and above – 100% tuition fee waiver; 90–94.99% – 50%; 80–89.99% – 40%; 70–79.99% – 30%; 60–69.99% – 10%.
+
+61. Geeta University (also known as GMU or Geeta Modern University) conducts a university scholarship test called GUTS (Geeta University Test of Scholarship) offering up to 100% tuition fee waiver based on score slabs. This is not applicable to some PG, Pharmacy, Nursing & Paramedical programs.
+
+62. Geeta University (also known as GMU or Geeta Modern University) offers a National Level Entrance Exam scholarship for JEE, NEET, CAT, MAT, CMAT, CLAT, etc., with up to 100% tuition fee waiver based on score/rank slabs.
+
+63. Geeta University (also known as GMU or Geeta Modern University) offers a CUET-based scholarship: 95%+/270+ score – 100% tuition fee; 80–94.99%/210–269 – 50%; 50–79.99%/150–209 – 30%; 120–149 – 10% of tuition fee.
+
+64. Geeta University (also known as GMU or Geeta Modern University) offers a CLAT-based scholarship for law programs: Rank 1–30,000 (BA LL.B./BBA LL.B.) and Rank 1–200 (LL.M.) are eligible for fee waivers of up to 100%, 50%, 40%, 30%, or 10% of tuition fee.
+
+65. Geeta University (also known as GMU or Geeta Modern University) provides a Social Responsibility Scholarship (mostly 30%, some categories 50%) for children of Defence Personnel, Freedom Fighters, Persons with Disability, Single Mother's Child, Orphan Children, and University Employees/Alumni/Siblings.
+
+66. Geeta University (also known as GMU or Geeta Modern University) offers a Sports Scholarship of up to 100%, 50%, or 30% of tuition fee for International/National-level players, medalists, and participants, as per the university sports policy.
+
+67. Geeta University (also known as GMU or Geeta Modern University) offers a scholarship under the Haryana Private Universities Act (Merit-cum-Means) for Haryana domicile students, as per HPUA financial assistance norms.
+
+68. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Diploma in Pharmacy (D.Pharm) through its SGT College of Pharmacy with a 2-year duration and an intake of 60 students. Eligibility requires age 17+ by December 31st of admission year and 10+2 with English, Physics, Chemistry, and Mathematics or Biology with minimum qualifying marks as per PCI norms. The annual fee is ₹1,20,000.
+
+69. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Bachelor of Pharmacy (B.Pharm or B.Pharmacy) through SGT College of Pharmacy with a duration of 8 semesters and an intake of 100 students. Eligibility is 10+2 with English, Physics, Chemistry, and Mathematics or Biology. The fee is ₹1,00,000 per semester.
+
+70. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Bachelor of Pharmacy (Practice) program with a 2-year duration and an intake of 40 students. Eligibility requires a Diploma in Pharmacy with 60% marks and minimum 4 years of experience as a Registered Pharmacist. The annual fee is ₹1,00,000.
+
+71. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Master of Pharmacy (M.Pharm) in Pharmaceutics with 4 semesters and an intake of 15 students. Eligibility requires B.Pharm with 55% marks (50% for SC/ST). The fee is ₹75,000 per semester.
+
+72. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Master of Pharmacy (M.Pharm) in Pharmacology with 4 semesters and an intake of 12 students. Eligibility requires B.Pharm with 55% marks (50% for SC/ST). The fee is ₹75,000 per semester.
+
+73. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Master of Pharmacy (M.Pharm) in Pharmacy Practice with 4 semesters and an intake of 6 students. Eligibility requires B.Pharm with 55% marks (50% for SC/ST). The fee is ₹75,000 per semester.
+
+74. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Master of Pharmacy (M.Pharm) in Pharmacy Quality Assurance with 4 semesters and an intake of 15 students. Eligibility requires B.Pharm with 55% marks (50% for SC/ST). The fee is ₹75,000 per semester.
+
+75. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Master of Pharmacy (M.Pharm) in Pharmacognosy with 4 semesters and an intake of 6 students. Eligibility requires B.Pharm with 55% marks (50% for SC/ST). The fee is ₹75,000 per semester.
+
+76. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Master of Pharmacy (M.Pharm) in Pharmaceutical Chemistry with 4 semesters and an intake of 15 students. Eligibility requires B.Pharm with 55% marks (50% for SC/ST). The fee is ₹75,000 per semester.
+
+77. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Master of Pharmacy (M.Pharm) in Pharmaceutical Regulatory Affairs with 4 semesters and an intake of 15 students. Eligibility requires B.Pharm with 55% marks (50% for SC/ST). The fee is ₹75,000 per semester.
+
+78. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Doctor of Pharmacy (Pharm.D.) program with a duration of 5 years plus 1 year of residency training and an intake of 30 students. Eligibility requires 10+2 with Physics, Chemistry, and Mathematics or Biology with 60% marks, or a Diploma in Pharmacy with 60% marks. The annual fee is ₹3,00,000.
+
+79. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Doctor of Pharmacy (Pharm.D.) Post-Baccalaureate program with 2 years plus 1 year of residency training and an intake of 10 students. Eligibility requires B.Pharm with 55% marks (50% for SC/ST). The annual fee is ₹3,00,000.
+
+80. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers a Doctor of Philosophy (Ph.D.) in Pharmacy as per UGC norms. Eligibility requires a Master of Pharmacy with 55% marks. The annual fee is ₹1,50,000.
+
+81. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Bachelor of Ayurvedic Medicine & Surgery (BAMS) through its Faculty of Indian Medical System with 4 years plus 1 year internship and an intake of 100 students. Admission is NEET-qualified through centralized counselling.
+
+82. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Bachelor of Naturopathy & Yogic Sciences (BNYS) through its Faculty of Naturopathy & Yogic Sciences with 4 years plus 1 year internship and an intake of 100 students. Eligibility requires 10+2 with minimum 50% marks in Physics, Chemistry, and Biology combined with English. The annual fee is ₹1,00,000.
+
+83. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the B.Sc. (Hons. with Research) Psychology – Clinical/Criminal program through its Faculty of Behavioural and Social Sciences with a 6 or 8-semester duration and an intake of 100 students. Eligibility requires 10+2 with 60% marks in aggregate with English. The fee is ₹65,000 per semester.
+
+84. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Bachelor of Science Clinical Psychology (Hons.) program with 8 semesters and an intake of 60 students. Eligibility requires 10+2 with minimum 50% marks in Science. The fee is ₹1,50,000 per semester.
+
+85. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers the Master of Arts Clinical Psychology (M.A. Clinical Psychology) with 4 semesters and an intake of 40 students. Eligibility requires a Bachelor's in Psychology with 55% marks (50% for SC/ST). The fee is ₹2,25,000 per semester.
+
+86. Shree Guru Gobind Singh Tricentenary University (SGT University, also known as SGTMU or SGT) offers M.Sc. Psychology (Clinical) with 4 semesters and an intake of 60 students. Eligibility requires B.Sc./B.A. (Hons.) Psychology or B.Sc. Clinical Psychology with 55% marks or B.A./B.Com./B.Sc. with minimum 55% marks. The fee is ₹75,000 per semester.
+
+87. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Tech – Artificial Intelligence program (also known as B.Tech AI) with a duration of 4 years. Eligibility requires 50% (45% for SC/ST) in 10+2 with PCM. The annual fee is ₹1,50,000.
+
+88. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Tech – Cloud Computing program (also known as B.Tech CTIS / B.Tech Cloud) with a duration of 4 years. Eligibility requires 50% (45% for SC/ST) in 10+2 with PCM. The annual fee is ₹1,50,000.
+
+89. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Tech – Internet of Things program (also known as B.Tech IoT) with a duration of 4 years. Eligibility requires 50% (45% for SC/ST) in 10+2 with PCM. The annual fee is ₹1,50,000.
+
+90. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Tech in Computer Science & Engineering program (also known as B.Tech CSE) with a duration of 4 years. Eligibility requires 50% (45% for SC/ST) in 10+2 with PCM. The annual fee is ₹1,00,000.
+
+91. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Tech in Civil Engineering program (also known as B.Tech CE / B.Tech Civil) with a duration of 4 years. Eligibility requires 50% (45% for SC/ST) in 10+2 with PCM. The annual fee is ₹1,00,000.
+
+92. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Tech in Mechanical Engineering program (also known as B.Tech ME / B.Tech Mech) with a duration of 4 years. Eligibility requires 50% (45% for SC/ST) in 10+2 with PCM. The annual fee is ₹1,00,000.
+
+93. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Tech in Electrical Engineering program (also known as B.Tech EE / B.Tech Electrical) with a duration of 4 years. Eligibility requires 50% (45% for SC/ST) in 10+2 in aggregate and PCM. The annual fee is ₹1,00,000.
+
+94. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Tech in Biotechnology program (also known as B.Tech Biotech / B.Tech Bio) with a duration of 4 years. Eligibility requires 50% (45% for SC/ST) in 10+2 with PCB. The annual fee is ₹1,00,000.
+
+95. Invertis University (also known as Invertis or Invertis Bareilly) offers the M.Tech ME (Thermal) program (also known as M.Tech Mechanical) with a duration of 2 years. Eligibility requires 60% (55% for SC/ST) in B.Tech/B.E.. The annual fee is ₹80,000.
+
+96. Invertis University (also known as Invertis or Invertis Bareilly) offers the M.Tech in Computer Science & Engineering program (also known as M.Tech CSE) with a duration of 2 years. Eligibility requires 60% (55% for SC/ST) in B.Tech/B.E. in CS/IT or MCA or M.Sc. in Maths/Physics/Chemistry/CS/IT. The annual fee is ₹80,000.
+
+97. Invertis University (also known as Invertis or Invertis Bareilly) offers the Diploma in Civil Engineering program (also known as Polytechnic CE / Civil Diploma) with a 3-year duration. Regular admission requires 50% (45% for SC/ST) in Class 10 with Maths and Science; lateral entry to 2nd year requires 60% in 10+2 or ITI in the respective branch. The annual fee is ₹35,000.
+
+98. Invertis University (also known as Invertis or Invertis Bareilly) offers the Diploma in Electrical Engineering program (also known as Polytechnic EE / Electrical Diploma) with a 3-year duration. Regular admission requires 50% (45% for SC/ST) in Class 10 with Maths and Science; lateral entry to 2nd year requires 60% in 10+2 or ITI in the respective branch. The annual fee is ₹35,000.
+
+99. Invertis University (also known as Invertis or Invertis Bareilly) offers the Diploma in Computer Science Engineering program (also known as Polytechnic CSE / CS Diploma) with a 3-year duration. Regular admission requires 50% (45% for SC/ST) in Class 10 with Maths and Science; lateral entry to 2nd year requires 60% in 10+2 or ITI in the respective branch. The annual fee is ₹35,000.
+
+100. Invertis University (also known as Invertis or Invertis Bareilly) offers the Diploma in Mechanical Engineering (Automobile) program (also known as Polytechnic ME Automobile) with a 3-year duration. Regular admission requires 50% (45% for SC/ST) in Class 10 with Maths and Science; lateral entry to 2nd year requires 60% in 10+2 or ITI in the respective branch. The annual fee is ₹35,000.
+
+101. Invertis University (also known as Invertis or Invertis Bareilly) offers the Diploma in Mechanical Engineering (Production) program (also known as Polytechnic ME Production) with a 3-year duration. Regular admission requires 50% (45% for SC/ST) in Class 10 with Maths and Science; lateral entry to 2nd year requires 60% in 10+2 or ITI in the respective branch. The annual fee is ₹35,000.
+
+102. Invertis University (also known as Invertis or Invertis Bareilly) offers B.Tech Lateral Entry in CSE, EE, ME, CE, and Biotechnology with a 3-year duration. Eligibility requires 60% marks in Diploma/B.Sc. The annual fee is ₹1,00,000.
+
+103. Invertis University (also known as Invertis or Invertis Bareilly) offers Diploma Lateral Entry in CE, ME, CSE, and EE with a 2-year duration. Eligibility requires 60% in Diploma/B.Sc. (PCM or PCB for Biotech) in aggregate. The annual fee is ₹35,000.
+
+104. Invertis University (also known as Invertis or Invertis Bareilly) offers the Bachelor of Computer Applications program (also known as BCA) with a 3-year duration. Eligibility requires 50% (45% for SC/ST) in 10+2, Maths not compulsory. The annual fee is ₹50,000.
+
+105. Invertis University (also known as Invertis or Invertis Bareilly) offers the BCA – Artificial Intelligence program (also known as BCA AI) with a 3-year duration. Eligibility requires 50% (45% for SC/ST) in 10+2, Maths not compulsory. The annual fee is ₹1,00,000.
+
+106. Invertis University (also known as Invertis or Invertis Bareilly) offers the BCA – Internet of Things program (also known as BCA IoT) with a 3-year duration. Eligibility requires 50% (45% for SC/ST) in 10+2, Maths not compulsory. The annual fee is ₹1,00,000.
+
+107. Invertis University (also known as Invertis or Invertis Bareilly) offers the BCA – Cloud Computing program (also known as BCA CTIS / BCA Cloud) with a 3-year duration. Eligibility requires 50% (45% for SC/ST) in 10+2, Maths not compulsory. The annual fee is ₹1,00,000.
+
+108. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Sc. (Hons.) Computer Science program (also known as B.Sc. CS) with a 3-year duration. Eligibility requires 50% (45% for SC/ST) in 10+2 with Mathematics. The annual fee is ₹35,000.
+
+109. Invertis University (also known as Invertis or Invertis Bareilly) offers the Master of Computer Applications (MCA) with a 2-year duration. Eligibility requires 50% (45% for SC/ST) in graduation with Maths at 10+2 or graduation level. The annual fee is ₹65,000.
+
+110. Invertis University (also known as Invertis or Invertis Bareilly) offers the Bachelor of Arts – Bachelor of Law program (also known as BA LLB / Integrated Law) with a 5 years duration. Eligibility requires 45% (40% SC/ST, 42% OBC) in 10+2. The annual fee is ₹50,000.
+
+111. Invertis University (also known as Invertis or Invertis Bareilly) offers the Bachelor of Business Administration – Bachelor of Law program (also known as BBA LLB / Integrated Business Law) with a 5 years duration. Eligibility requires 45% (40% SC/ST, 42% OBC) in 10+2. The annual fee is ₹50,000.
+
+112. Invertis University (also known as Invertis or Invertis Bareilly) offers the Bachelor of Law program (also known as LLB / LL.B.) with a 3 years duration. Eligibility requires 45% (40% SC/ST, 42% OBC) in graduation. The annual fee is ₹35,000.
+
+113. Invertis University (also known as Invertis or Invertis Bareilly) offers the Master of Law (Criminal/Business/Corporate/Constitutional) program (also known as LLM / LL.M.) with a 2 years duration. Eligibility requires 55% (50% SC/ST) in LL.B. or equivalent. The annual fee is ₹60,000.
+
+114. Invertis University (also known as Invertis or Invertis Bareilly) offers the Bachelor of Elementary Education program (also known as B.El.Ed.) with a 4 years duration. Eligibility requires 50% (45% SC/ST) in 10+2. The annual fee is ₹40,000.
+
+115. Invertis University (also known as Invertis or Invertis Bareilly) offers the BA B.Ed. program (also known as BA BEd / Integrated BA BEd) with a 4 years duration. Eligibility requires 50% (45% SC/ST) in 10+2. The annual fee is ₹40,000.
+
+116. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Sc. B.Ed. program (also known as BSc BEd / Integrated BSc BEd) with a 4 years duration. Eligibility requires 50% (45% SC/ST) in 10+2 with PCB/PCM. The annual fee is ₹45,000.
+
+117. Invertis University (also known as Invertis or Invertis Bareilly) offers the Master of Arts Education program (also known as MA Education / MA Ed) with a 2 years duration. Eligibility requires 50% (45% SC/ST) in B.A. Education/B.Ed.. The annual fee is ₹40,000.
+
+118. Invertis University (also known as Invertis or Invertis Bareilly) offers the Bachelor of Business Administration (BBA) program with specializations in Marketing, Finance, HR, Hospitality & Tourism Management. Duration is 3 years; eligibility requires 50% (45% SC/ST) in 10+2. The annual fee is ₹50,000.
+
+119. Invertis University (also known as Invertis or Invertis Bareilly) offers the Master of Business Administration (MBA) with dual specialization options in Marketing, HR, Finance, IT, International Business, Retail, Project Management, Healthcare, Rural & Agriculture Management, and Hospitality & Tourism. Duration is 2 years; eligibility requires 50% (45% SC/ST) in any graduation. The annual fee is ₹1,35,000.
+
+120. Invertis University (also known as Invertis or Invertis Bareilly) offers the M.Com (Master of Commerce) with a 2-year duration. Eligibility requires 50% (45% for SC/ST) in graduation with Commerce or Management. The annual fee is ₹30,000.
+
+121. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Com (Hons.) program with a 3-year duration. Eligibility requires 50% (45% SC/ST) in 10+2. The annual fee is ₹35,000.
+
+122. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Com (Bachelor of Commerce) program with a 3-year duration. Eligibility requires 50% (45% SC/ST) in 10+2. The annual fee is ₹30,000.
+
+123. Invertis University (also known as Invertis or Invertis Bareilly) offers the M.Com (Master of Commerce) with a 2-year duration. Eligibility requires 50% (45% SC/ST) in graduation with Commerce or Management. The annual fee is ₹30,000.
+
+124. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Sc. Forensic Science program (also known as BSc Forensic) with a 3 years duration. Eligibility requires 50% (45% SC/ST) in 10+2 PCM/PCB. The annual fee is ₹80,000.
+
+125. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Sc. (ZBC – Zoology, Botany, Chemistry) program (also known as BSc ZBC / BSc Life Sciences) with a 3 years duration. Eligibility requires 50% (45% SC/ST) in 10+2 with PCB. The annual fee is ₹20,000.
+
+126. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Sc. (Hons.) Physics program (also known as BSc Physics) with a 3 years duration. Eligibility requires 50% (45% SC/ST) in 10+2 with PCM. The annual fee is ₹30,000.
+
+127. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Sc. (Hons.) Chemistry program (also known as BSc Chemistry) with a 3 years duration. Eligibility requires 50% (45% SC/ST) in 10+2 with PCM. The annual fee is ₹30,000.
+
+128. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Sc. (Hons.) Mathematics program (also known as BSc Maths / BSc Mathematics) with a 3 years duration. Eligibility requires 50% (45% SC/ST) in 10+2 with PCM. The annual fee is ₹30,000.
+
+129. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Sc. (Hons.) Biotechnology program (also known as BSc Biotech) with a 3 years duration. Eligibility requires 50% (45% SC/ST) in 10+2 with PCB/PCM. The annual fee is ₹35,000.
+
+130. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Sc. (Hons.) Agriculture program (also known as BSc Agriculture / BSc Agri) with a 4 years duration. Eligibility requires 50% (45% SC/ST) in 10+2 with PCM or Agriculture. The annual fee is ₹50,000.
+
+131. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Sc. Fashion Design program (also known as BSc FD / BSc Fashion) with a 3 years duration. Eligibility requires 50% (45% SC/ST) in 10+2. The annual fee is ₹60,000.
+
+132. Invertis University (also known as Invertis or Invertis Bareilly) offers the BA Psychology program (also known as BA Psych) with a 3 years duration. Eligibility requires 50% (45% SC/ST) in 10+2. The annual fee is ₹50,000.
+
+133. Invertis University (also known as Invertis or Invertis Bareilly) offers the BA (Hons.) English program (also known as BA English Hons) with a 3 years duration. Eligibility requires 50% (45% SC/ST) in 10+2. The annual fee is ₹35,000.
+
+134. Invertis University (also known as Invertis or Invertis Bareilly) offers the M.Sc. Chemistry program (also known as MSc Chemistry) with a 2 years duration. Eligibility requires 50% (45% SC/ST) in B.Sc. with Chemistry as major. The annual fee is ₹30,000.
+
+135. Invertis University (also known as Invertis or Invertis Bareilly) offers the M.Sc. Biotechnology program (also known as MSc Biotech) with a 2 years duration. Eligibility requires 50% (45% SC/ST) in B.Sc. Life Sciences or Medical graduates. The annual fee is ₹55,000.
+
+136. Invertis University (also known as Invertis or Invertis Bareilly) offers the M.Sc. Microbiology program (also known as MSc Micro) with a 2 years duration. Eligibility requires 50% (45% SC/ST) in B.Sc. Life Sciences or Medical graduates. The annual fee is ₹55,000.
+
+137. Invertis University (also known as Invertis or Invertis Bareilly) offers the M.Sc. Agriculture (Agronomy) program (also known as MSc Agriculture / MSc Agronomy) with a 2 years duration. Eligibility requires 50% (45% SC/ST) in B.Sc. Agriculture. The annual fee is ₹50,000.
+
+138. Invertis University (also known as Invertis or Invertis Bareilly) offers the M.Sc. Food Technology program (also known as MSc Food Tech) with a 2 years duration. Eligibility requires 50% (45% SC/ST) in B.Sc. Life Science, Agriculture, Forensic Science, Home Science or Medical graduates. The annual fee is ₹55,000.
+
+139. Invertis University (also known as Invertis or Invertis Bareilly) offers the BA (Journalism and Mass Communication) program (also known as BA JMC or BA Mass Communication) with a 3-year duration. Eligibility requires 50% (45% SC/ST) in 10+2. The annual fee is ₹50,000.
+
+140. Invertis University (also known as Invertis or Invertis Bareilly) offers the Bachelor of Pharmacy (B.Pharm / B.Pharma) with a 4-year duration. Eligibility requires 50% (45% SC/ST) in 10+2 with PCM/PCB. The annual fee is ₹1,40,000.
+
+141. Invertis University (also known as Invertis or Invertis Bareilly) offers the B.Pharm Lateral Entry with a 3-year duration. Eligibility requires 60% (55% SC/ST) in Diploma in Pharmacy. The annual fee is ₹1,40,000.
+
+142. Invertis University (also known as Invertis or Invertis Bareilly) offers the Diploma in Pharmacy (D.Pharm) with a 2-year duration. Eligibility requires 50% (45% SC/ST) in 10+2 with PCM/PCB or Biotechnology. The annual fee is ₹1,20,000.
+
+143. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Management with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+144. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Chemistry with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+145. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Pharmacy with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+146. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Mathematics with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+147. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Environmental Sciences with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+148. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Electronics & Communication Engineering with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+149. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Computer Science & Engineering with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+150. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Electrical Engineering with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+151. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Mechanical Engineering with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+152. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Biotechnology with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+153. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Law with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+154. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Physics with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+155. Invertis University (also known as Invertis or Invertis Bareilly) offers a Ph.D. in Microbiology with a minimum 3-year duration. Eligibility requires 55% (50% SC/ST) in post-graduation from a relevant field. The annual fee is ₹50,000.
+
+156. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Engineering: The B.Tech program requires a minimum of 60% marks in the qualifying examination for the 2025 admission cycle. Additional screening includes JEE Practice test.
+
+157. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Engineering: The M.Tech program requires a minimum of 55% marks in the qualifying examination for the 2025 admission cycle.
+
+158. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Computer Applications: The BCA / MCA program requires a minimum of 60% marks in the qualifying examination for the 2025 admission cycle.
+
+159. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Business Studies: The B.Com / BBA program requires a minimum of 60% marks in the qualifying examination for the 2025 admission cycle.
+
+160. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Business Studies: The MBA program requires a minimum of 60% marks in the qualifying examination for the 2025 admission cycle. Additional screening includes Group Discussion and Personal Interview.
+
+161. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Sciences: The B.Sc. program requires a minimum of 60% marks in the qualifying examination for the 2025 admission cycle.
+
+162. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Sciences: The M.Sc. program requires a minimum of 50% marks in the qualifying examination for the 2025 admission cycle.
+
+163. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Hospitality: The B.Sc. HHM (Hotel and Hospitality Management) program requires a minimum of 60% marks in the qualifying examination for the 2025 admission cycle.
+
+164. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Mass Communication: The BA JMC (Journalism and Mass Communication) program requires a minimum of 60% marks in the qualifying examination for the 2025 admission cycle. Additional screening includes Personal Interview.
+
+165. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Mass Communication: The MA JMC program requires a minimum of 50% marks in the qualifying examination for the 2025 admission cycle.
+
+166. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Law: The Integrated Law (BA LLB / BBA LLB / BSc LLB) program requires a minimum of 60% marks in the qualifying examination for the 2025 admission cycle. Additional screening includes Personal Interview.
+
+167. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Law: The LLM program requires a minimum of 50% marks in the qualifying examination for the 2025 admission cycle.
+
+168. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Design: The B.Des. / BVA program requires a minimum of 60% marks in the qualifying examination for the 2025 admission cycle. Additional screening includes Personal Interview, Portfolio, Situational Test.
+
+169. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Design: The M.Des. / MVA / M.Sc. Design program requires a minimum of 50% marks in the qualifying examination for the 2025 admission cycle.
+
+170. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Humanities & Liberal Studies: The BA (Hons.) – Humanities, Economics, Liberal Studies program requires a minimum of 60% marks in the qualifying examination for the 2025 admission cycle. Additional screening includes Personal Interview.
+
+171. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Humanities & Liberal Studies: The MA – Humanities / Liberal Studies program requires a minimum of 50% marks in the qualifying examination for the 2025 admission cycle.
+
+172. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Allied Health Sciences (AHS): The BPT / BMLT / BRT program requires a minimum of 60% marks in the qualifying examination for the 2025 admission cycle.
+
+173. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of AHS: The MPT (Master of Physiotherapy) program requires a minimum of 55% marks in the qualifying examination for the 2025 admission cycle.
+
+174. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) charges a provisional admission fee of ₹50,000 for B.Tech courses and ₹30,000 for all other UG courses in 2025-26.
+
+175. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) charges a provisional registration fee of ₹35,000 for all hostel categories.
+
+176. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) charges the following hostel fees for 2025-26: AC 3-Seater Single Occupancy – ₹1,72,000 total annual fee; Non-AC 3-Seater Single Occupancy – ₹1,42,000; Non-AC 4-Seater Single Occupancy – ₹1,27,000. A one-time non-refundable registration fee of ₹5,000 applies.
+
+177. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) bus/transport fees for 2025-26: ₹50,000 total annual, with first installment of ₹30,000 and second installment of ₹20,000.
+
+178. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) offers a Merit Scholarship of 15% of tuition fee for students scoring 70–84.99% in 10+2, and 20% for students scoring 85% and above in 10+2, applicable to all UG programs.
+
+179. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) offers a JEE Mains 2025 Merit Scholarship of 15% of tuition fee for General Category students with an 85–89.99 percentile, and 20% for 90+ percentile, applicable to all B.Tech programs.
+
+180. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) offers a CAT 2025-based Merit Scholarship of 15% of tuition fee for 40–59.99 percentile and 20% for 60+ percentile, applicable to the MBA program.
+
+181. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) offers an additional 5% scholarship on tuition fee for students with NCC 'A' Certificate, Alumni/Sibling status, single mother's child, war widow, ex-serviceman's child, or a sports medalist at State level or above (minimum 1st year, all UG programs).
+
+182. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Allied Health Sciences: The BPT (Bachelor of Physiotherapy) program has an annual tuition fee of ₹55,000, other fees of ₹35,000, and a total annual fee of ₹90,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+183. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Allied Health Sciences: The BRIT / BMLT (Bachelor of Radiologic Imaging Technology / Medical Lab Technology) program has an annual tuition fee of ₹55,000, other fees of ₹35,000, and a total annual fee of ₹90,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+184. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Allied Health Sciences: The MPT (Master of Physiotherapy) program has an annual tuition fee of ₹55,000, other fees of ₹35,000, and a total annual fee of ₹90,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 55%% in the qualifying examination.
+
+185. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – Jaipur School of Business: The BBA program has an annual tuition fee of ₹95,000, other fees of ₹45,000, and a total annual fee of ₹1,40,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+186. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – Jaipur School of Business: The BBA-BFSI (Banking, Financial Services & Insurance) program has an annual tuition fee of ₹95,000, other fees of ₹55,000, and a total annual fee of ₹1,50,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+187. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – Jaipur School of Business: The BBA with Industry Specializations program has an annual tuition fee of ₹95,000, other fees of ₹65,000, and a total annual fee of ₹1,60,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+188. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – Jaipur School of Business: The B.Com program has an annual tuition fee of ₹54,000, other fees of ₹36,000, and a total annual fee of ₹90,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+189. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – Jaipur School of Business: The MBA program has an annual tuition fee of ₹1,86,000, other fees of ₹64,000, and a total annual fee of ₹2,50,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+190. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – Jaipur School of Business: The MBA with Industry Specialization program has an annual tuition fee of ₹1,86,000, other fees of ₹89,000, and a total annual fee of ₹2,75,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+191. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Computer Applications: The BCA program has an annual tuition fee of ₹1,02,500, other fees of ₹47,500, and a total annual fee of ₹1,50,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+192. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Computer Applications: The BCA with Health Informatics specialization program has an annual tuition fee of ₹1,02,500, other fees of ₹57,500, and a total annual fee of ₹1,60,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+193. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Computer Applications: The BCA-AIDS (Artificial Intelligence & Data Science) program has an annual tuition fee of ₹1,02,500, other fees of ₹57,500, and a total annual fee of ₹1,60,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+194. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Computer Applications: The BCA with Industry Specializations program has an annual tuition fee of ₹1,02,500, other fees of ₹67,500, and a total annual fee of ₹1,70,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+195. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Computer Applications: The MCA program has an annual tuition fee of ₹1,19,500, other fees of ₹50,500, and a total annual fee of ₹1,70,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+196. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Computer Applications: The MCA-AIDS (AI & Data Science) program has an annual tuition fee of ₹1,19,500, other fees of ₹60,500, and a total annual fee of ₹1,80,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+197. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Computer Applications: The MCA with Industry Specialization program has an annual tuition fee of ₹1,19,500, other fees of ₹70,500, and a total annual fee of ₹1,90,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+198. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Design: The B.Des. – Interior / Jewellery Design program has an annual tuition fee of ₹95,000, other fees of ₹45,000, and a total annual fee of ₹1,40,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+199. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Design: The BVA (Bachelor of Visual Arts) – Painting / Graphic Arts program has an annual tuition fee of ₹95,000, other fees of ₹45,000, and a total annual fee of ₹1,40,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+200. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Design: The B.Des. – Fashion Design program has an annual tuition fee of ₹1,21,500, other fees of ₹53,500, and a total annual fee of ₹1,75,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+201. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Design: The M.Des. Interior Design program has an annual tuition fee of ₹98,000, other fees of ₹42,000, and a total annual fee of ₹1,40,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 50%% in the qualifying examination.
+
+202. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Design: The M.Des. Fashion Design program has an annual tuition fee of ₹1,21,500, other fees of ₹53,500, and a total annual fee of ₹1,75,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 50%% in the qualifying examination.
+
+203. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Design: The MVA (Master of Visual Arts) – Graphic Design program has an annual tuition fee of ₹95,000, other fees of ₹45,000, and a total annual fee of ₹1,40,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 50%% in the qualifying examination.
+
+204. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Engineering: The B.Tech CSE (Computer Science & Engineering) program has an annual tuition fee of ₹1,74,000, other fees of ₹71,000, and a total annual fee of ₹2,45,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+205. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Engineering: The B.Tech CSE-AIDS (AI & Data Science) program has an annual tuition fee of ₹1,74,000, other fees of ₹81,000, and a total annual fee of ₹2,55,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+206. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Engineering: The B.Tech CSE with Industry Specializations program has an annual tuition fee of ₹1,74,000, other fees of ₹1,01,000, and a total annual fee of ₹2,75,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+207. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Engineering: The B.Tech CSE – SPE (Kalvium) program has an annual tuition fee of ₹1,74,000, other fees of ₹1,51,000, and a total annual fee of ₹3,25,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+208. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Engineering: The B.Tech Civil / ECE / Mechanical Engineering program has an annual tuition fee of ₹91,000, other fees of ₹84,000, and a total annual fee of ₹1,75,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+209. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Engineering: The M.Tech CSE / Civil / ME / ECE program has an annual tuition fee of ₹45,000, other fees of ₹30,000, and a total annual fee of ₹75,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 55%% in the qualifying examination.
+
+210. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Hospitality: The B.Sc. Hospitality & Hotel Management program has an annual tuition fee of ₹70,000, other fees of ₹30,000, and a total annual fee of ₹1,00,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+211. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Humanities & Social Sciences: The BA (Hons.) English / Political Science / Psychology program has an annual tuition fee of ₹54,000, other fees of ₹36,000, and a total annual fee of ₹90,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+212. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Humanities & Social Sciences: The BA Liberal Studies program has an annual tuition fee of ₹54,000, other fees of ₹46,000, and a total annual fee of ₹1,00,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+213. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Humanities & Social Sciences: The MA English / Economics / Political Science / Psychology program has an annual tuition fee of ₹51,500, other fees of ₹38,500, and a total annual fee of ₹90,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 50%% in the qualifying examination.
+
+214. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – Jaipur School of Economics: The BA (Hons.) Economics program has an annual tuition fee of ₹54,000, other fees of ₹36,000, and a total annual fee of ₹90,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+215. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – Jaipur School of Economics: The MA Economics program has an annual tuition fee of ₹51,500, other fees of ₹38,500, and a total annual fee of ₹90,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 50%% in the qualifying examination.
+
+216. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Law: The BA LLB / BBA LLB / BSc LLB (Integrated Law) program has an annual tuition fee of ₹1,33,000, other fees of ₹67,000, and a total annual fee of ₹2,00,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+217. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Law: The LLM program has an annual tuition fee of ₹45,000, other fees of ₹30,000, and a total annual fee of ₹75,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 50%% in the qualifying examination.
+
+218. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Mass Communication: The BA – Journalism program has an annual tuition fee of ₹65,000, other fees of ₹35,000, and a total annual fee of ₹1,00,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+219. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Mass Communication: The MA JMC (Journalism and Mass Communication) program has an annual tuition fee of ₹35,000, other fees of ₹30,000, and a total annual fee of ₹65,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 50%% in the qualifying examination.
+
+220. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Sciences: The B.Sc. (Hons.) Science program has an annual tuition fee of ₹54,000, other fees of ₹36,000, and a total annual fee of ₹90,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 60%% in the qualifying examination.
+
+221. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Sciences: The M.Sc. Microbiology / Biotechnology / Forensic Science program has an annual tuition fee of ₹54,000, other fees of ₹36,000, and a total annual fee of ₹90,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 50%% in the qualifying examination.
+
+222. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – School of Sciences: The M.Sc. Physics / Chemistry / Maths / Zoology / Botany program has an annual tuition fee of ₹54,000, other fees of ₹36,000, and a total annual fee of ₹90,000. A one-time non-refundable admission & alumni fee of ₹10,000 applies. Minimum eligibility is 50%% in the qualifying examination.
+
+223. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – ISDC (International Skill Development Corporation) offers the B.Com with specializations in International Finance & Accounting (ACCA), Finance & Analytics (IOA), Management Accounting (CMA), Financial Markets (IFM), Logistics & Supply Chain Management (CIPS), and Finance & Leadership (CIMA). Tuition fee is ₹75,000, other fees ₹40,000, total annual fee ₹1,15,000. Eligibility: 60%.
+
+224. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – ISDC offers the BBA with specializations in Financial Markets (IFM), Digital Business (AI Society), Business Analytics (IOA), Digital Marketing (DMI), and Logistics & Supply Chain Management (CIPS). Tuition fee ₹99,000, other fees ₹66,000, total annual fee ₹1,65,000. BBA Global Business is ₹2,65,000 total annual. Eligibility: 60%.
+
+225. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – ISDC offers the MBA with specializations in International Finance (ACCA), Finance & Leadership (CIMA), Digital Business (AI Society), Business Analytics (IOA), Financial Markets (IFM), Digital & Strategic Marketing (DMI), and Logistics & Supply Chain Management (CIPS). Tuition fee ₹1,84,000, other fees ₹91,000, total annual fee ₹2,75,000. Eligibility: 60%.
+
+226. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – ISDC offers the B.Des. in Communication Design (in association with World Design). Tuition fee ₹93,000, other fees ₹72,000, total annual fee ₹1,65,000. Eligibility: 60%.
+
+227. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – Imarticus (Jaipur School of Business) offers the MBA Fintech program. Tuition fee is ₹1,85,000, other fees ₹1,40,000, total annual fee ₹3,25,000. A one-time admission & alumni fee of ₹10,000 applies. Eligibility: 60%.
+
+228. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – Asian Institute of Design (School of Design) offers the B.Des. Game Art and Animation program. Tuition fee is ₹1,14,000, other fees ₹1,26,000, total annual fee ₹2,40,000. Eligibility: 60%.
+
+229. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – College Dekho/Seekho (Jaipur School of Business) offers MBA programs in Global Financial Operations, Applied HR, New Age Sales & Marketing, Product Management, Brand Management, Healthcare Management, and Investment Banking. Tuition fee ₹1,86,000, other fees ₹89,000, total annual fee ₹2,75,000. Eligibility: 60%.
+
+230. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – College Dekho/Seekho (Jaipur School of Business) offers BBA programs in New Age Sales & Marketing, Brand Management, and Healthcare Management. Tuition fee ₹95,000, other fees ₹65,000, total annual fee ₹1,60,000. Eligibility: 60%.
+
+231. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – College Dekho/Seekho (School of Computer Applications) offers BCA programs in MERN Full Stack, Robotic Process Automation, and Digital Forensics & Information Security, along with BCA Game Development. Tuition fee ₹1,02,500, other fees ₹67,500, total annual fee ₹1,70,000. Eligibility: 60%.
+
+232. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – College Dekho/Seekho (School of Computer Applications) offers MCA in MERN Full Stack. Tuition fee ₹1,19,500, other fees ₹70,500, total annual fee ₹1,90,000. Eligibility: 60%.
+
+233. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – Sunstone (Jaipur School of Business) offers BBA at ₹1,40,000 and MBA at ₹2,50,000 total annual fee. Eligibility: 60%.
+
+234. JECRC University (also known as JU, JECRC, or Jaipur Engineering College and Research Centre University) – Sunstone (School of Computer Applications) offers BCA at ₹1,50,000 and MCA at ₹1,70,000 total annual fee. Eligibility: 60%.
+
+235. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. Computer Science and Engineering program (also known as B.Tech CSE / BTech CS) with a duration of 4 Years. The annual fee is ₹2,30,000 and the total program fee is ₹9,20,000.
+
+236. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. Computer Science and Engineering (Lateral Entry) program (also known as B.Tech CSE Lateral) with a duration of 3 Years. The annual fee is ₹2,30,000 and the total program fee is ₹6,90,000.
+
+237. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. CSE (AI & ML) with Samatrix and IBM program (also known as B.Tech CSE AI ML / B.Tech Artificial Intelligence) with a duration of 4 Years. The annual fee is ₹2,65,000 and the total program fee is ₹10,60,000.
+
+238. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. CSE (AI & ML) with Samatrix and IBM (Lateral Entry) program (also known as B.Tech CSE AI ML Lateral) with a duration of 3 Years. The annual fee is ₹2,65,000 and the total program fee is ₹7,95,000.
+
+239. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. CSE (Full Stack Development) with Xebia program (also known as B.Tech CSE Full Stack / B.Tech Web Dev) with a duration of 4 Years. The annual fee is ₹2,50,000 and the total program fee is ₹10,00,000.
+
+240. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. CSE (Full Stack Development) with Xebia (Lateral Entry) program (also known as B.Tech CSE Full Stack Lateral) with a duration of 3 Years. The annual fee is ₹2,50,000 and the total program fee is ₹7,50,000.
+
+241. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. CSE (UX/UI) with ImaginXP program (also known as B.Tech CSE UXUI / B.Tech UX) with a duration of 4 Years. The annual fee is ₹2,50,000 and the total program fee is ₹10,00,000.
+
+242. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. CSE (UX/UI) with ImaginXP (Lateral Entry) program (also known as B.Tech CSE UXUI Lateral) with a duration of 3 Years. The annual fee is ₹2,50,000 and the total program fee is ₹7,50,000.
+
+243. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. CSE (Cyber Security) with EC-Council and IBM program (also known as B.Tech CSE Cyber Security / B.Tech Cybersec) with a duration of 4 Years. The annual fee is ₹2,50,000 and the total program fee is ₹10,00,000.
+
+244. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. CSE (Cyber Security) with EC-Council and IBM (Lateral Entry) program (also known as B.Tech CSE Cyber Security Lateral) with a duration of 3 Years. The annual fee is ₹2,50,000 and the total program fee is ₹7,50,000.
+
+245. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. CSE (Data Science) with IBM program (also known as B.Tech CSE Data Science / B.Tech DS) with a duration of 4 Years. The annual fee is ₹2,50,000 and the total program fee is ₹10,00,000.
+
+246. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. CSE (Data Science) with IBM (Lateral Entry) program (also known as B.Tech CSE Data Science Lateral) with a duration of 3 Years. The annual fee is ₹2,50,000 and the total program fee is ₹7,50,000.
+
+247. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. CSE (Robotics & AI) program (also known as B.Tech Robotics AI / B.Tech Robotics) with a duration of 4 Years. The annual fee is ₹2,50,000 and the total program fee is ₹10,00,000.
+
+248. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Tech. CSE (Cloud Computing) program (also known as B.Tech Cloud Computing / B.Tech Cloud) with a duration of 4 Years. The annual fee is ₹2,50,000 and the total program fee is ₹10,00,000.
+
+249. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BCA (AI & Data Science) with Samatrix and IBM program (also known as BCA AI Data Science / BCA DS) with a duration of 3 Years. The annual fee is ₹1,65,000 and the total program fee is ₹4,95,000.
+
+250. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BCA (Hons./Hons. with Research) AI & Data Science with Samatrix and IBM program (also known as BCA Hons AI DS) with a duration of 4 Years. The annual fee is ₹1,65,000 and the total program fee is ₹6,60,000.
+
+251. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BCA (Cyber Security) program (also known as BCA Cyber Security / BCA Cybersec) with a duration of 3 Years. The annual fee is ₹1,65,000 and the total program fee is ₹4,95,000.
+
+252. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BCA (Hons./Hons. with Research) Cyber Security program (also known as BCA Hons Cyber Security) with a duration of 4 Years. The annual fee is ₹1,65,000 and the total program fee is ₹6,60,000.
+
+253. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA (HR/Marketing/Finance/IB/Travel & Tourism) program (also known as BBA General / BBA HR Finance Marketing) with a duration of 3 Years. The annual fee is ₹1,85,000 and the total program fee is ₹5,55,000.
+
+254. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA (Hons./Hons. with Research) (HR/Marketing/Finance/IB/Travel & Tourism) program (also known as BBA Hons) with a duration of 4 Years. The annual fee is ₹1,85,000 and the total program fee is ₹7,40,000.
+
+255. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA (Business Intelligence & Analytics) with Samatrix and IBM program (also known as BBA BIA / BBA Analytics) with a duration of 3 Years. The annual fee is ₹2,05,000 and the total program fee is ₹6,15,000.
+
+256. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA (Hons./Hons. with Research) (Business Intelligence & Analytics) with Samatrix program (also known as BBA Hons BIA) with a duration of 4 Years. The annual fee is ₹2,05,000 and the total program fee is ₹8,20,000.
+
+257. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA (Entrepreneurship) with GCEC Global Foundation program (also known as BBA Entrepreneurship / BBA E-Cell) with a duration of 3 Years. The annual fee is ₹2,05,000 and the total program fee is ₹6,15,000.
+
+258. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA (Hons./Hons. with Research) (Entrepreneurship) with GCEC Global Foundation program (also known as BBA Hons Entrepreneurship) with a duration of 4 Years. The annual fee is ₹2,05,000 and the total program fee is ₹8,20,000.
+
+259. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA (International Accounting and Finance) ACCA-UK with Grant Thornton program (also known as BBA ACCA / BBA IAF) with a duration of 3 Years. The annual fee is ₹2,05,000 and the total program fee is ₹6,15,000.
+
+260. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA (Hons./Hons. with Research) (International Accounting and Finance) ACCA-UK with Grant Thornton program (also known as BBA Hons ACCA) with a duration of 4 Years. The annual fee is ₹2,05,000 and the total program fee is ₹8,20,000.
+
+261. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA (Logistics and Supply Chain Management) with Safexpress program (also known as BBA Logistics / BBA SCM) with a duration of 3 Years. The annual fee is ₹2,05,000 and the total program fee is ₹6,15,000.
+
+262. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA (Hons./Hons. with Research) (Logistics and Supply Chain Management) with Safexpress program (also known as BBA Hons Logistics) with a duration of 4 Years. The annual fee is ₹2,05,000 and the total program fee is ₹8,20,000.
+
+263. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA (Digital Marketing) program (also known as BBA Digital Marketing / BBA DM) with a duration of 3 Years. The annual fee is ₹2,05,000 and the total program fee is ₹6,15,000.
+
+264. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA (Hons./Hons. with Research) (Digital Marketing) program (also known as BBA Hons Digital Marketing) with a duration of 4 Years. The annual fee is ₹2,05,000 and the total program fee is ₹8,20,000.
+
+265. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Com. (Hons.) International Accounting and Finance ACCA-UK with Grant Thornton program (also known as B.Com ACCA / BCom IAF) with a duration of 3 Years. The annual fee is ₹1,65,000 and the total program fee is ₹4,95,000.
+
+266. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Com. (Hons./Hons. with Research) International Accounting and Finance ACCA-UK with Grant Thornton program (also known as BCom Hons ACCA) with a duration of 4 Years. The annual fee is ₹1,65,000 and the total program fee is ₹6,60,000.
+
+267. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons.) Forensic Science program (also known as BSc Forensic Science) with a duration of 3 Years. The annual fee is ₹1,30,000 and the total program fee is ₹3,90,000.
+
+268. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons./Hons. with Research) Forensic Science program (also known as BSc Hons Forensic Science) with a duration of 4 Years. The annual fee is ₹1,30,000 and the total program fee is ₹5,20,000.
+
+269. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Pharm. (Bachelor of Pharmacy) program (also known as B.Pharm / BPharm) with a duration of 4 Years. The annual fee is ₹1,95,000 and the total program fee is ₹7,80,000.
+
+270. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Pharm. (Lateral Entry) program (also known as BPharm Lateral) with a duration of 3 Years. The annual fee is ₹1,95,000 and the total program fee is ₹5,85,000.
+
+271. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the D.Pharm. (Diploma in Pharmacy) program (also known as D.Pharm / DPharm) with a duration of 2 Years. The annual fee is ₹1,20,000 and the total program fee is ₹2,40,000.
+
+272. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons.) Emergency Medical Technology with Emversity program (also known as BSc EMT / Emergency Medical Tech) with a duration of 3+1 Years. The annual fee is ₹2,40,000 and the total program fee is ₹7,20,000.
+
+273. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons.) Respiratory Technology with Emversity program (also known as BSc Respiratory Tech) with a duration of 3+1 Years. The annual fee is ₹2,40,000 and the total program fee is ₹7,20,000.
+
+274. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons.) Dialysis Technology with Emversity program (also known as BSc Dialysis Tech) with a duration of 3+1 Years. The annual fee is ₹2,40,000 and the total program fee is ₹7,20,000.
+
+275. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons.) Cardiovascular Technology with Emversity program (also known as BSc Cardiovascular Tech / BSc CVT) with a duration of 3+1 Years. The annual fee is ₹2,40,000 and the total program fee is ₹7,20,000.
+
+276. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the Bachelor of Physiotherapy (BPT) program (also known as BPT / Physiotherapy UG) with a duration of 4+0.5 Years. The annual fee is ₹1,58,000 and the total program fee is ₹6,32,000.
+
+277. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the BBA LL.B. (Hons.) (Integrated Law with Business) program (also known as BBA LLB / Integrated Business Law) with a duration of 5 Years. The annual fee is ₹1,85,000 and the total program fee is ₹9,25,000.
+
+278. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. LL.B. (Hons.) (Integrated Law) program (also known as BA LLB / Integrated Law) with a duration of 5 Years. The annual fee is ₹1,85,000 and the total program fee is ₹9,25,000.
+
+279. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (Hons.) Psychology program (also known as BA Psychology / BA Psych) with a duration of 3 Years. The annual fee is ₹1,30,000 and the total program fee is ₹3,90,000.
+
+280. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (Hons./Hons. with Research) Psychology program (also known as BA Hons Psychology) with a duration of 4 Years. The annual fee is ₹1,30,000 and the total program fee is ₹5,20,000.
+
+281. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (Hons./Hons. with Research) Liberal Arts program (also known as BA Liberal Arts) with a duration of 4 Years. The annual fee is ₹1,50,000 and the total program fee is ₹6,00,000.
+
+282. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the MCA (Master of Computer Applications) program (also known as MCA / Master of Computer Applications) with a duration of 2 Years. The annual fee is ₹1,20,000 and the total program fee is ₹2,40,000.
+
+283. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the MBA with IBM support program (also known as MBA / Master of Business Administration) with a duration of 2 Years. The annual fee is ₹3,00,000 and the total program fee is ₹6,00,000.
+
+284. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the MBA (Digital Marketing) with Imarticus Learning program (also known as MBA Digital Marketing / MBA DM) with a duration of 2 Years. The annual fee is ₹3,50,000 and the total program fee is ₹7,00,000.
+
+285. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the M.Sc. (Hons.) Part Time program (also known as MSc Part Time) with a duration of 2 Years. The annual fee is ₹55,000 and the total program fee is ₹1,10,000.
+
+286. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the Master of Pharmacy (M.Pharm.) – Pharmaceutics program (also known as M.Pharm Pharmaceutics / MPharm) with a duration of 2 Years. The annual fee is ₹1,54,000 and the total program fee is ₹3,08,000.
+
+287. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the Master of Pharmacy (M.Pharm.) – Pharmacology program (also known as M.Pharm Pharmacology) with a duration of 2 Years. The annual fee is ₹1,54,000 and the total program fee is ₹3,08,000.
+
+288. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the LL.M. (Master of Laws) program (also known as LLM / LL.M.) with a duration of 1 Year. The annual fee is ₹1,50,000 and the total program fee is ₹1,50,000.
+
+289. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the Ph.D. (All Disciplines) program (also known as PhD / Doctorate) with a duration of 3 Years. The annual fee is ₹1,20,000 and the total program fee is ₹3,60,000.
+
+290. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons.) Computer Science with IBM program (also known as BSc CS / BSc Computer Science) with a duration of 3 Years. The annual fee is ₹1,35,000 and the total program fee is ₹4,05,000.
+
+291. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons.) Cyber Security program (also known as BSc Cyber Security / BSc Cybersec) with a duration of 3 Years. The annual fee is ₹1,35,000 and the total program fee is ₹4,05,000.
+
+292. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons.) Data Science program (also known as BSc Data Science / BSc DS) with a duration of 3 Years. The annual fee is ₹1,35,000 and the total program fee is ₹4,05,000.
+
+293. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Com. (Hons.) program (also known as BCom Hons / B.Com Honours) with a duration of 3 Years. The annual fee is ₹1,40,000 and the total program fee is ₹4,20,000.
+
+294. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Com. (Hons./Hons. with Research) program (also known as BCom Hons Research) with a duration of 4 Years. The annual fee is ₹1,40,000 and the total program fee is ₹5,60,000.
+
+295. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Com. (Hons.) with NSE support program (also known as BCom NSE / BCom Stock Market) with a duration of 3 Years. The annual fee is ₹1,50,000 and the total program fee is ₹4,50,000.
+
+296. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Com. (Hons./Hons. with Research) with NSE support program (also known as BCom Hons NSE) with a duration of 4 Years. The annual fee is ₹1,50,000 and the total program fee is ₹6,00,000.
+
+297. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Com. for Competitive Exam (Banking/Insurance/Railways/SSC) program (also known as BCom Govt Jobs Prep) with a duration of 3 Years. The annual fee is ₹1,25,000 and the total program fee is ₹3,75,000.
+
+298. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons.) Physics program (also known as BSc Physics) with a duration of 3 Years. The annual fee is ₹90,000 and the total program fee is ₹2,70,000.
+
+299. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons./Hons. with Research) Physics program (also known as BSc Hons Physics) with a duration of 4 Years. The annual fee is ₹90,000 and the total program fee is ₹3,60,000.
+
+300. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons.) Chemistry program (also known as BSc Chemistry) with a duration of 3 Years. The annual fee is ₹90,000 and the total program fee is ₹2,70,000.
+
+301. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons./Hons. with Research) Chemistry program (also known as BSc Hons Chemistry) with a duration of 4 Years. The annual fee is ₹90,000 and the total program fee is ₹3,60,000.
+
+302. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons.) Maths program (also known as BSc Maths / BSc Mathematics) with a duration of 3 Years. The annual fee is ₹90,000 and the total program fee is ₹2,70,000.
+
+303. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons./Hons. with Research) Maths program (also known as BSc Hons Maths) with a duration of 4 Years. The annual fee is ₹90,000 and the total program fee is ₹3,60,000.
+
+304. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the Bachelor of Architecture (B.Arch) program (also known as B.Arch / Architecture) with a duration of 5 Years. The annual fee is ₹1,90,000 and the total program fee is ₹9,50,000.
+
+305. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the Bachelor of Fine Arts (BFA) program (also known as BFA / Fine Arts) with a duration of 4 Years. The annual fee is ₹1,20,000 and the total program fee is ₹4,80,000.
+
+306. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Des. (Hons./Hons. with Research) Fashion Design program (also known as B.Des Fashion / BDes Fashion Design) with a duration of 4 Years. The annual fee is ₹2,10,000 and the total program fee is ₹8,40,000.
+
+307. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Des. (Hons./Hons. with Research) Interior Design program (also known as B.Des Interior / BDes Interior Design) with a duration of 4 Years. The annual fee is ₹2,10,000 and the total program fee is ₹8,40,000.
+
+308. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Des. (Hons./Hons. with Research) Game Design & Animation with ImaginXP program (also known as B.Des Game Design / BDes Animation) with a duration of 4 Years. The annual fee is ₹2,40,000 and the total program fee is ₹9,60,000.
+
+309. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Des. (Hons./Hons. with Research) UX/UI & Interaction Design with ImaginXP program (also known as B.Des UXUI / BDes Interaction Design) with a duration of 4 Years. The annual fee is ₹2,40,000 and the total program fee is ₹9,60,000.
+
+310. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Com. LL.B. (Hons.) (Commerce with Law) program (also known as BCom LLB / Integrated Commerce Law) with a duration of 5 Years. The annual fee is ₹1,85,000 and the total program fee is ₹9,25,000.
+
+311. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the LL.B. (Hons.) (Bachelor of Laws 3-year) program (also known as LLB / Bachelor of Laws) with a duration of 3 Years. The annual fee is ₹1,60,000 and the total program fee is ₹4,80,000.
+
+312. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (Journalism and Mass Communication) program (also known as BA JMC / BA Mass Comm) with a duration of 3 Years. The annual fee is ₹1,60,000 and the total program fee is ₹4,80,000.
+
+313. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (Hons./Hons. with Research) Journalism and Mass Communication program (also known as BA Hons JMC) with a duration of 4 Years. The annual fee is ₹1,60,000 and the total program fee is ₹6,40,000.
+
+314. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (Hons.) English program (also known as BA English) with a duration of 3 Years. The annual fee is ₹1,20,000 and the total program fee is ₹3,60,000.
+
+315. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (Hons./Hons. with Research) English program (also known as BA Hons English) with a duration of 4 Years. The annual fee is ₹1,20,000 and the total program fee is ₹4,80,000.
+
+316. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (Hons.) Economics program (also known as BA Economics) with a duration of 3 Years. The annual fee is ₹1,20,000 and the total program fee is ₹3,60,000.
+
+317. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (Hons./Hons. with Research) Economics program (also known as BA Hons Economics) with a duration of 4 Years. The annual fee is ₹1,20,000 and the total program fee is ₹4,80,000.
+
+318. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (Hons.) Political Science program (also known as BA Political Science / BA PolSci) with a duration of 3 Years. The annual fee is ₹1,20,000 and the total program fee is ₹3,60,000.
+
+319. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (Hons./Hons. with Research) Political Science program (also known as BA Hons Political Science) with a duration of 4 Years. The annual fee is ₹1,20,000 and the total program fee is ₹4,80,000.
+
+320. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (General) program (also known as BA General) with a duration of 3 Years. The annual fee is ₹1,20,000 and the total program fee is ₹3,60,000.
+
+321. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the Bachelor of Elementary Education (B.El.Ed.) program (also known as BElEd / Elementary Education) with a duration of 4 Years. The annual fee is ₹1,25,000 and the total program fee is ₹5,00,000.
+
+322. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the Bachelor of Education (B.Ed.) program (also known as BEd / Teacher Education) with a duration of 2 Years. The annual fee is ₹1,25,000 and the total program fee is ₹2,50,000.
+
+323. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.HMCT (Bachelor of Hotel Management and Catering Technology) program (also known as BHMCT / Hotel Management) with a duration of 4 Years. The annual fee is ₹1,95,000 and the total program fee is ₹7,80,000.
+
+324. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.A. (Hons./Hons. with Research) Culinary Arts program (also known as BA Culinary / Culinary Arts) with a duration of 4 Years. The annual fee is ₹2,25,000 and the total program fee is ₹9,00,000.
+
+325. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the B.Sc. (Hons.) Agriculture program (also known as BSc Agriculture / BSc Agri) with a duration of 4 Years. The annual fee is ₹1,40,000 and the total program fee is ₹5,60,000.
+
+326. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the Integrated BBA + MBA with IBM (4+1 yr Industry Internship) program (also known as Integrated BBA MBA / Dual Degree BBA MBA) with a duration of 4+1 Years. The annual fee is ₹2,30,000 and the total program fee is ₹9,20,000.
+
+327. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the Integrated/Dual Degree B.Sc. – M.Sc. (Forensic Science) program (also known as BSc MSc Forensic Integrated / Dual Degree Forensic) with a duration of 5 Years. The annual fee is ₹1,30,000 and the total program fee is ₹6,50,000.
+
+328. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the M.Tech. Computer Science and Engineering program (also known as M.Tech CSE / MTech Computer Science) with a duration of 2 Years. The annual fee is ₹1,10,000 and the total program fee is ₹2,20,000.
+
+329. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the M.Sc. Forensic Science program (also known as MSc Forensic Science) with a duration of 2 Years. The annual fee is ₹1,25,000 and the total program fee is ₹2,50,000.
+
+330. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the M.A. (Journalism and Mass Communication) program (also known as MA JMC / MA Mass Comm) with a duration of 2 Years. The annual fee is ₹1,10,000 and the total program fee is ₹2,20,000.
+
+331. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the M.A. English program (also known as MA English) with a duration of 2 Years. The annual fee is ₹1,10,000 and the total program fee is ₹2,20,000.
+
+332. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the M.A. Economics program (also known as MA Economics) with a duration of 2 Years. The annual fee is ₹1,10,000 and the total program fee is ₹2,20,000.
+
+333. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the M.A. Political Science program (also known as MA Political Science / MA PolSci) with a duration of 2 Years. The annual fee is ₹1,15,000 and the total program fee is ₹2,30,000.
+
+334. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the M.A. Applied Psychology program (also known as MA Psychology / MA Applied Psych) with a duration of 2 Years. The annual fee is ₹1,15,000 and the total program fee is ₹2,30,000.
+
+335. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana offers the M.A. (Education) program (also known as MA Education / MA Ed) with a duration of 2 Years. The annual fee is ₹1,10,000 and the total program fee is ₹2,20,000.
+
+336. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana charges the following one-time/additional fees: Application Fee (non-refundable) ₹1,000; Alumni Fee (non-refundable) ₹2,000; Security Deposit (refundable) ₹10,000; Registration Fee (adjusted in semester fee) ₹25,000; Hostel Security Deposit (refundable) ₹20,000.
+
+337. K.R. Mangalam University (also known as KR Mangalam, KRMU, or KRM University), located on Sohna Road, Gurgaon, Haryana charges the following annual fees: Hostel Fee ₹1,60,000 per annum; Transport Fee ₹50,000 per annum; Shuttle Transport ₹25,000 per annum. Note: Programme fee may increase up to 10% per annum; Hostel and Transport fees may increase up to 20% per annum.
+
+338. Quantum University (also known as Quantum, QU, or Quantum University Roorkee) offers programs in Engineering, Management, Computer Applications, Law, Commerce, Sciences, and more for academic session 2025-26. (Detailed fee and course structure available in the brochure; the PDF is image-based.)
+
+339. Sharda University (also known as Sharda, SU, or Sharda University Greater Noida) offers B.Tech scholarships based on marks in PCM/PCB and JEE Rank. A student with 95%+ marks and JEE rank up to 50,000 receives 100% scholarship (Gold, Silver, and Bronze category). For 90–94.99% marks (JEE rank 50,001–75,000): Gold 60%, Silver 50%, Bronze 40%. For 85–89.99% (JEE rank 75,001–1,00,000): Gold 40%, Silver 30%, Bronze 20%. For 80–84.99% (JEE rank 1,00,001–2,00,000): Gold 20%, Silver 10%, Bronze 10%. For 75–79.99% (JEE rank 2,00,001–3,00,000): Gold 10%, Silver 5%, Bronze 5%.
+
+340. Sharda University (also known as Sharda, SU, or Sharda University Greater Noida) offers MBA scholarships based on graduation percentage and CAT/XAT or MAT percentile. For 95%+ graduation and CAT/XAT 90%+/MAT 98%+: 100% (Gold, Silver, Bronze). For 90–94.99% and CAT/XAT 85–89.99%/MAT 90–97.99%: Gold 60%, Silver 50%, Bronze 40%. For 85–89.99% and CAT/XAT 80–84.99%/MAT 85–89.99%: Gold 40%, Silver 30%, Bronze 20%. For 80–84.99% and CAT/XAT 75–79.99%/MAT 80–84.99%: Gold 20%, Silver 10%, Bronze 10%. For 75–79.99% and CAT/XAT 60–74.99%/MAT 75–79.99%: Gold 10%, Silver 5%, Bronze 5%.
+
+341. Sharda University (also known as Sharda, SU, or Sharda University Greater Noida) offers All UG and D.Pharm scholarships based on marks in PCM/PCB: 95%+ – 100%; 90–94.99% – Gold 60%, Silver 50%, Bronze 40%; 85–89.99% – Gold 40%, Silver 30%, Bronze 20%; 80–84.99% – Gold 20%, Silver 10%, Bronze 10%; 75–79.99% – Gold 10%, Silver 5%, Bronze 5%.
+
+342. Sharda University (also known as Sharda, SU, or Sharda University Greater Noida) offers PG programme scholarships based on graduation percentage: 95%+ – 100%; 90–94.99% – Gold 60%, Silver 50%, Bronze 40%; 85–89.99% – Gold 40%, Silver 30%, Bronze 20%; 80–84.99% – Gold 20%, Silver 10%, Bronze 10%; 75–79.99% – Gold 10%, Silver 5%, Bronze 5%.
+
+343. Sharda University (also known as Sharda, SU, or Sharda University Greater Noida) offers CUET-based UG scholarships: 95th percentile and above – 100% scholarship; 85–89.99 percentile – 60%; 80–84.99 percentile – 40%; 70–79.99 percentile – 20%.
+
+344. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the B.Tech – Electronics & Telecommunication Engineering (ETCE) program (also known as BTech ETCE / B.Tech Electronics Telecom) with a 4 Years duration. Eligibility requires Minimum 45% aggregate in Physics, Mathematics, and Chemistry/Biology. The annual course fee is ₹1,05,000.
+
+345. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the B.Tech – Computer Science Engineering in Data Science program (also known as BTech CSE DS / B.Tech Data Science) with a 4 Years duration. Eligibility requires Minimum 45% aggregate in Physics, Mathematics, and Chemistry/Biology. The annual course fee is ₹1,05,000.
+
+346. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the B.Tech – Computer Science Engineering in AI & ML program (also known as BTech CSE AIML / B.Tech AI ML) with a 4 Years duration. Eligibility requires Minimum 45% aggregate in Physics, Mathematics, and Chemistry/Biology. The annual course fee is ₹1,05,000.
+
+347. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the B.Tech – Computer Science Technology program (also known as BTech CST / B.Tech Computer Science Technology) with a 4 Years duration. Eligibility requires Minimum 45% aggregate in Physics, Mathematics, and Chemistry/Biology. The annual course fee is ₹1,05,000.
+
+348. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the B.Tech – Computer Science & Engineering (CSE) program (also known as BTech CSE / B.Tech Computer Science) with a 4 Years duration. Eligibility requires Minimum 45% aggregate in Physics, Mathematics, and Chemistry/Biology. The annual course fee is ₹1,05,000.
+
+349. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the B.Tech Lateral Entry – ETCE program (also known as BTech Lateral ETCE) with a 3 Years duration. Eligibility requires Minimum 45% in 3-year Diploma or B.Sc.. The annual course fee is ₹1,05,000.
+
+350. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the B.Tech Lateral Entry – Computer Science Engineering in Data Science program (also known as BTech Lateral CSE DS) with a 3 Years duration. Eligibility requires Minimum 45% in 3-year Diploma or B.Sc.. The annual course fee is ₹1,05,000.
+
+351. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the B.Tech Lateral Entry – Computer Science Engineering in AI & ML program (also known as BTech Lateral CSE AIML) with a 3 Years duration. Eligibility requires Minimum 45% in 3-year Diploma or B.Sc.. The annual course fee is ₹1,05,000.
+
+352. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the B.Tech Lateral Entry – Computer Science Technology program (also known as BTech Lateral CST) with a 3 Years duration. Eligibility requires Minimum 45% in 3-year Diploma or B.Sc.. The annual course fee is ₹1,05,000.
+
+353. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the B.Tech Lateral Entry – Computer Science & Engineering (CSE) program (also known as BTech Lateral CSE) with a 3 Years duration. Eligibility requires Minimum 45% in 3-year Diploma or B.Sc.. The annual course fee is ₹1,05,000.
+
+354. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the Bachelor of Business Administration (BBA) program (also known as BBA) with a 3 Years duration. Eligibility requires Minimum 50% aggregate in 12th standard or 3-year Diploma. The annual course fee is ₹82,000.
+
+355. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the Bachelor of Computer Application (BCA) program (also known as BCA) with a 3 Years duration. Eligibility requires Minimum 45% aggregate in 12th standard or 3-year Diploma. The annual course fee is ₹82,000.
+
+356. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the Bachelor of Pharmacy (B.Pharm) program (also known as BPharm / B.Pharm) with a 4 Years duration. Eligibility requires 12th with Physics, Chemistry, and Mathematics or Biology. The annual course fee is ₹98,500.
+
+357. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the Bachelor of Pharmacy Lateral Entry program (also known as BPharm Lateral) with a 3 Years duration. Eligibility requires Passed D.Pharm. The annual course fee is ₹98,500.
+
+358. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the Bachelor of Architecture (B.Arch) program (also known as B.Arch / Architecture) with a 5 Years duration. Eligibility requires Qualified NATA and minimum 45% aggregate in Physics, Mathematics. The annual course fee is ₹98,500.
+
+359. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the Diploma in Pharmacy (D.Pharm) program (also known as D.Pharm / DPharm) with a 2 Years duration. Eligibility requires 12th with Physics, Chemistry, and Mathematics or Biology. The annual course fee is ₹78,500.
+
+360. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the Master of Business Administration (MBA) program (also known as MBA) with a 2 Years duration. Eligibility requires Minimum 50% in graduation. The annual course fee is ₹1,32,500.
+
+361. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the M.Tech – Computer Science & Engineering (CSE) program (also known as M.Tech CSE / MTech CS) with a 2 Years duration. Eligibility requires Minimum 50% in graduation with MCA or relevant course. The annual course fee is ₹98,500.
+
+362. St. Andrews Institute of Management (also known as SAIM or St. Andrews Institute of Management Kolkata) offers the Master of Computer Application (MCA) program (also known as MCA / Master of Computer Applications) with a 2 Years duration. Eligibility requires Minimum 50% in graduation. The annual course fee is ₹82,000.
+
+363. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the BBA (All Streams) program (also known as BBA / Bachelor of Business Administration) with a 3 Years duration. 6 semesters total; Sem 1&2: ₹1,74,000 each, Sem 3&4: ₹1,85,000 each, Sem 5&6: ₹1,98,000 each.
+
+364. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the B.Com (Hons.) program (also known as BCom Hons / Bachelor of Commerce Honours) with a 3 Years duration. Sem 1&2: ₹85,000 each, Sem 3&4: ₹90,000 each, Sem 5&6: ₹95,500 each.
+
+365. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the MBA (General/Power Management/International Business/Aviation Management) program (also known as MBA General / MBA Aviation) with a 2 Years duration. Sem 1&2: ₹4,21,000 each, Sem 3&4: ₹4,45,500 each.
+
+366. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the MBA (Oil and Gas Management / Logistics and Supply Chain Management) program (also known as MBA Oil Gas / MBA Logistics / MBA SCM) with a 2 Years duration. Sem 1&2: ₹4,24,000 each, Sem 3&4: ₹4,51,000 each.
+
+367. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the MBA (Business Analytics in collaboration with KPMG / Strategy & Consulting with KPMG) program (also known as MBA Analytics KPMG / MBA Strategy KPMG) with a 2 Years duration. Sem 1&2: ₹4,73,000 each, Sem 3&4: ₹5,01,500 each.
+
+368. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the Integrated B.Com (Hons.) + MBA program (also known as Integrated BCom MBA / Dual Degree BCom MBA) with a 5 Years duration. Sem 1-6 (B.Com): ~₹81,000–₹94,000 per sem; Sem 7&8 (MBA): ₹5,34,000 each.
+
+369. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the Integrated BBA + MBA program (also known as Integrated BBA MBA / Dual Degree BBA MBA) with a 5 Years duration. Sem 1-6 (BBA): ~₹1,73,000–₹1,98,000 per sem; Sem 7&8 (MBA): ₹5,26,500 each.
+
+370. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the B.Tech (Applied Petroleum Engineering) program (also known as BTech Petroleum / B.Tech Petroleum Engineering) with a 4 Years duration. Sem 1&2: ₹2,15,000 each, Sem 3&4: ₹2,31,000 each, Sem 5&6: ₹2,49,000 each, Sem 7&8: ₹2,67,000 each.
+
+371. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the B.Tech (Stream 2 – Non CS / Chemical Engineering) program (also known as BTech Non-CS / B.Tech Chemical) with a 4 Years duration. Sem 1&2: ₹1,41,000 each, Sem 3&4: ₹1,51,000 each, Sem 5&6: ₹1,63,000 each, Sem 7&8: ₹1,74,500 each.
+
+372. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the B.Tech (Aerospace Engineering / VLSI Design and Technology) program (also known as BTech Aerospace / B.Tech VLSI) with a 4 Years duration. Sem 1&2: ₹1,85,000 each, Sem 3&4: ₹1,99,000 each, Sem 5&6: ₹2,13,000 each, Sem 7&8: ₹2,28,500 each.
+
+373. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the B.Sc. (Hons.) Physics / Chemistry / Mathematics / Geology program (also known as BSc Science / BSc Geology) with a 3 Years duration. Sem 1&2: ₹65,000 each, Sem 3&4: ₹70,000 each, Sem 5&6: ₹74,000 each.
+
+374. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the M.Sc. (Applied Geology) program (also known as MSc Applied Geology / MSc Geology) with a 2 Years duration. Sem 1&2: ₹52,500 each, Sem 3&4: ₹55,000 each.
+
+375. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the M.Tech (Health, Safety and Environment Engineering) program (also known as MTech HSE / M.Tech Safety Engineering) with a 2 Years duration. Sem 1&2: ₹1,32,000 each, Sem 3&4: ₹1,38,500 each.
+
+376. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the M.Tech Non-CS program (also known as MTech Non-CS / M.Tech General Engineering) with a 2 Years duration. Sem 1&2: ₹79,000 each, Sem 3&4: ₹83,000 each.
+
+377. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the B.Tech (Computer Science and Engineering / Mathematics and Computing) program (also known as BTech CSE / B.Tech CS / B.Tech Math Computing) with a 4 Years duration. Sem 1&2: ₹2,40,000 each, Sem 3&4: ₹2,54,000 each, Sem 5&6: ₹2,69,000 each, Sem 7&8: ₹2,84,500 each.
+
+378. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the BCA (Bachelor of Computer Applications) program (also known as BCA) with a 3 Years duration. Sem 1&2: ₹92,500 each, Sem 3&4: ₹97,500 each, Sem 5&6: ₹1,03,500 each.
+
+379. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the B.Sc. (Computer Science) program (also known as BSc CS / BSc Computer Science) with a 3 Years duration. Sem 1&2: ₹1,06,000 each, Sem 3&4: ₹1,11,000 each, Sem 5&6: ₹1,17,000 each.
+
+380. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the MCA (Master of Computer Applications) program (also known as MCA) with a 2 Years duration. Sem 1&2: ₹1,26,000 each, Sem 3&4: ₹1,33,000 each.
+
+381. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the M.Tech (Computer Science and Engineering) program (also known as MTech CSE / M.Tech Computer Science) with a 2 Years duration. Sem 1&2: ₹1,85,000 each, Sem 3&4: ₹1,97,000 each.
+
+382. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the BA LL.B. (Hons.) – 5 Years program (also known as BA LLB / Integrated Law BA) with a 5 Years duration. Sem 1&2: ₹1,91,000 each, Sem 3&4: ₹2,06,000 each, Sem 5&6: ₹2,21,000 each, Sem 7&8: ₹2,40,000 each, Sem 9&10: ₹2,54,500 each.
+
+383. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the BBA LL.B. (Hons.) – 5 Years program (also known as BBA LLB / Integrated Business Law) with a 5 Years duration. Sem 1&2: ₹1,83,000 each, Sem 3&4: ₹1,96,000 each, Sem 5&6: ₹2,10,000 each, Sem 7&8: ₹2,25,000 each, Sem 9&10: ₹2,43,500 each.
+
+384. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the LLM (Master of Laws) program (also known as LLM / LL.M.) with a 1 Year duration. Sem 1&2: ₹1,46,500 each.
+
+385. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the LLB – 3 Years program (also known as LLB / Bachelor of Laws) with a 3 Years duration. Sem 1&2: ₹2,09,000 each, Sem 3&4: ₹2,24,000 each, Sem 5&6: ₹2,35,000 each.
+
+386. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the B.Des. (Bachelor of Design) program (also known as B.Des / BDes / Bachelor of Design) with a 4 Years duration. Sem 1&2: ₹2,59,000 each, Sem 3&4: ₹2,74,000 each, Sem 5&6: ₹2,91,000 each, Sem 7&8: ₹3,08,500 each.
+
+387. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the M.Des. (Master of Design) program (also known as M.Des / MDes / Master of Design) with a 2 Years duration. Sem 1&2: ₹3,17,000 each, Sem 3&4: ₹3,40,500 each.
+
+388. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) offers the B.Pharmacy program (also known as B.Pharm / BPharm / Bachelor of Pharmacy) with a 4 Years duration. Sem 1&2: ₹1,13,000 each, Sem 3&4: ₹1,20,000 each, Sem 5&6: ₹1,28,000 each, Sem 7&8: ₹1,37,000 each.
+
+389. UPES (University of Petroleum and Energy Studies, also known as UPES Dehradun or University of Petroleum) BBA (Aviation Management) students are required to complete an IATA (International Air Transport Association) certification (approx. ₹50,000) at the time of registration and must hold a valid Passport submitted by October 31, 2025.

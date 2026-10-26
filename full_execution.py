@@ -4,8 +4,7 @@ from ragEngine import pipeline
 import json
 import re
 import os
-from db import history_table,transcription_table
-from db_init_ import db
+from db import get_transcription, save_completed_analysis
 import uuid
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
@@ -224,29 +223,23 @@ Return ONLY valid JSON in the following format:
 
         report_file_path = os.path.join(os.getcwd(), "reports", f"{report_name}.txt")
 
-        transcript = db.session.get(transcription_table, session_id)
-        if  transcript is None:
+        transcript = get_transcription(session_id)
+        if transcript is None:
             return {
                 "success": False,
                 "answer": "transcript not found",
             }
-        
-        transcript.report_path_in_webserver = report_file_path
-        transcript.status = "completed"
 
-        # Get or create history
-        history = db.session.get(history_table, session_id)
-        if history is None:
-            history = history_table()
-            history.session_id = session_id
-            db.session.add(history)
-
-        # Update history
-        history.session_id = session_id
-        history.history = {"history": [{"question": question, "report": response}]}
-        
-        # ✅ OPTIMIZED: Single commit instead of multiple
-        db.session.commit()
+        saved = save_completed_analysis(
+            session_id,
+            report_file_path,
+            {"history": [{"question": question, "report": response}]},
+        )
+        if not saved:
+            return {
+                "success": False,
+                "answer": "transcript not found",
+            }
         print("✅ Report saved successfully")
     
     return {

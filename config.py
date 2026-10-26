@@ -1,9 +1,16 @@
 from dotenv import load_dotenv
 import os
+from pathlib import Path
 
 load_dotenv()
 
 class Config:
-    SQLALCHEMY_DATABASE_URI = os.getenv("SQLALCHEMY_DATABASE_URI")
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    database_path = Path(
+        os.getenv("SQLITE_DATABASE_PATH", "instance/rag_cpu.sqlite3")
+    )
+    SQLITE_DATABASE_PATH = str(
+        database_path
+        if database_path.is_absolute()
+        else Path(__file__).resolve().parent / database_path
+    )
     

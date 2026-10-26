@@ -75,10 +75,10 @@ Everything is designed to run **without a GPU** (Whisper runs in `int8` on CPU),
 ```
 rag_cpu/
 ├── app.py                # Flask app factory — wires up config, DB, blueprints, model loading
-├── config.py              # Loads SQLAlchemy DB URI from .env
+├── config.py              # Loads the SQLite file path from .env
 ├── model_loader.py         # Loads WhisperX + diarization + alignment models, and the LLM client
-├── db_init_.py             # SQLAlchemy() instance
-├── db.py                  # ORM models: transcription_table, history_table
+├── db_init_.py             # SQLite connection and schema initialization
+├── db.py                  # SQLite queries for transcription and history
 ├── transcription.py         # /transcribe, /health, /sessions, /followup routes
 ├── full_execution.py        # Orchestrates claim extraction → batched retrieval → RAG pipeline → persistence
 ├── ragEngine.py            # The LangChain prompt/pipeline that verifies claims + scores the call
@@ -125,7 +125,7 @@ There's also a **`/contributors/avatar_sync`** endpoint (outside the `/transcrib
 ### Prerequisites
 - Python 3.11+
 - `ffmpeg` installed and on your `PATH` (required by WhisperX/audio processing)
-- A SQL database reachable via a SQLAlchemy connection string
+- SQLite (included with Python; the app creates its database file automatically)
 - API keys for the LLM provider(s) you plan to use (see below)
 
 ### 1. Clone & set up a virtual environment
@@ -151,7 +151,10 @@ Create a `.env` file in the project root:
 
 ```env
 # Database
-SQLALCHEMY_DATABASE_URI=mysql+pymysql://user:password@host:port/dbname
+SQLITE_DATABASE_PATH=instance/rag_cpu.sqlite3
+
+# FFmpeg shared build (Windows only; needed by TorchCodec)
+FFMPEG_BIN=C:\ffmpeg\bin
 
 # Whisper / Diarization
 WHISPER_MODEL=small
@@ -178,7 +181,13 @@ The API will be live at `http://localhost:5000`.
 
 ### 4. (Optional) Load your knowledge base
 
-Before fact-checking will produce useful results, populate the Chroma vector store with your university brochure data. See the reference loaders in `vector_storage.py` for JSON/JSONL ingestion patterns — point them at your own data folders and run them once to build `./chroma_db`.
+Before fact-checking will produce useful results, populate the Chroma vector store with your university brochure data. To import the numbered points from `brochure_sentences.txt`, run this from the project directory:
+
+```bash
+python import_brochure_points.py
+```
+
+The script uses the same `universities` collection and CPU embedding model as the app. It writes to the project-local `chroma_db` directory, and rerunning it updates the same point IDs rather than creating duplicates. To use a different file or Chroma directory, pass `--source` or `--db-path`.
 
 ---
 
@@ -195,12 +204,12 @@ The image is based on `python:3.11-slim` with `ffmpeg`, `gcc`, and `g++` preinst
 
 ## 🛠️ Tech Stack
 
-- **API:** Flask, Flask-CORS, Flask-SQLAlchemy
+- **API:** Flask, Flask-CORS
 - **Speech:** WhisperX (CPU, `int8`), pyannote diarization & alignment
 - **RAG / LLM Orchestration:** LangChain (`langchain-core`, `langchain-community`)
 - **Vector Store:** ChromaDB with `sentence-transformers/all-MiniLM-L6-v2` embeddings
 - **LLM Providers:** NVIDIA NIM (Nemotron, via OpenAI-compatible client), Google Gemini
-- **Database:** SQLAlchemy (session/report/transcript tracking)
+- **Database:** SQLite via Python's built-in `sqlite3` module
 - **Deployment:** Docker
 
 ---

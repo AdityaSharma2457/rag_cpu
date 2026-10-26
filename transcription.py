@@ -1,13 +1,17 @@
 import whisperx
-from db import transcription_table,history_table
-from db_init_ import db
+from db import (
+    get_history,
+    get_sessions,
+    get_transcription,
+    save_history,
+    save_transcription,
+)
 import uuid
 import model_loader
 from dotenv import load_dotenv
 import os
 import json
 from flask import Blueprint, request
-from sqlalchemy.orm.attributes import flag_modified
 from full_execution import full_execution
 from further_chat import ask_followup_question
 
@@ -118,16 +122,12 @@ def transcription():
                 f.write(f'  {speaker}: "{text}"\n')
 
         toon_file_path = os.path.join(os.getcwd(), "transcripted", f"{filename}.toon")
-        transcript = db.session.get(transcription_table, session_id)
-        if transcript is None:
-            transcript = transcription_table()
-            transcript.session_id=session_id
-            db.session.add(transcript)
-
-        transcript.path_in_webserver = toon_file_path
-        transcript.report_path_in_webserver="null"
-        transcript.status = "processing"
-        db.session.commit()
+        save_transcription(
+            session_id,
+            toon_file_path,
+            "null",
+            "processing",
+        )
         return full_execution(session_id,toon_file_path, question)
 
 
@@ -142,22 +142,15 @@ def health():
 
 @transcription_bp.route("/sessions", methods=['GET'])
 def sessions():
-    histories = history_table.query.order_by(history_table.updated_at.desc()).all()
-    transcript_rows = {
-        row.session_id: row
-        for row in transcription_table.query.filter(
-            transcription_table.session_id.in_([h.session_id for h in histories])
-        ).all()
-    } if histories else {}
-
+    histories = get_sessions()
     return {
         "success": True,
         "sessions": [
             {
-                "session_id": history.session_id,
-                "title": session_title(history.history),
-                "updated_at": history.updated_at.isoformat() if history.updated_at else None,
-                "status": transcript_rows.get(history.session_id).status if transcript_rows.get(history.session_id) else "completed"
+                "session_id": history["session_id"],
+                "title": session_title(history["history"]),
+                "updated_at": history["updated_at"].isoformat() if history["updated_at"] else None,
+                "status": history["status"] if history["status"] else "completed"
             }
             for history in histories
         ]
@@ -166,20 +159,20 @@ def sessions():
 
 @transcription_bp.route("/sessions/<session_id>", methods=['GET'])
 def session_history(session_id):
-    history = db.session.get(history_table, session_id)
+    history = get_history(session_id)
     if history is None:
         return {
             "success": False,
             "error": "History not found"
         }, 404
 
-    transcript = db.session.get(transcription_table, session_id)
+    transcript = get_transcription(session_id)
     return {
         "success": True,
         "session_id": session_id,
-        "history": normalize_history(history.history),
-        "status": transcript.status if transcript else "completed",
-        "updated_at": history.updated_at.isoformat() if history.updated_at else None
+        "history": normalize_history(history["history"]),
+        "status": transcript["status"] if transcript else "completed",
+        "updated_at": history["updated_at"].isoformat() if history["updated_at"] else None
     }
 
 
@@ -220,7 +213,7 @@ def followup():
         }, 400
 
     try:
-        history = db.session.get(history_table, session_id)
+        history = get_history(session_id)
         if history is None:
             return {
                 "success": False,
@@ -229,16 +222,13 @@ def followup():
 
         answer = ask_followup_question( question,session_id)
         if (answer):
-            data = normalize_history(history.history)
+            data = normalize_history(history["history"])
 
             data["history"].append({
             "question": question,
             "response": answer
             })
-            history.history = data
-            flag_modified(history, "history")
-
-            db.session.commit()
+            save_history(session_id, data)
         return {
             "success": True,
             "answer": answer

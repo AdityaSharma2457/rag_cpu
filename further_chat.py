@@ -7,9 +7,7 @@ uses the LLM to answer questions with the report as context.
 """
 
 from model_loader import generate_response
-from db import transcription_table,history_table
-from db_init_ import db
-import json
+from db import get_history, get_transcription
 
 
 def ask_followup_question( user_question: str, session_id: str) -> str:
@@ -25,21 +23,21 @@ def ask_followup_question( user_question: str, session_id: str) -> str:
         The LLM's response to the follow-up question
     """
     # Format conversation history
-    history= db.session.get(history_table, session_id)
+    history = get_history(session_id)
     if history is None:
         raise ValueError("History not found")
 
-    history_data = history.history
-    if isinstance(history_data, str):
-        history_data = json.loads(history_data)
+    history_data = history["history"]
 
     if not history_data or "history" not in history_data:
         raise ValueError("History is empty")
 
     history_to_be_sent=history_data["history"][-5:]
     if (len(history_data["history"])>5):
-        transcript= db.session.get(transcription_table, session_id)
-        with open(transcript.report_path_in_webserver, "r", encoding="utf-8") as f:
+        transcript = get_transcription(session_id)
+        if transcript is None or not transcript["report_path_in_webserver"]:
+            raise ValueError("Transcript report not found")
+        with open(transcript["report_path_in_webserver"], "r", encoding="utf-8") as f:
             report = f.read()
     else:
         report="report is provided in the history chat"
@@ -73,8 +71,6 @@ INSTRUCTIONS:
 
     response = generate_response(prompt)
     return response
-
-
 
 
 
